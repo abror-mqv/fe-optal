@@ -1,0 +1,123 @@
+.SearchBar {
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 24px;
+
+    .search {
+
+        background: #eeeeee;
+        width: auto;
+        height: 60px;
+        position: relative;
+        overflow: hidden;
+        border-radius: 10px 0px 0px 10px;
+        box-shadow: 0 10px 30px rgba(#414856, 0.05);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        input[type="text"] {
+            position: relative;
+            width: 190px;
+            height: 55px;
+            color: #414856;
+            border: 0;
+            box-sizing: border-box;
+            outline: none;
+            padding: 0 0 0 40px;
+            transition: width 0.6s ease;
+            z-index: 10;
+            opacity: 0;
+            cursor: pointer;
+
+            &:focus {
+                z-index: 0;
+                opacity: 1;
+                width: 400px;
+
+                ~.symbol {
+                    &::before {
+                        width: 0%;
+                    }
+
+                    &:after {
+                        clip-path: inset(0% 0% 0% 100%);
+                        transition: clip-path 0.04s linear 0.105s;
+                    }
+
+                    .cloud {
+                        top: -30px;
+                        left: -30px;
+                        transform: translate(0, 0);
+                        transition: all 0.6s ease;
+                    }
+
+                    .lens {
+                        top: 20px;
+                        left: 15px;
+                        transform: translate(0, 0);
+                        fill: #FF2E63;
+                        transition: top 0.5s ease 0.1s, left 0.5s ease 0.1s, fill 0.3s ease;
+                    }
+                }
+            }
+        }
+
+        .symbol {
+            height: 100%;
+            width: 100%;
+            position: absolute;
+            top: 0;
+            z-index: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            &:before {
+                content: "";
+                position: absolute;
+                right: 0;
+                width: 100%;
+                height: 100%;
+                background: #FF2E63;
+                z-index: -1;
+                transition: width 0.6s ease;
+            }
+
+            .cloud,
+            .lens {
+                position: absolute;
+                fill: #fff;
+                stroke: none;
+                top: 55%;
+                left: 50%;
+            }
+
+            .cloud {
+                width: 35px;
+                height: 32px;
+                transform: translate(-50%, -60%);
+                transition: all 0.6s ease;
+            }
+
+            .lens {
+                fill: #fff;
+                width: 16px;
+                height: 16px;
+                z-index: 2;
+                top: 24px;
+                left: 24px;
+                transition: top 0.3s ease, left 0.3s ease, fill 0.2s ease 0.2s;
+            }
+        }
+    }
+
+ 
+
+    
+
+
+}
