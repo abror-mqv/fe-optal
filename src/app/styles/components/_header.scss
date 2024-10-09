@@ -1,27 +1,36 @@
-header{
+header {
     height: 60px;
     display: flex;
     justify-content: flex-start;
     align-items: center;
     gap: 50px;
-    .LeftSection{
+    position: fixed;
+    z-index: 99999;
+    backdrop-filter: blur(8px);
+    background-color: #EAEAEA;
+    width: 100%;
+    .LeftSection {
         display: flex;
         gap: 50px;
     }
-    .RightSection{
+
+    .RightSection {
         display: flex;
         gap: 50px;
     }
-    button{
+
+    button {
         cursor: pointer;
     }
-    .Catalog{
+
+    .Catalog {
         display: flex;
         justify-content: center;
         border: 3px solid #FF2E63;
         height: 60px;
         border-radius: 10px;
-        .Catalog_char{
+
+        .Catalog_char {
             background-color: #FF2E63;
             height: 100%;
             color: #fff;
@@ -31,11 +40,13 @@ header{
             padding: 17px 15px 13px 13px;
             font-size: 20px;
         }
-        .Catalog_img{
+
+        .Catalog_img {
             padding: 8px;
         }
     }
-    .Logo{
+
+    .Logo {
         height: 60px;
         padding: 13px;
         font-size: 30px;
@@ -44,9 +55,11 @@ header{
         font-weight: bold;
         color: #FF2E63;
     }
-    .SearchContainer{
+
+    .SearchContainer {
         display: flex;
-        button{
+
+        button {
             color: white;
             background-color: #FF2E63;
             border-radius: 0 10px 10px 0;
@@ -56,7 +69,8 @@ header{
             z-index: 999999;
         }
     }
-    .Cart{
+
+    .Cart {
         height: 60px;
         border: 3px #FF2E63 solid;
         border-radius: 10px;

@@ -1,0 +1,65 @@
+.ProductCard {
+    width: 260px;
+
+    .img_block {
+        width: 100%;
+        width: 260px;
+        height: 260px;
+        overflow: hidden;
+        border-radius: 22px;
+        box-shadow: 5px 5px 4px #b7b7b7,
+            -5px -5px 4px #ffffff;
+
+        img {
+            width: 260px;
+            display: block;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+        img:hover{
+            transition: 0.2s;
+            
+            transform: scale(125%);
+        }
+    }
+
+    .info_block {
+        margin-top: 22px;
+
+        .price {
+            font-size: 2.25rem;
+            font-weight: 900;
+        }
+
+        h3 {
+            font-size: 1.375rem;
+            font-weight: 300;
+            margin-top: 12px;
+            height: 50px;
+        }
+        .rate{
+            margin-top: 12px;
+            display: flex;
+            justify-content: flex-start;
+            align-items: flex-end;
+            gap: 12px;
+        }
+
+        button {
+            cursor: pointer;
+            margin-top: 12px;
+            padding: 6px;
+            color: white;
+            font-size: 1.5rem;
+            font-weight: 900;
+            background-color: #FF2E63;
+            border-radius: 6px;
+            width: 100%;
+            border: none;
+            display: flex;
+            gap: 18px;
+            align-items: center;
+            justify-content: flex-start;
+        }
+    }
+}

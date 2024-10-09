@@ -1,0 +1,9 @@
+.Feed{
+    margin-top: 5rem;
+    .list{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: flex-start;
+        gap: 50px;
+    }
+}

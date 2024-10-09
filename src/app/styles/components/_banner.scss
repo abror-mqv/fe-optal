@@ -1,0 +1,81 @@
+.Banner {
+    // background-color: green;
+    display: flex;
+    gap: 50px;
+    justify-content: space-between;
+    margin-top: 30px;
+    
+    .red_block {
+        background-color: #FF2E63;
+
+        .mid_slice {
+            color: #FF275B;
+        }
+    }
+
+    .blue_block {
+        background-color: #08D9D6;
+
+        .mid_slice {
+            color: #08D9D6;
+        }
+    }
+
+    .AdBlock {
+        transition: 0.2s;
+        width: calc(100% - 25px);
+        border-radius: 22px;
+        color: white;
+        display: flex;
+        overflow: hidden;
+        justify-content: space-between;
+        font-size: 2.25rem;
+        box-shadow:  5px 5px 4px #b7b7b7,
+             -5px -5px 4px #ffffff;
+        height: 10.8rem;
+        cursor:pointer;
+        .bottom_slice{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 1.625rem 1.625rem 1.625rem 1.625rem;
+            .bigger_one{
+                font-size: 4rem;
+            }
+        }
+        .slices {
+            display: flex;
+
+            .mid_slice {
+                background-color: #EAEAEA;
+                border-radius: 22px 0px 0px 22px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                font-weight: bold;
+
+                p {
+                    transform: rotate(-90deg);
+                }
+            }
+            .top_slice {
+                height: 100%;
+                justify-self: flex-end;
+                position: absolute;
+                position: relative;
+                background-color: #EAEAEA;
+
+                img {
+                    height: 100%;
+                    border-radius: 22px 0px 0px 22px;
+
+                }
+            }
+        }
+
+    }
+    .AdBlock:hover{
+        transition: 0.2s;
+    }
+
+}
