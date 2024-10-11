@@ -5,10 +5,11 @@ header {
     align-items: center;
     gap: 50px;
     position: fixed;
-    z-index: 99999;
+    z-index: 10;
     backdrop-filter: blur(8px);
     background-color: #EAEAEA;
     width: 100%;
+
     .LeftSection {
         display: flex;
         gap: 50px;
@@ -29,6 +30,7 @@ header {
         border: 3px solid #FF2E63;
         height: 60px;
         border-radius: 10px;
+        padding: 0;
 
         .Catalog_char {
             background-color: #FF2E63;
