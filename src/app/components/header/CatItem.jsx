@@ -14,32 +14,14 @@ import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
 
 function CatItem(props) {
-    console.log(props)
-
     const [anchorEl, setAnchorEl] = React.useState(null);
     const open = Boolean(anchorEl);
-    function handleClick(event) {
-        if (anchorEl !== event.currentTarget) {
-            setAnchorEl(event.currentTarget);
-        }
-    }
-
-    function handleHover() {
-        currentlyHovering = true;
-    }
-
-    function handleClose() {
-        setAnchorEl(null);
-    }
-
-    function handleCloseHover() {
-        currentlyHovering = false;
-        setTimeout(() => {
-            if (!currentlyHovering) {
-                handleClose();
-            }
-        }, 50);
-    }
+    const handleClick = (event) => {
+      setAnchorEl(event.currentTarget);
+    };
+    const handleClose = () => {
+      setAnchorEl(null);
+    };
 
 
     return (
@@ -48,14 +30,13 @@ function CatItem(props) {
                 aria-controls={open ? 'demo-positioned-menu' : undefined}
                 aria-haspopup="true"
                 // aria-expanded={open ? 'true' : undefined}
-                onClick={handleClick}
-                onMouseOver={handleClick}
-                onMouseLeave={handleCloseHover}
+                onMouseDown={handleClick}
+            
             >
                 <ListItemIcon>
                     <InboxIcon />
                 </ListItemIcon>
-                <ListItemText primary={props.data.name} />
+                <ListItemText primary={props.data.cat_name} />
             </ListItemButton>
 
 
@@ -66,19 +47,19 @@ function CatItem(props) {
                 open={open}
                 onClose={handleClose}
                 anchorOrigin={{
-                    vertical: 'top',
-                    horizontal: 'right',
+                  vertical: 'top',
+                  horizontal: 'right',
                 }}
                 transformOrigin={{
-                    vertical: 'top',
-                    horizontal: 'left',
+                  vertical: 'top',
+                  horizontal: 'right',
                 }}
             >
                 {
-                    props.data.subcats.map(el => {
-
+                    props.data.subcategories.map(el => {
+                        
                         return (
-                            <MenuItem onClick={handleClose}>{el}</MenuItem>
+                            <MenuItem   onClick={handleClose}>{el.subcat_name}</MenuItem>
                         )
                     })
                 }

@@ -1,9 +1,10 @@
 "use client"
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import '../../styles/components/_header.scss';
 import Image from 'next/image';
 import SearchBar from './SearchBar';
 
+import axios from 'axios';
 
 import Box from '@mui/material/Box';
 import Drawer from '@mui/material/Drawer';
@@ -18,89 +19,51 @@ import InboxIcon from '@mui/icons-material/MoveToInbox';
 
 import CatItem from './CatItem';
 
-const data = [
-  {
-    "name": "Все категории",
 
-    "subcats": []
-  },
-  {
-    "name": "Женщинам",
-    "subcats": [
-      "Лонгсливы",
-      "Платья",
-      "Сарафаны",
-      "Лонгсливы",
-      "Платья",
-      "Сарафаны",
-    ]
-  }, {
-    "name": "Детям",
-    "subcats": [
-      "Шорты",
-      "Платья",
-      "Сараукпфаны",
-      "Аавпвк",
-      "Платья",
-      "Саракупукфаны",
-    ]
-  }, {
-    "name": "Мужчинам",
-    "subcats": [
-      "укпукп",
-      "12421421",
-      "укпкуп",
-      "Лонгсливы",
-      "укп",
-      "Сарафаны",
-    ]
-  }, {
-    "name": "Обувь",
-    "subcats": [
-      "укпукп",
-      "12421421",
-      "укпкуп",
-      "Лонгсливы",
-      "укп",
-      "Сарафаны",
-    ]
-  }, {
-    "name": "Акции",
-    "subcats": []
-  }, {
-    "name": "Распродажа",
-    "subcats": []
-  },
-]
+
+
+
 
 function Header() {
   const [open, setOpen] = React.useState(false);
-
+  const [categories, setCategories] = useState([]);
+  const [loading, setLoading] = useState(true); // Индикатор загрузки
+  const [error, setError] = useState(null); // Для обработки ошибок
 
   const toggleDrawer = (newOpen) => () => {
     setOpen(newOpen);
   };
 
-  const DrawerList = (
-    <Box sx={{ width: 350 }} role="presentation" onClick={toggleDrawer(false)}>
-      <List>
-        {data.map(el => {
-          return (
-            <CatItem
-              data={el}
-            />
-          )
-        })}
-      </List>
-      <Divider />
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await axios.get('http://127.0.0.1:8000/api/cats');
+        setCategories(response.data);
+        setLoading(false);
+      } catch (err) {
+        setError(err.message);
+        setLoading(false);
+      }
+    };
 
-    </Box>
-  );
+    fetchData();
+  }, []); // Пустой массив зависимостей, чтобы запрос выполнялся один раз при монтировании
+
 
   return (
     <header>
       <Drawer open={open} onClose={toggleDrawer(false)}>
-        {DrawerList}
+        <Box sx={{ width: 350 }} role="presentation" onClick={toggleDrawer(false)}>
+          <List>
+            {categories.map(el => {
+              return (
+                <CatItem data={el} />
+              )
+            })}
+          </List>
+          <Divider />
+
+        </Box>
       </Drawer>
       <div className='LeftSection'>
         <div className='Logo'>
