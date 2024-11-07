@@ -47,56 +47,62 @@ function Header() {
     };
 
     fetchData();
-  }, []); // Пустой массив зависимостей, чтобы запрос выполнялся один раз при монтировании
+  }, []);
 
 
   return (
-    <header>
-      <Drawer open={open} onClose={toggleDrawer(false)}>
-        <Box sx={{ width: 350 }} role="presentation" onClick={toggleDrawer(false)}>
-          <List>
-            {categories.map(el => {
-              return (
-                <CatItem data={el} />
-              )
-            })}
-          </List>
-          <Divider />
+    <>
 
-        </Box>
-      </Drawer>
-      <div className='LeftSection'>
-        <div className='Logo'>
-          OPTAL
+      <header>
+        <Drawer open={open} onClose={toggleDrawer(false)}>
+          <Box sx={{ width: 350 }} role="presentation" onClick={toggleDrawer(false)}>
+            <List>
+              {categories.map(el => {
+                return (
+                  <CatItem data={el} />
+                )
+              })}
+            </List>
+            <Divider />
+
+          </Box>
+        </Drawer>
+        <div className='LeftSection'>
+          <div className='Logo'>
+            OPTAL
+          </div>
+
+          <Button className='Catalog' onClick={toggleDrawer(true)}>
+            <div className='Catalog_img'>
+              <Image src="/catalog.svg" width={40} height={40} />
+            </div>
+            <div className='Catalog_char'>
+              КАТАЛОГ
+            </div>
+          </Button>
+          <div className='SearchContainer'>
+            <SearchBar />
+            <button>
+              НАЙТИ
+            </button>
+          </div>
         </div>
 
-        <Button className='Catalog' onClick={toggleDrawer(true)}>
-          <div className='Catalog_img'>
-            <Image src="catalog.svg" width={40} height={40} />
-          </div>
-          <div className='Catalog_char'>
-            КАТАЛОГ
-          </div>
-        </Button>
-        <div className='SearchContainer'>
-          <SearchBar />
-          <button>
-            НАЙТИ
+
+        <div className='RightSection'>
+          <button className='Cart'>
+            <Image src='/cart.svg' width={40} height={40} />
+          </button>
+          <button className='Cart'>
+            <Image src='/profile.svg' width={40} height={40} />
           </button>
         </div>
+
+      </header>
+      <div className='header_block'>
+
       </div>
-
-
-      <div className='RightSection'>
-        <button className='Cart'>
-          <Image src='cart.svg' width={40} height={40} />
-        </button>
-        <button className='Cart'>
-          <Image src='profile.svg' width={40} height={40} />
-        </button>
-      </div>
-
-    </header>
+    </>
   )
 }
 

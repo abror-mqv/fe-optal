@@ -1,0 +1,160 @@
+.CartItem {
+    margin-top: 24px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 12px;
+    margin-bottom: 48px;
+
+    .image {
+        width: 126px;
+        border-radius: 8px;
+        overflow: hidden;
+
+        img {
+            object-fit: cover;
+            width: 100%;
+        }
+    }
+
+    .colors {
+        .product_name {
+            p {
+                font-weight: 600;
+                font-size: 20px;
+            }
+        }
+
+        .colors_list {
+            margin-top: 6px;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            justify-content: flex-start;
+            gap: 6px;
+
+            .one_color {
+
+                display: flex;
+                justify-content: flex-start;
+                font-size: 10px;
+                color: rgba(0, 0, 0, 0.642);
+                align-items: center;
+                gap: 6px;
+
+                .color_circle {
+                    width: 20px;
+                    height: 20px;
+                    border-radius: 22px;
+
+                }
+
+                .color_name {
+                    width: 120px;
+                    // background-color: red;
+                }
+
+                .quantity {
+                    display: flex;
+                    justify-content: space-between;
+                    gap: 12px;
+                    align-items: center;
+
+                    .quantity_text {
+                        font-size: larger;
+                        // font-family: "Rubik Gemstones", system-ui;
+
+                    }
+                }
+            }
+        }
+    }
+
+    .sizes {
+
+        .sizes_info {
+            font-size: small;
+            color: rgba(0, 0, 0, 0.64);
+        }
+
+        .sizes_list {
+            margin-top: 4px;
+            max-width: 160px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            background-color: #eaeaea4c;
+            padding: 4px;
+            border-radius: 8px;
+
+            // border: 1px solid rgba(0, 0, 0, 0.299);
+            .size_bullet {
+                font-size: small;
+                cursor: pointer;
+                transition: 0.2s;
+                padding: 2px 4px;
+                background-color: rgba(255, 255, 255, 0.727);
+                color: rgba(0, 0, 0, 0.492);
+                border-radius: 6px;
+                box-shadow: 2px 2px 2px #e6295814,
+                    -2px -2px 2px #ff336d00;
+
+                // font-family: "Rubik Gemstones", system-ui;
+
+            }
+
+            .size_bullet:hover {
+                transition: 0.2s;
+                box-shadow: 2px 2px 2px #e6295879,
+                    -2px -2px 2px #ff336d00;
+            }
+        }
+
+        .multiplier {
+            color: rgba(0, 0, 0, 0.64);
+            font-size: small;
+            color: rgba(0, 0, 0, 0.64);
+            display: flex;
+            justify-content: flex-end;
+            font-size: smaller;
+        }
+
+        .lines {
+            font-size: small;
+            color: rgba(0, 0, 0, 0.64);
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .one_clothe_price {
+            font-size: small;
+            color: rgba(0, 0, 0, 0.64);
+
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .total_cost {
+            margin-top: 12px;
+        }
+
+    }
+
+    @media screen and (max-width: 920px) {
+        width: 90vw;
+        display: flex;
+        flex-direction: column;
+
+        .image {
+            width: 40%;
+        }
+
+        .colors {
+            width: 100%;
+        }
+
+        .sizes {
+            width: 100%;
+        }
+    }
+}

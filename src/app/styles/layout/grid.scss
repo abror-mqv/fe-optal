@@ -1,6 +1,15 @@
-body{
+body {
     width: calc(100% - 100px);
     margin-left: 50px;
     margin-top: 16px;
     background-color: #EAEAEA;
+}
+
+@media screen and (max-width: 920px) {
+    body {
+        width: calc(100% - 40px);
+        margin-left: 20px;
+        margin-top: 16px;
+        background-color: #EAEAEA;
+    }
 }

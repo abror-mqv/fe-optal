@@ -1,0 +1,201 @@
+header {
+    display: flex;
+    // background-color: white;
+    justify-content: space-between;
+    align-items: center;
+
+    .close {
+        background-color: white;
+        height: 40px;
+        width: 40px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 30px;
+
+    }
+
+    .submit {
+        button {
+            display: flex;
+            gap: 12px;
+            background-color: #FF2E63 !important;
+        }
+    }
+
+}
+
+
+.form {
+    margin-top: 32px;
+
+    .forma {
+        margin-top: 24px;
+
+        .input {
+            max-width: 400px;
+        }
+
+        p {
+            margin-bottom: 12px;
+            font-size: 12px;
+            font-weight: 700;
+        }
+    }
+
+    .ready {
+        button {
+
+            display: flex;
+            gap: 24px;
+            background-color: #FF2E63 !important;
+        }
+    }
+
+    .variants {
+        margin-top: 24px;
+
+        .title {
+            font-weight: 700;
+            margin-bottom: 12px;
+        }
+
+        .variants_row {
+            padding: 12px;
+            background-color: white;
+            border-radius: 8px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+
+            .AddNewColor {
+                transition: 0.2s;
+                width: 140px;
+                height: 140px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                background-color: #ff2e6231;
+
+                svg {
+                    color: #ff2e62;
+                    font-size: 48px;
+                }
+            }
+
+            .color_new {
+
+
+                transition: 0.2s;
+                width: 140px;
+                height: 180px;
+                background-color: rgba(0, 0, 0, 0.059);
+                padding: 4px;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: flex-start;
+                gap: 4px;
+
+                .color_image {
+                    width: 120px;
+                    height: 120px;
+                    border-radius: 6px;
+                    display: flex;
+                    cursor: pointer;
+                    margin-bottom: 8px;
+                    top: 0 !important;
+                    overflow: hidden;
+
+                    .color_delete {
+                        position: absolute;
+                        padding: 14px !important;
+                        width: 20px;
+                        height: 20px;
+                        border-radius: 6px;
+                        min-width: auto !important;
+                        align-self: flex-end;
+                        top: 2px;
+                        right: 2px;
+                    }
+
+                    img {
+                        height: 120px;
+                        border-radius: 6px;
+
+                    }
+                }
+
+                input,
+                .color_name {
+
+                    padding: 4px 6px !important;
+                    width: 120px !important;
+                    box-sizing: border-box;
+                }
+
+                label {
+                    top: -14px !important;
+                    font-size: 0.8rem;
+                }
+
+                .MuiFormControl-root {
+                    width: auto !important;
+                }
+            }
+        }
+
+    }
+
+
+}
+
+footer {
+    height: 600px;
+
+}
+
+.container_color {
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    width: 150px;
+    max-width: 150px;
+    padding: 4px 12px;
+    border: 1px solid #bfc9d9;
+    border-radius: 4px;
+
+    .color_code_input {
+        border-radius: 4px;
+        border: 1px #a1a9a1 solid !important;
+    }
+
+    input[type="color"] {
+        margin-right: 8px;
+        // -webkit-appearance: none;
+        border: none;
+        width: auto;
+        height: auto;
+        cursor: pointer;
+        background: none;
+
+
+        &::-webkit-color-swatch-wrapper {
+            padding: 0;
+            width: 14px;
+            height: 14px;
+        }
+
+        &::-webkit-color-swatch {
+            border: 1px solid #bfc9d9;
+            border-radius: 4px;
+            padding: 0;
+        }
+    }
+
+    input[type="text"] {
+        border: none;
+        width: 100%;
+        font-size: 14px;
+    }
+}

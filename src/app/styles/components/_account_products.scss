@@ -1,0 +1,30 @@
+.empty {
+    margin-top: 24px;
+    border-radius: 12px;
+    padding: 18px;
+    background-color: white;
+    height: 320px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    p {
+        color: rgb(0, 0, 0);
+        font-size: 12px;
+    }
+
+    div {
+        display: flex;
+        justify-content: center;
+    }
+
+    button {
+        gap: 12px;
+        background-color: #FF2E63;
+    }
+}
+
+.products {
+    margin-top: 24px;
+    margin-bottom: 48px;
+}

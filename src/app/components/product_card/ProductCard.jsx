@@ -1,7 +1,7 @@
 // "use client";
 
 import React from 'react'
-import '../../styles/components/_product_card.scss';
+import '../../styles/components/_button.scss';
 import Image from 'next/image';
 
 function ProductCard(props) {
@@ -20,13 +20,10 @@ function ProductCard(props) {
           <Image src='star.svg' width={22} height={22} />  {props.rate} • 12 оценок
         </p>
         <button>
-          <Image src="logistics.svg" alt="" width={36} height={36}/>
+          <Image src="logistics.svg" alt="" width={36} height={36} />
           ДОБАВИТЬ
         </button>
       </div>
-
-
-
     </div>
   )
 }
