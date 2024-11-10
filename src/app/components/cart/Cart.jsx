@@ -5,7 +5,7 @@ import '../../styles/components/_cart.scss';
 import { useDispatch, useSelector } from 'react-redux';
 import CartItem from './CartItem';
 
-import { incrementLineQuantity, decrementLineQuantity, testQuantity, setCart } from '@/redux/slices/CartSlice';
+import { incrementLineQuantity, decrementLineQuantity, testQuantity, setCart } from '../../redux/slices/CartSlice';
 import { Button } from '@mui/material';
 import ActionButton from '../buttons/ActionButton';
 

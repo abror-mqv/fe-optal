@@ -11,7 +11,7 @@ import { Button, Divider, Input } from '@mui/material';
 import { useDispatch } from 'react-redux';
 import { useSelector } from 'react-redux';
 
-import { updateItemQuantity, incrementLineQuantity, decrementLineQuantity } from '@/redux/slices/CartSlice';
+import { updateItemQuantity, incrementLineQuantity, decrementLineQuantity } from '../../redux/slices/CartSlice';
 
 
 function CartItem(props) {

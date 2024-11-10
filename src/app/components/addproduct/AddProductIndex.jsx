@@ -2,7 +2,7 @@
 
 import React, { useRef } from 'react'
 import { Provider } from 'react-redux';
-import { store } from '../../../redux/store';
+import { store } from '../../redux/store';
 
 import AddproductHeader from '../../components/addproduct/AddproductHeader'
 import AddProductForm from '../../components/addproduct/AddProductForm'
