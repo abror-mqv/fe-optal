@@ -15,7 +15,7 @@ function ProductCard(props) {
   const ImageHolder = () => {
     if (props.image) {
       return (
-        <img src={`${BACK_URL}/${props.image}`} alt="" />
+        <img src={`${BACK_URL}${props.image}`} alt="" />
       )
     } else {
       return (

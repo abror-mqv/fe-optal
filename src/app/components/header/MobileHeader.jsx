@@ -20,6 +20,7 @@ import zIndex from '@mui/material/styles/zIndex';
 
 import MenuIcon from '@mui/icons-material/Menu';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
+import { BACK_URL } from '@/app/VAR';
 
 function MobileHeader() {
     const [open, setOpen] = useState(false);
@@ -36,7 +37,7 @@ function MobileHeader() {
 
         const fetchData = async () => {
             try {
-                const response = await axios.get('http://127.0.0.1:8000/api/cats');
+                const response = await axios.get(`${BACK_URL}/api/cats`);
                 setCategories(response.data);
                 setLoading(false);
             } catch (err) {
