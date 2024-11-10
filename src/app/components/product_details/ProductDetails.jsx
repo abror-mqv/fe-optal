@@ -117,7 +117,7 @@ function ProductDetails(props) {
                             4.7
                         </div>
                         <div className='price'>
-                            <p>{props.product.price} руб<span className='price_explaination'>/шт</span></p>
+                            <p>{product?.price} руб<span className='price_explaination'>/шт</span></p>
                         </div>
                     </div>
 
@@ -144,7 +144,7 @@ function ProductDetails(props) {
                         </p>
                         <div className='sizes_box'>
                             {
-                                props.product.line_sizes.map(
+                                product?.sizes?.split(",").map(
                                     el => {
                                         return (
                                             <span className='size_bullet' key={el}>

@@ -15,8 +15,11 @@ import VisibilityIcon from '@mui/icons-material/Visibility';
 import EditIcon from '@mui/icons-material/Edit';
 import DeleteForeverIcon from '@mui/icons-material/DeleteForever';
 
+
+import axios from 'axios';
 const products = false
-function AccountProducts({ products }) {
+function AccountProducts({ products, handleDelete }) {
+
     if (
         products == false
     ) {
@@ -48,7 +51,7 @@ function AccountProducts({ products }) {
                         products.map(product => {
                             console.log(product)
                             return (
-                                <Card sx={{ maxWidth: 420 }}>
+                                <Card sx={{ maxWidth: 420 }} key={product.id}>
                                     <CardMedia
                                         component="img"
                                         alt="green iguana"
@@ -69,14 +72,20 @@ function AccountProducts({ products }) {
                                             <Button variant='contained' size="small"><VisibilityIcon /></Button>
                                         </Link>
                                         <Button color='success' variant='contained' size="small"><EditIcon /></Button>
-                                        <Button color="error" variant='contained' size="small"><DeleteForeverIcon /></Button>
+                                        <Button color="error" variant='contained' size="small" onClick={() => handleDelete(product.id)}><DeleteForeverIcon /></Button>
                                     </CardActions>
                                 </Card>
                             )
                         })
                     }
+                    <Link href="/addproduct">
+
+                        <Button variant='contained'>
+                            Добавить товар <AddCircleIcon />
+                        </Button>
+                    </Link>
                 </div>
-            </div>
+            </div >
         )
     }
 

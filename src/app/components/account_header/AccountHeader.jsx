@@ -10,6 +10,7 @@ import SupportAgentIcon from '@mui/icons-material/SupportAgent';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
+import { useRouter } from 'next/navigation';
 import Modal from '@mui/material/Modal';
 import axios from 'axios';
 
@@ -29,17 +30,35 @@ const style = {
 
 
 function AccountHeader({ name, description, image }) {
+  const router = useRouter();
+
   const [openName, setOpenName] = React.useState(false);
-  const [openDesc, setOpenDesc] = React.useState(false);
 
   const [newName, setNewName] = React.useState("")
   const [newDesc, setNewDesc] = React.useState("")
 
+  // const [factoryData, setFactoryData] = useState(null);
+
   const handleOpenName = () => setOpenName(true);
   const handleCloseName = () => setOpenName(false);
 
-  const handleOpenDesc = () => setOpenDesc(true);
-  const handleCloseDesc = () => setOpenDesc(false);
+  const handleUpdateSubmit = async (updatedData) => {
+    try {
+      const token = localStorage.getItem("TOKEN"); // Получаем токен из localStorage
+      const response = await axios.put("http://127.0.0.1:8000/api/factory/update/", updatedData, {
+        headers: {
+          "Authorization": `Token ${token}`,
+          "Content-Type": "application/json"
+        }
+      });
+      // router.refresh();
+      alert("Данные успешно обновлены!")
+
+      console.log("Цех обновлен:", response.data);
+    } catch (error) {
+      console.error("Ошибка при обновлении цеха:", error);
+    }
+  };
 
   return (
     <header>
@@ -54,7 +73,7 @@ function AccountHeader({ name, description, image }) {
             <h2>
               {name}
               <EditIcon sx={{ fontSize: 18, cursor: "pointer" }} onClick={() => {
-                handleOpenDesc()
+                handleOpenName()
               }} />
             </h2>
           </div>
@@ -64,7 +83,7 @@ function AccountHeader({ name, description, image }) {
         <div className='description'>
 
           <p className='title'>Описание вашего профиля <EditIcon sx={{ fontSize: 18, cursor: "pointer" }} onClick={() => {
-            handleOpenDesc()
+            handleOpenName()
           }} /></p>
           <p className='description_text'>
             {description}
@@ -96,54 +115,40 @@ function AccountHeader({ name, description, image }) {
         onClose={handleCloseName}
         aria-labelledby="modal-modal-title"
         aria-describedby="modal-modal-description"
+        isOpen={openName} onRequestClose={handleCloseName}
       >
-        <Box sx={style} className="Dialogue">
-          <p>
-            Введите новое название вашего производства:
-          </p>
-          <TextField fullWidth inputProps={{ maxLength: 44 }} id="outlined-basic" label={name} variant="outlined" value={newName} className='input' onChange={e => {
-            setNewName(e.target.value)
-          }}>
-
-          </TextField>
-          <Button variant='contained' onClick={() => {
-            handleCloseName();
-          }}>
-            ПОДТВЕРДИТЬ
-          </Button>
-        </Box>
+        <form onSubmit={(e) => {
+          e.preventDefault();
+          handleUpdateSubmit({ factory_name: newName, factory_description: newDesc });
+        }}>
+          <Box sx={style} className="Dialogue">
+            <p>Введите новое название вашего производства:</p>
+            <TextField
+              fullWidth
+              inputProps={{ maxLength: 44 }}
+              id="outlined-basic"
+              label={name}
+              variant="outlined"
+              value={newName}
+              className='input'
+              onChange={e => setNewName(e.target.value)}
+            />
+            <TextField
+              id="outlined-multiline-static"
+              label="Опишите свой товар, чтобы он лучше продавался"
+              multiline
+              rows={4}
+              fullWidth
+              className='input'
+              value={newDesc}
+              onChange={(e) => setNewDesc(e.target.value)}
+            />
+            <Button variant='contained' color='success' type='submit'>
+              ПОДТВЕРДИТЬ
+            </Button>
+          </Box>
+        </form>
       </Modal>
-      <Modal
-        open={openDesc}
-        onClose={handleCloseDesc}
-        aria-labelledby="modal-modal-title"
-        aria-describedby="modal-modal-description"
-      >
-        <Box sx={style} className="Dialogue">
-          <p>
-            Введите новое описание вашего производства:
-          </p>
-          <TextField
-            id="outlined-multiline-static"
-            label="Опишите свой товар, чтобы он лучше продавался"
-            multiline
-            rows={4}
-            defaultValue=""
-            fullWidth
-            className='input'
-            value={newDesc}
-            onChange={(e) => {
-              setNewDesc(e.target.value)
-            }}
-          />
-          <Button variant='contained' onClick={() => {
-            handleCloseDesc();
-          }}>
-            ПОДТВЕРДИТЬ
-          </Button>
-        </Box>
-      </Modal>
-
     </header>
   )
 }

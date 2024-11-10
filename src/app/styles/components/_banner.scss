@@ -4,7 +4,7 @@
     gap: 50px;
     justify-content: space-between;
     margin-top: 30px;
-    
+
     .red_block {
         background-color: #FF2E63;
 
@@ -30,19 +30,22 @@
         overflow: hidden;
         justify-content: space-between;
         font-size: 2.25rem;
-        box-shadow:  5px 5px 4px #b7b7b7,
-             -5px -5px 4px #ffffff;
+        box-shadow: 5px 5px 4px #b7b7b7,
+            -5px -5px 4px #ffffff;
         height: 10.8rem;
-        cursor:pointer;
-        .bottom_slice{
+        cursor: pointer;
+
+        .bottom_slice {
             display: flex;
             justify-content: center;
             align-items: center;
             padding: 1.625rem 1.625rem 1.625rem 1.625rem;
-            .bigger_one{
+
+            .bigger_one {
                 font-size: 4rem;
             }
         }
+
         .slices {
             display: flex;
 
@@ -58,6 +61,7 @@
                     transform: rotate(-90deg);
                 }
             }
+
             .top_slice {
                 height: 100%;
                 justify-self: flex-end;
@@ -74,8 +78,54 @@
         }
 
     }
-    .AdBlock:hover{
+
+    .AdBlock:hover {
         transition: 0.2s;
     }
+}
 
+@media screen and (max-width: 920px) {
+    .Banner {
+        margin-top: 90px;
+        flex-direction: column;
+        gap: 20px !important;
+        // padding: 8px !important;
+    }
+
+    .AdBlock {
+        height: 6rem !important;
+        border-radius: 6px !important;
+        width: unset !important;
+
+        // padding: 8px !important;
+        .bottom_slice {
+            padding: 18px !important;
+        }
+
+        .slices {
+            .mid_slice {
+                border-radius: 12px 0 0 12px !important;
+
+                p {
+                    font-size: 18px;
+                }
+            }
+
+            .top_slice {
+                img {
+                    border-radius: 12px 0 0 12px !important;
+                }
+
+            }
+        }
+
+        h3 {
+            font-size: 18px !important;
+
+            .bigger_one {
+                font-size: 32px !important;
+            }
+        }
+
+    }
 }

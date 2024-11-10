@@ -17,10 +17,10 @@ function CatItem(props) {
     const [anchorEl, setAnchorEl] = React.useState(null);
     const open = Boolean(anchorEl);
     const handleClick = (event) => {
-      setAnchorEl(event.currentTarget);
+        setAnchorEl(event.currentTarget);
     };
     const handleClose = () => {
-      setAnchorEl(null);
+        setAnchorEl(null);
     };
 
 
@@ -31,7 +31,7 @@ function CatItem(props) {
                 aria-haspopup="true"
                 // aria-expanded={open ? 'true' : undefined}
                 onMouseDown={handleClick}
-            
+
             >
                 <ListItemIcon>
                     <InboxIcon />
@@ -47,19 +47,19 @@ function CatItem(props) {
                 open={open}
                 onClose={handleClose}
                 anchorOrigin={{
-                  vertical: 'top',
-                  horizontal: 'right',
+                    vertical: 'top',
+                    horizontal: 'right',
                 }}
                 transformOrigin={{
-                  vertical: 'top',
-                  horizontal: 'right',
+                    vertical: 'top',
+                    horizontal: 'right',
                 }}
             >
                 {
                     props.data.subcategories.map(el => {
-                        
+
                         return (
-                            <MenuItem   onClick={handleClose}>{el.subcat_name}</MenuItem>
+                            <MenuItem onClick={handleClose} key={el.id}>{el.subcat_name}</MenuItem>
                         )
                     })
                 }

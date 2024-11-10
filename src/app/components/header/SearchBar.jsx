@@ -44,7 +44,7 @@ function SearchBar() {
                     />
                 </symbol>
             </svg>
-            
+
         </div>
     )
 }

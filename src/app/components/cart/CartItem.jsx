@@ -38,7 +38,7 @@ function CartItem(props) {
                     {
                         props.data.colors.map(el => {
                             return (
-                                <div className='one_color'>
+                                <div className='one_color' key={el.id}>
                                     <div className='color_circle' style={{ backgroundColor: `#${el.color_hex}` }}>
 
                                     </div>
@@ -71,7 +71,7 @@ function CartItem(props) {
 
                     {
                         props.data.line_sizes.map(el => {
-                            return (<span className='size_bullet'>
+                            return (<span className='size_bullet' key={el.id}>
                                 {el}
                             </span>)
                         })
@@ -100,7 +100,7 @@ function CartItem(props) {
                     {
                         total_cost
                     } руб
-                    
+
                 </div>
             </div>
         </div>

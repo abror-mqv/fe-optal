@@ -1,6 +1,6 @@
-.Feed{
-    margin-top: 5rem;
-    .list{
+.SubCategory {
+    margin-top: 90px;
+    .feed {
         display: flex;
         flex-wrap: wrap;
         justify-content: flex-start;
@@ -8,10 +8,11 @@
     }
 }
 
+
 @media screen and (max-width: 920px) {
-    .Feed{
-        margin-top: 0px;
-        .list{
+    .SubCategory {
+        .feed {
+            margin-top: 0px;
             justify-content: space-between;
             gap: 20px;
         }

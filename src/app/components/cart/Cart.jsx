@@ -120,7 +120,7 @@ const products = [
     ]
   },
 ]
-  
+
 
 function Cart(props) {
   const dispatch = useDispatch();
@@ -177,8 +177,10 @@ function Cart(props) {
         <div className='cart_items_list'>
           {
             cart.map(el => {
+
               return (
                 <CartItem data={el}
+                  key={el.id}
                   onIncrement={handleIncrement}
                   onDecrement={handleDecrement}
                 />

@@ -304,7 +304,7 @@ function AddProductForm({ setSubmitFunction }) {
                     {
                         cats.map(cat => {
                             return (
-                                <Accordion>
+                                <Accordion key={cat.id}>
                                     <AccordionSummary
                                         expandIcon={<ExpandMoreIcon />}
                                         aria-controls="panel1a-content"
@@ -316,7 +316,7 @@ function AddProductForm({ setSubmitFunction }) {
                                         {
                                             cat.subcategories.map(subcat => {
                                                 return (
-                                                    <ListItem>
+                                                    <ListItem key={subcat.id}>
                                                         <Button variant='outlined' onClick={() => {
                                                             setCategory(subcat.id);
                                                             handleListItemClick()
