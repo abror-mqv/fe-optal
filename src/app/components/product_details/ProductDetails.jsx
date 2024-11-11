@@ -21,6 +21,7 @@ import ActionButton from '../buttons/ActionButton';
 import { useParams } from 'next/navigation';
 
 import axios from 'axios';
+import { BACK_URL } from '@/app/VAR';
 SwiperCore.use([Navigation, Pagination, Thumbs, Controller, EffectCube]);
 
 
@@ -54,7 +55,7 @@ function ProductDetails(props) {
     useEffect(() => {
         const fetchProduct = async () => {
             try {
-                const response = await axios.get(`http://127.0.0.1:8000/api/products/${productId}/`);
+                const response = await axios.get(`${BACK_URL}/api/products/${productId}/`);
                 console.log(response)
                 setProduct(response.data);
                 setColor_variants(response.data.color_variations)

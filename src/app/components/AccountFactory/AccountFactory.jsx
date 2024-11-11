@@ -60,7 +60,7 @@ function AccountFactory() {
     const handleDelete = async (productId) => {
         try {
             const token = localStorage.getItem("TOKEN");
-            await axios.delete(`http://127.0.0.1:8000/api/factory/products/${productId}/`, {
+            await axios.delete(`${BACK_URL}/api/factory/products/${productId}/`, {
                 headers: {
                     Authorization: `Token ${token}`
                 }

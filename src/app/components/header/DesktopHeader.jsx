@@ -10,6 +10,7 @@ import Button from '@mui/material/Button';
 import List from '@mui/material/List';
 import Divider from '@mui/material/Divider';
 import CatItem from './CatItem';
+import { BACK_URL } from '@/app/VAR';
 
 function DesktopHeader() {
     const [open, setOpen] = React.useState(false);
@@ -24,7 +25,7 @@ function DesktopHeader() {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const response = await axios.get('http://127.0.0.1:8000/api/cats');
+                const response = await axios.get(`${BACK_URL}/api/cats`);
                 setCategories(response.data);
                 setLoading(false);
             } catch (err) {

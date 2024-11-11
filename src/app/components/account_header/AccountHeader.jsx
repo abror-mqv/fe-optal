@@ -13,6 +13,7 @@ import Typography from '@mui/material/Typography';
 import { useRouter } from 'next/navigation';
 import Modal from '@mui/material/Modal';
 import axios from 'axios';
+import { BACK_URL } from '@/app/VAR';
 
 
 const style = {
@@ -45,7 +46,7 @@ function AccountHeader({ name, description, image }) {
   const handleUpdateSubmit = async (updatedData) => {
     try {
       const token = localStorage.getItem("TOKEN"); // Получаем токен из localStorage
-      const response = await axios.put("http://127.0.0.1:8000/api/factory/update/", updatedData, {
+      const response = await axios.put(`${BACK_URL}/api/factory/update/`, updatedData, {
         headers: {
           "Authorization": `Token ${token}`,
           "Content-Type": "application/json"

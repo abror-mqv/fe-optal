@@ -135,7 +135,7 @@ function AddProductForm({ setSubmitFunction }) {
 
         try {
             // Шаг 1: Создаём продукт
-            const productResponse = await axios.post("http://127.0.0.1:8000/api/products/", productData, {
+            const productResponse = await axios.post(`${BACK_URL}/api/products/`, productData, {
                 headers: {
                     "Authorization": `Token ${token}`,
                     "Content-Type": "application/json"
@@ -155,7 +155,7 @@ function AddProductForm({ setSubmitFunction }) {
                     formData.append("image", variant.image); // Файл изображения
                 }
 
-                const variantResponse = await axios.post("http://127.0.0.1:8000/api/products/color-variation/", formData, {
+                const variantResponse = await axios.post(`${BACK_URL}/api/products/color-variation/`, formData, {
                     headers: {
                         "Authorization": `Token ${token}`,
                         "Content-Type": "multipart/form-data"
