@@ -12,6 +12,11 @@ import AccordionSummary from '@mui/material/AccordionSummary';
 import AccordionDetails from '@mui/material/AccordionDetails';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import ClearIcon from '@mui/icons-material/Clear';
+import Modal from '@mui/material/Modal';
+import Box from '@mui/material/Box';
+
+import { useRouter } from 'next/router';
+
 
 const ColorPicker = props => {
     return (
@@ -21,8 +26,28 @@ const ColorPicker = props => {
     );
 };
 
+const style = {
+    position: 'absolute',
+    top: '50%',
+    left: '50%',
+    transform: 'translate(-50%, -50%)',
+    width: 400,
+    bgcolor: 'background.paper',
+    border: '0px solid #000',
+    boxShadow: 24,
+    p: 4,
+    display: "flex",
+    flexDirection: "column",
+    gap: "24px",
+    alignItems: "flex-start",
+    fontSize: "18px"
+};
 
 function AddProductForm({ setSubmitFunction }) {
+
+    const router = useRouter();
+
+    
 
     const [state, updateState] = useState("#FFFFFF");
     const ButtonVariant = ({ variant, index }) => {
@@ -88,6 +113,13 @@ function AddProductForm({ setSubmitFunction }) {
     const [isOpen, setIsOpen] = useState(false)
     const [category, setCategory] = useState(0)
 
+    const [open, setOpen] = React.useState(false);
+    const handleOpen = () => setOpen(true);
+    const handleClose = () => {
+        setOpen(false);
+        router.push('/account-facory');
+    };
+
     React.useEffect(() => {
         axios.get(`${BACK_URL}/api/cats`).then(res => {
             setCats(res.data)
@@ -130,7 +162,7 @@ function AddProductForm({ setSubmitFunction }) {
             price: price,
             description: description,
             sizes: sizesline,
-            father: 2 // ID родительской категории
+            father: category
         };
 
         try {
@@ -174,6 +206,8 @@ function AddProductForm({ setSubmitFunction }) {
         }
     };
 
+    setSubmitFunction.current = handleSubmit;
+
     const handleImageChange = (index, file) => {
         const imageUrl = URL.createObjectURL(file);
 
@@ -200,7 +234,7 @@ function AddProductForm({ setSubmitFunction }) {
 
                         </TextField>
                     </div>
-                    <div className='forma category'>
+                    <div className='forma category' onClick={handleOpen}>
                         <p>
                             Категория
                         </p>
@@ -336,6 +370,24 @@ function AddProductForm({ setSubmitFunction }) {
 
                 </div>
             </SwipeableDrawer>
+            <Modal
+                open={open}
+                onClose={handleClose}
+                aria-labelledby="modal-modal-title"
+                aria-describedby="modal-modal-description"
+                className='ModalSuccess'
+            >
+                <Box sx={style}>
+                    <p className='congrats'>
+                        Поздравляем! <br />Вы успешно добавили свой товар!
+                    </p>
+                    <Button variant='contained' color='success' fullWidth onClick={() => {
+                        handleClose()
+                    }}>
+                        ОК
+                    </Button>
+                </Box>
+            </Modal>
         </form>
     )
 }

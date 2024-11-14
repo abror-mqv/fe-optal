@@ -1,1 +1,1 @@
-export const BACK_URL = "http://5.59.233.26:8000"
+export const BACK_URL = "https://optal.ru"
