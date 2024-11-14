@@ -45,7 +45,7 @@ const style = {
 
 function AddProductForm({ setSubmitFunction }) {
 
-    const router = useRouter();
+    // const router = useRouter();
 
     
 
@@ -117,7 +117,7 @@ function AddProductForm({ setSubmitFunction }) {
     const handleOpen = () => setOpen(true);
     const handleClose = () => {
         setOpen(false);
-        router.push('/account-facory');
+        // router.push('/account-facory');
     };
 
     React.useEffect(() => {
