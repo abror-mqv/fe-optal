@@ -4,7 +4,6 @@ import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder'; // Пуст
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import AirportShuttleIcon from '@mui/icons-material/AirportShuttle';
 import '../../styles/components/_button.scss';
-import { color } from 'framer-motion';
 
 function ActionButton(props) {
     const [isFavorite, setIsFavorite] = useState(false);
