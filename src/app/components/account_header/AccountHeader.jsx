@@ -14,6 +14,8 @@ import { useRouter } from 'next/navigation';
 import Modal from '@mui/material/Modal';
 import axios from 'axios';
 import { BACK_URL } from '@/app/VAR';
+import UploadAvatarModal from './UploadAvatarModal';
+import Link from 'next/link';
 
 
 const style = {
@@ -38,6 +40,14 @@ function AccountHeader({ name, description, image }) {
   const [newName, setNewName] = React.useState("")
   const [newDesc, setNewDesc] = React.useState("")
 
+  const [isModalOpen, setModalOpen] = React.useState(false);
+
+  const handleOpenModal = () => setModalOpen(true);
+  const handleCloseModal = () => setModalOpen(false);
+
+  const handleAvatarUpload = () => {
+    console.log("Аватарка успешно обновлена!");
+  };
   // const [factoryData, setFactoryData] = useState(null);
 
   const handleOpenName = () => setOpenName(true);
@@ -67,7 +77,7 @@ function AccountHeader({ name, description, image }) {
         <div className='profile_div'>
           <div className='profile_picture'>
             <img src="https://assets.turbologo.ru/blog/ru/2019/03/18165914/%D0%91%D0%B5%D0%B7-%D0%B8%D0%BC%D0%B5%D0%BD%D0%B8-3-98.png" alt="" />
-            <EditIcon sx={{ fontSize: 18, cursor: "pointer" }} />
+            <EditIcon sx={{ fontSize: 18, cursor: "pointer" }} onClick={handleOpenModal} />
 
           </div>
           <div className='profile_name'>
@@ -98,12 +108,14 @@ function AccountHeader({ name, description, image }) {
             Настройки
           </p>
         </div>
-        <div className='support'>
-          <SupportAgentIcon />
-          <p>
-            Поддержка
-          </p>
-        </div>
+        <Link href="/support" >
+          <div className='support'>
+            <SupportAgentIcon />
+            <p>
+              Поддержка
+            </p>
+          </div>
+        </Link>
         <div className='docs'>
           <HelpCenterIcon />
           <p>
@@ -150,6 +162,11 @@ function AccountHeader({ name, description, image }) {
           </Box>
         </form>
       </Modal>
+      <UploadAvatarModal
+        isOpen={isModalOpen}
+        onClose={handleCloseModal}
+        onUpload={handleAvatarUpload}
+      />
     </header>
   )
 }

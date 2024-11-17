@@ -18,7 +18,15 @@ header {
             display: flex;
             flex-direction: column;
             text-align: center;
-            color: #FF2E63;
+            color: #CD0000;
+
+            div {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                gap: 8px;
+                font-size: 27px;
+            }
 
             span {
                 font-size: 11px;
@@ -27,7 +35,7 @@ header {
 
         .burger {
             button {
-                background-color: #FF2E63 !important;
+                background-color: #CD0000 !important;
                 border-radius: 12px;
                 padding: 16px !important;
 
@@ -39,7 +47,7 @@ header {
 
         .additional {
             button {
-                background-color: #FF2E63 !important;
+                background-color: #CD0000 !important;
                 border-radius: 12px;
                 padding: 16px !important;
 

@@ -83,88 +83,99 @@ function NewFactory() {
         <>
             <Header />
 
-            <div className='newfactory'><Container>
+            <div className='newfactory'>
                 <div className="boxer">
 
-                    <div className='forms'>
+                    <div className='CardLogin'>
 
-                        <p className='header'>
-                            <span>
-                                Зарегистрируйте своё производство
-                            </span>
-                        </p>
-                        <div className='form name'>
+                        <div className='header'>
+                            <h4>
+                                Начните
+                            </h4>
                             <p>
-                                Как вас зовут?
+                                продавать как производитель
                             </p>
-
-                            <TextField inputProps={{ maxLength: 24 }} id="outlined-basic" label="Ваше имя" variant="outlined" value={firstName} className='input' onChange={e => {
-                                setFirstName(e.target.value)
-                            }}>
-
-                            </TextField>
                         </div>
-                        <div className='form number'>
-                            <p>
-                                Ваш номер
-                            </p>
-                            <TextField type="number" inputProps={{ maxLength: 24 }} id="outlined-basic" label="Номер" variant="outlined" value={factoryNumber} className='input' onChange={e => {
-                                setFactoryNumber(e.target.value)
-                            }}>
+                        <div className='CardLoginForm'>
+                            <div className='form name'>
+                                <p>
+                                    Как вас зовут?
+                                </p>
 
-                            </TextField>
+                                <TextField fullWidth id="outlined-basic" label="Ваше имя" variant="outlined" value={firstName} className='input' onChange={e => {
+                                    setFirstName(e.target.value)
+                                }}>
+
+                                </TextField>
+                            </div>
+                            <div className='form number'>
+                                <p>
+                                    Ваш номер
+                                </p>
+                                <TextField type="number" fullWidth id="outlined-basic" label="Номер" variant="outlined" value={factoryNumber} className='input' onChange={e => {
+                                    setFactoryNumber(e.target.value)
+                                }}>
+
+                                </TextField>
+                            </div>
+                            <div className='form factoryname'>
+                                <p>
+                                    Название вашего цеха
+                                </p>
+                                <TextField fullWidth id="outlined-basic" label="Название" variant="outlined" value={factoryName} className='input' onChange={e => {
+                                    setFactoryName(e.target.value)
+                                }}>
+
+                                </TextField>
+                            </div>
+                            <div className='form clubname'>
+                                <p>
+                                    Придумайте пароль
+                                </p>
+                                <FormControl fullWidth variant="outlined">
+                                    <InputLabel htmlFor="outlined-adornment-password">Пароль</InputLabel>
+                                    <OutlinedInput
+                                        id="outlined-adornment-password"
+                                        type={showPassword ? 'text' : 'password'}
+                                        value={password} // Привязываем состояние пароля
+                                        onChange={(e) => {
+                                            setPassword(e.target.value)
+                                        }}
+                                        endAdornment={
+                                            <InputAdornment position="end">
+                                                <IconButton
+                                                    aria-label={
+                                                        showPassword ? 'hide the password' : 'display the password'
+                                                    }
+                                                    onClick={handleClickShowPassword}
+                                                    onMouseDown={handleMouseDownPassword}
+                                                    onMouseUp={handleMouseUpPassword}
+                                                    edge="end"
+
+                                                >
+                                                    {showPassword ? <VisibilityOff /> : <Visibility />}
+                                                </IconButton>
+                                            </InputAdornment>
+                                        }
+                                        label="Password"
+                                    />
+                                </FormControl>
+                            </div>
                         </div>
-                        <div className='form factoryname'>
-                            <p>
-                                Название вашего цеха (магазина)
-                            </p>
-                            <TextField inputProps={{ maxLength: 24 }} id="outlined-basic" label="Название" variant="outlined" value={factoryName} className='input' onChange={e => {
-                                setFactoryName(e.target.value)
-                            }}>
 
-                            </TextField>
-                        </div>
-                        <div className='form clubname'>
-                            <p>
-                                Придумайте пароль
-                            </p>
-                            <FormControl sx={{ m: 1, width: '25ch' }} variant="outlined">
-                                <InputLabel htmlFor="outlined-adornment-password">Пароль</InputLabel>
-                                <OutlinedInput
-                                    id="outlined-adornment-password"
-                                    type={showPassword ? 'text' : 'password'}
-                                    value={password} // Привязываем состояние пароля
-                                    onChange={(e) => {
-                                        setPassword(e.target.value)
-                                    }}
-                                    endAdornment={
-                                        <InputAdornment position="end">
-                                            <IconButton
-                                                aria-label={
-                                                    showPassword ? 'hide the password' : 'display the password'
-                                                }
-                                                onClick={handleClickShowPassword}
-                                                onMouseDown={handleMouseDownPassword}
-                                                onMouseUp={handleMouseUpPassword}
-                                                edge="end"
-
-                                            >
-                                                {showPassword ? <VisibilityOff /> : <Visibility />}
-                                            </IconButton>
-                                        </InputAdornment>
-                                    }
-                                    label="Password"
-                                />
-                            </FormControl>
-                        </div>
-                        <div className='form clubcreate'>
-
+                        <div className='RegisterSubmit'>
                             <Button mode="create" disabled={!ablebutton} onClick={() => {
                                 sendData()
-                            }} sx={{ backgroundColor: "#FF2E63", color: '#ffffff', width: "360px", marginTop: "48px" }}>
+                            }} fullWidth variant='contained'>
                                 Зарегистрировать
                             </Button>
                         </div>
+                    </div>
+                    <div className='RegisterFirst'>
+                        <p>
+                            Уже есть аккаунт? <Link href='/login-factory' className='Link'>Войти</Link>
+                        </p>
+
                     </div>
                 </div>
                 <Modal
@@ -189,7 +200,7 @@ function NewFactory() {
 
                     </Box>
                 </Modal>
-            </Container></div>
+            </div>
         </>
     )
 }

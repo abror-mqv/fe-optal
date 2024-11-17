@@ -21,6 +21,8 @@ import zIndex from '@mui/material/styles/zIndex';
 import MenuIcon from '@mui/icons-material/Menu';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import { BACK_URL } from '@/app/VAR';
+import CallMissedOutgoingIcon from '@mui/icons-material/CallMissedOutgoing';
+
 
 function MobileHeader() {
     const [open, setOpen] = useState(false);
@@ -136,14 +138,14 @@ function MobileHeader() {
                                 <Accordion sx={{ boxShadow: "none" }} key={cat.id}>
 
                                     <AccordionSummary
-                                        expandIcon={<Button variant='contained' sx={{ backgroundColor: "#08D9D6" }}>
+                                        expandIcon={<Button variant='contained' sx={{ backgroundColor: "#252421" }}>
                                             <ExpandMoreIcon />
                                         </Button>}
                                         aria-controls="panel1a-content"
                                         id="panel1a-header"
                                     >
                                         <Link href={`/category/${cat.id}`} sx={{ zIndex: "99999999" }}>
-                                            <Button variant='contained' sx={{ backgroundColor: "#FF2E63" }}>
+                                            <Button variant='contained' sx={{ backgroundColor: "#CD0000" }}>
                                                 {cat.cat_name}
                                             </Button>
                                         </Link>
@@ -160,7 +162,7 @@ function MobileHeader() {
 
                                                         >
                                                             <ListItemIcon>
-                                                                <AccountTreeIcon />
+                                                                <CallMissedOutgoingIcon />
                                                             </ListItemIcon>
                                                             <ListItemText primary={subcat.subcat_name} />
                                                         </ListItemButton>
@@ -185,12 +187,17 @@ function MobileHeader() {
                         <MenuIcon />
                     </Button>
                 </div>
-                <h1>
-                    OPTAL.RU
-                    <span>
-                        ОПТОМ ИЗ КЫРГЫЗСТАНА
-                    </span>
-                </h1>
+                <Link href="/">
+                    <h1>
+                        <div>
+                            <Image width={42} height={42} src="/optal_logo.svg" />Optal.ru
+                        </div>
+                        <span>
+                            ОПТОМ ИЗ КЫРГЫЗСТАНА
+                        </span>
+                    </h1>
+                </Link>
+
                 <Link href="/cart" className='additional' >
 
                     <Button variant='contained'>

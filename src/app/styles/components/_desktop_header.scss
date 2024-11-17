@@ -31,13 +31,13 @@ header {
     .Catalog {
         display: flex;
         justify-content: center;
-        border: 3px solid #FF2E63;
+        border: 3px solid #CD0000;
         height: 60px;
         border-radius: 10px;
         padding: 0;
 
         .Catalog_char {
-            background-color: #FF2E63;
+            background-color: #CD0000;
             height: 100%;
             color: #fff;
             display: flex;
@@ -56,10 +56,10 @@ header {
         height: 60px;
         padding: 13px;
         font-size: 30px;
-        border: 3px solid #FF2E63;
+        border: 3px solid #CD0000;
         border-radius: 10px;
         font-weight: bold;
-        color: #FF2E63;
+        color: #CD0000;
     }
 
     .SearchContainer {
@@ -67,7 +67,7 @@ header {
 
         button {
             color: white;
-            background-color: #FF2E63;
+            background-color: #CD0000;
             border-radius: 0 10px 10px 0;
             border: 0;
             font-size: 20px;
@@ -78,9 +78,9 @@ header {
 
     .Cart {
         height: 60px;
-        border: 3px #FF2E63 solid;
+        border: 3px #CD0000 solid;
         border-radius: 10px;
         width: 60px;
-        background-color: #FF2E63;
+        background-color: #CD0000;
     }
 }

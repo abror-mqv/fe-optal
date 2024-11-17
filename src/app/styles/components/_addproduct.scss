@@ -20,10 +20,17 @@ header {
         button {
             display: flex;
             gap: 12px;
-            background-color: #FF2E63 !important;
+            background-color: #CD0000 !important;
         }
     }
 
+}
+
+.PriceForm {
+    display: flex;
+    gap: 24px;
+    align-items: center;
+    font-size: 24px;
 }
 
 
@@ -49,7 +56,7 @@ header {
 
             display: flex;
             gap: 24px;
-            background-color: #FF2E63 !important;
+            background-color: #CD0000 !important;
         }
     }
 
@@ -76,10 +83,10 @@ header {
                 display: flex;
                 align-items: center;
                 justify-content: center;
-                background-color: #ff2e6231;
+                background-color: #CD000031;
 
                 svg {
-                    color: #ff2e62;
+                    color: #CD0000;
                     font-size: 48px;
                 }
             }
@@ -201,6 +208,4 @@ footer {
     }
 }
 
-.ModalSuccess{
-    
-}
+.ModalSuccess {}

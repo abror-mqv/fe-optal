@@ -10,7 +10,7 @@ import Link from 'next/link';
 import { BACK_URL } from '@/app/VAR';
 
 import DoNotDisturbAltIcon from '@mui/icons-material/DoNotDisturbAlt';
-
+import DownloadIcon from '@mui/icons-material/Download';
 function ProductCard(props) {
   const ImageHolder = () => {
     if (props.image) {
@@ -48,7 +48,8 @@ function ProductCard(props) {
           <Image src='/star.svg' width={22} height={22} />  {(Math.floor(Math.random() * 15) / 10) + 3.5} • {Math.floor(Math.random() * 20) + 3} оценок
         </p>
         <Button >
-          <Image src="/logistics.svg" alt="" width={36} height={36} />
+          {/* <Image src="/logistics.svg" alt="" width={36} height={36} /> */}
+          <DownloadIcon />
           В корзину
         </Button>
       </div>

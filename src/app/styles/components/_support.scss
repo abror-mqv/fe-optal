@@ -1,0 +1,50 @@
+.Support {
+    margin-top: 90px;
+    height: calc(90vh - 90px);
+
+    h1 {
+        font-size: 24px;
+        text-align: center;
+
+    }
+
+    .FAQ {
+        margin-top: 24px;
+
+        h4 {
+            font-weight: 400;
+        }
+
+        p {
+            font-weight: 200;
+        }
+    }
+
+    .TechSupport {
+        margin-top: 68px;
+
+        .GoSupport {
+            text-align: center;
+            font-size: 24px;
+            text-align: center;
+        }
+
+        .contactList {
+            .listitem {
+                background-color: rgba(0, 0, 0, 0.017);
+                border-radius: 12px;
+                padding: 8px 16px;
+                margin-top: 24px;
+                box-shadow:  5px 5px 10px #d5d5d5,
+             -5px -5px 10px #ebebeb;
+                // color: ;
+                .contact-link {
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    gap: 24px;
+                }
+            }
+        }
+    }
+}

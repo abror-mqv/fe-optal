@@ -47,7 +47,7 @@ function AddProductForm({ setSubmitFunction }) {
 
     // const router = useRouter();
 
-    
+
 
     const [state, updateState] = useState("#FFFFFF");
     const ButtonVariant = ({ variant, index }) => {
@@ -112,7 +112,7 @@ function AddProductForm({ setSubmitFunction }) {
     const [cats, setCats] = useState([])
     const [isOpen, setIsOpen] = useState(false)
     const [category, setCategory] = useState(0)
-
+    const [categoryName, setCategoryName] = useState("")
     const [open, setOpen] = React.useState(false);
     const handleOpen = () => setOpen(true);
     const handleClose = () => {
@@ -176,7 +176,7 @@ function AddProductForm({ setSubmitFunction }) {
 
             const productId = productResponse.data.id; // Получаем ID созданного продукта
             console.log("Продукт успешно создан:", productResponse.data);
-
+            setOpen(true)
             // Шаг 2: Отправляем цветовые вариации для созданного продукта
             for (const variant of colorVariants) {
                 const formData = new FormData();
@@ -222,9 +222,7 @@ function AddProductForm({ setSubmitFunction }) {
             <div className='main_data'>
                 <div>
                     <div className='forma name'>
-                        <p onClick={() => {
-                            handleVariantName()
-                        }}>
+                        <p>
                             Название товара
                         </p>
 
@@ -234,14 +232,17 @@ function AddProductForm({ setSubmitFunction }) {
 
                         </TextField>
                     </div>
-                    <div className='forma category' onClick={handleOpen}>
+                    <div className='forma category'>
                         <p>
                             Категория
                         </p>
-                        <Button variant='cointained' onClick={() => {
+                        <Button variant='outlined' sx={{ borderColor: "#CD0000", color: "#CD0000" }} onClick={() => {
                             setIsOpen(true)
                         }}>
-                            Выбрать {category}
+                            {
+                                categoryName == "" ? "Выбрать" : categoryName
+                            }
+
                         </Button>
 
                     </div>
@@ -309,7 +310,7 @@ function AddProductForm({ setSubmitFunction }) {
 
                 <div className='forma price'>
                     <p>Цена за 1 единицу товара</p>
-                    <div>
+                    <div className='PriceForm'>
                         <TextField fullWidth inputProps={{ maxLength: 44 }} id="outlined-basic" label="0" variant="outlined" value={price} className='input' onChange={e => {
                             setPrice(e.target.value)
                         }}>
@@ -346,13 +347,14 @@ function AddProductForm({ setSubmitFunction }) {
                                     >
                                         {cat.cat_name}
                                     </AccordionSummary>
-                                    <AccordionDetails>
+                                    <AccordionDetails sx={{ display: 'flex', flexWrap: "wrap", justifyContent: "start" }}>
                                         {
                                             cat.subcategories.map(subcat => {
                                                 return (
-                                                    <ListItem key={subcat.id}>
+                                                    <ListItem key={subcat.id} sx={{ width: "auto" }}>
                                                         <Button variant='outlined' onClick={() => {
                                                             setCategory(subcat.id);
+                                                            setCategoryName(`${cat.cat_name} > ${subcat.subcat_name}`)
                                                             handleListItemClick()
 
                                                         }}>

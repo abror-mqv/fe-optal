@@ -1,0 +1,22 @@
+.Tutorial {
+    margin-top: 90px;
+    .Desc{
+        min-height: 30vh;
+        p{
+            margin-top: 24px;
+            font-size: 18px;
+        }
+        ul{
+            margin-left: 24px;
+            li{
+                margin-top: 8px;
+            }
+        }
+    }
+}
+.Mui-active{
+    color: #CD0000 !important;
+}
+.Mui-completed{
+    color: #252421 !important;
+}

@@ -1,85 +1,103 @@
 .newfactory {
-    .header {
-        font-size: 16px;
-        text-align: center;
-
-        span {
-            background-color: #00000011;
-            color: rgb(0, 0, 0);
-            padding: 8px 20px;
-            margin-right: -3px;
-            border-radius: 4px;
-            width: 360px;
-        }
-    }
-
-    .forms {
-        margin-top: 48px;
-        height: calc(100vh - 140px);
-        // background-color: red;
+    .boxer {
         display: flex;
-        flex-direction: column;
+        justify-content: center;
         align-items: center;
-        justify-content: flex-end;
+        width: 100%;
+        height: 90vh;
 
-        .form {
-            margin-top: 20px;
-            width: 100%;
-            max-width: 300px;
+        .CardLogin {
+            margin-top: 88px;
+            width: 360px;
+            // background-color: rgba(255, 0, 0, 0.359);
+            // background-color: ;
+            border-radius: 32px;
+            box-shadow: 11px 11px 22px #969696,
+                -11px -11px 22px #ffffff;
+            padding: 24px;
+            display: flex;
+            flex-direction: column;
+            gap: 48px;
 
-            input {
-                width: 100%;
+            .header {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                gap: 12px;
+
+                h4 {
+                    font-size: 32px;
+                }
             }
 
-            .input {
-                width: 360px;
+            .CardLoginForm {
+                display: flex;
+                flex-direction: column;
+                gap: 24px;
+
+                p {
+                    margin-bottom: 8px;
+                    text-align: start;
+                    color: #000000b7;
+                }
+
             }
+
+            .RegisterSubmit {
+                button {
+                    background-color: #CD0000;
+                }
+            }
+
+        }
+
+        .RegisterFirst {
+            position: absolute;
+            // margin-top: 44px;
+            bottom: 24px;
+            display: flex;
+            align-items: flex-end;
+            justify-content: center;
+            // width: 360px;
 
             p {
-                margin-bottom: 8px;
+                font-size: 14px;
+                color: #000000a8;
+                text-align: end;
 
-            }
-
-            .MuiFormControl-root {
-                width: 360px;
-                margin: 0;
-            }
-
-            .clubcreate {
-                button {
-                    width: 360px;
+                .Link {
+                    text-decoration: underline;
+                    color: #CD0000;
                 }
-            }
 
-            .SubmitButton {
-                width: 360px;
             }
         }
     }
 }
 
 
-@media screen and (max-width: 920px) {
-    .newfactory {
-        margin-top: 200px;
+// @media screen and (max-width: 920px) {
+//     .newfactory {
+//         margin-top: 200px;
 
-        .header {
-            margin-bottom: 24px;
-        }
+//         .header {
+//             margin-bottom: 24px;
+//         }
 
-        .forms {
+//         .forms {
 
-            height: unset !important;
-            // max-width: 240px;
-            align-items: flex-start !important;
+//             height: unset !important;
+//             // max-width: 240px;
+//             align-items: flex-start !important;
 
-            .form {
-                max-width: 100%;
+//             .form {
+//                 max-width: 100%;
 
-                .input {
-                    width: 100%;
-                }
-            }
-        }
-    }
-}
+//                 .input {
+//                     width: 100%;
+//                 }
+//             }
+//         }
+//     }
+// }
