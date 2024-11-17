@@ -43,13 +43,13 @@ const steps = [
         description:
             <div className='Desc'>
                 <p>
-                    Перейдите в раздел "Мои товары"
+                    Перейдите в раздел Мои товары
                 </p>
                 <p>
                     <TransitEnterexitIcon />
                 </p>
                 <p>
-                    Нажмите кнопку "Добавить товар"
+                    Нажмите кнопку Добавить товар 
                 </p>
                 <p>
                     <AddCircleIcon />
