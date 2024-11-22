@@ -1,9 +1,12 @@
 import React from 'react'
 import '../../styles/components/_banner.scss';
 import Link from 'next/link';
+import DesktopCats from '../DesktopCats/DesktopCats';
 
 function Banner() {
     return (
+
+
         <div className='Banner'>
 
 
@@ -44,6 +47,8 @@ function Banner() {
             </Link>
 
         </div>
+
+
     )
 }
 

@@ -11,12 +11,9 @@ import List from '@mui/material/List';
 import { Accordion, AccordionDetails, AccordionSummary, ListItem, ListItemButton, ListItemIcon, ListItemText } from '@mui/material';
 
 import AccountBoxIcon from '@mui/icons-material/AccountBox';
-import CategoryIcon from '@mui/icons-material/Category';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import HomeIcon from '@mui/icons-material/Home';
-import AccountTreeIcon from '@mui/icons-material/AccountTree';
 import Link from 'next/link';
-import zIndex from '@mui/material/styles/zIndex';
 
 import MenuIcon from '@mui/icons-material/Menu';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
@@ -39,7 +36,7 @@ function MobileHeader() {
 
         const fetchData = async () => {
             try {
-                const response = await axios.get(`${BACK_URL}/api/cats`);
+                const response = await axios.get(`${BACK_URL}/api/factories/cats`);
                 setCategories(response.data);
                 setLoading(false);
             } catch (err) {

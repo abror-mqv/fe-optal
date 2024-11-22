@@ -55,7 +55,7 @@ function ProductDetails(props) {
     useEffect(() => {
         const fetchProduct = async () => {
             try {
-                const response = await axios.get(`${BACK_URL}/api/products/${productId}/`);
+                const response = await axios.get(`${BACK_URL}/api/factories/products/${productId}/`);
                 console.log(response)
                 setProduct(response.data);
                 setColor_variants(response.data.color_variations)

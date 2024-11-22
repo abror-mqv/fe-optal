@@ -20,7 +20,7 @@ function AccountFactory() {
             console.error("Token not found");
             return;
         }
-        axios.get(`${BACK_URL}/api/get-factory/`, {
+        axios.get(`${BACK_URL}/api/factories/get-factory/`, {
             headers: {
                 'Authorization': `Token ${token}`, // Add the token to headers
             },
@@ -45,7 +45,7 @@ function AccountFactory() {
             console.error("Token not found");
             return;
         }
-        axios.get(`${BACK_URL}/api/factory/products/`, {
+        axios.get(`${BACK_URL}/api/factories/factory/products/`, {
             headers: {
                 'Authorization': `Token ${token}`, // Add the token to headers
             },
@@ -60,7 +60,7 @@ function AccountFactory() {
     const handleDelete = async (productId) => {
         try {
             const token = localStorage.getItem("TOKEN");
-            await axios.delete(`${BACK_URL}/api/factory/products/${productId}/`, {
+            await axios.delete(`${BACK_URL}/api/factories/factory/products/${productId}/`, {
                 headers: {
                     Authorization: `Token ${token}`
                 }

@@ -63,7 +63,7 @@ function NewFactory() {
 
     const sendData = () => {
         alert("DATA SENT")
-        axios.post(`${BACK_URL}/api/register/`,
+        axios.post(`${BACK_URL}/api/factories/register/`,
             {
                 "username": factoryNumber,
                 "first_name": firstName,

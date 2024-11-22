@@ -12,7 +12,7 @@ function SubCategoryContent() {
     const [products, setProducts] = useState([])
     const [subCategory, setSubCategory] = useState("")
     useEffect(() => {
-        axios.get(`${BACK_URL}/api/subcategory/${subcatId}`).then(res => { setProducts(res.data.products); setSubCategory(res.data.subcat_name) }).catch(err => console.log(err))
+        axios.get(`${BACK_URL}/api/factories/subcategory/${subcatId}`).then(res => { setProducts(res.data.products); setSubCategory(res.data.subcat_name) }).catch(err => console.log(err))
     }, [])
 
     return (

@@ -1,18 +1,21 @@
-.header_block{
+.header_block {
     height: 60px;
 }
 
-header {
+.DesktopHeader {
     height: 60px;
     display: flex;
-    justify-content: flex-start;
+    justify-content: space-between;
     align-items: center;
     gap: 50px;
     position: fixed;
     z-index: 10;
     backdrop-filter: blur(8px);
-    background-color: #EAEAEA;
+    // background-color: #EAEAEA;
     width: 100%;
+    left: 0;
+    padding: 40px 50px !important;
+    // background-color: #cd000066;
 
     .LeftSection {
         display: flex;
@@ -35,6 +38,9 @@ header {
         height: 60px;
         border-radius: 10px;
         padding: 0;
+        cursor: pointer;
+        transition: 0.2s;
+
 
         .Catalog_char {
             background-color: #CD0000;
@@ -45,10 +51,36 @@ header {
             align-items: center;
             padding: 17px 15px 13px 13px;
             font-size: 20px;
+            transition: 0.2s;
+
+        }
+
+        .Catalog_char:hover {
+            transition: 0.2s;
+            padding: 17px 15px 13px 43px;
+
         }
 
         .Catalog_img {
             padding: 8px;
+            transition: 0.2s;
+
+            img {
+                transition: 0.2s;
+
+            }
+        }
+
+        .Catalog_img:hover {
+            transition: 0.2s;
+
+            img {
+                transition: 0.2s;
+
+                transition: 0.2s;
+                // transform: scale(120%);
+                transform: rotate(45deg);
+            }
         }
     }
 
@@ -60,6 +92,22 @@ header {
         border-radius: 10px;
         font-weight: bold;
         color: #CD0000;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 11px;
+
+        img {
+            transition: 0.4s;
+        }
+    }
+
+    .Logo:hover {
+        img {
+            transition: 0.4s;
+            transform: rotate(180deg) scale(95%);
+
+        }
     }
 
     .SearchContainer {

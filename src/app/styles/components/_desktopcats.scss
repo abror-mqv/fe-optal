@@ -1,0 +1,25 @@
+.DesktopCats {
+    margin-top: 24px;
+    height: 60px;
+
+    .CatsList {
+        width: calc(100% - 100px);
+        display: flex;
+        justify-content: space-between;
+        position: absolute;
+
+        .MuiPaper-elevation {
+            height: fit-content !important;
+            border-radius: 8px;
+            z-index: 100;
+
+            // padding: 2px !important;
+            &::before {
+                display: none !important;
+            }
+        }
+        .MuiAccordionSummary-root{
+            gap: 12px;
+        }
+    }
+}

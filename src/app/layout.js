@@ -2,6 +2,7 @@ import localFont from "next/font/local";
 import "./globals.css";
 import './styles/main.scss';
 import { AppRouterCacheProvider } from '@mui/material-nextjs/v14-appRouter';
+import Footer from "./components/footer/Footer";
 
 // import { Provider } from 'react-redux';
 // import { store } from '../redux/store';

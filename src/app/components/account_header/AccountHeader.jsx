@@ -56,7 +56,7 @@ function AccountHeader({ name, description, image }) {
   const handleUpdateSubmit = async (updatedData) => {
     try {
       const token = localStorage.getItem("TOKEN"); // Получаем токен из localStorage
-      const response = await axios.put(`${BACK_URL}/api/factory/update/`, updatedData, {
+      const response = await axios.put(`${BACK_URL}/api/factories/factory/update/`, updatedData, {
         headers: {
           "Authorization": `Token ${token}`,
           "Content-Type": "application/json"

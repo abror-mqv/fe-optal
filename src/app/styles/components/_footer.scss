@@ -1,0 +1,94 @@
+.Footer {
+    display: flex;
+    justify-content: space-between;
+    gap: 24px;
+    background-color: #252421;
+    width: 100%;
+    position: absolute;
+    left: 0;
+    padding: 20px 50px;
+    margin-top: 127px;
+    // margin-left: -40px;
+
+    .FooterLogo {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        gap: 12px;
+
+        h4 {
+            color: #cd0000;
+            font-size: 22px;
+        }
+    }
+
+    .FooterInfo {
+        display: flex;
+        flex-direction: column;
+        color: #FAFAFA;
+        font-weight: 200;
+
+        .Top {
+            display: flex;
+            justify-content: space-between;
+
+            .MediaLinks {
+                display: flex;
+                gap: 15px;
+            }
+        }
+
+        .LinkList {
+            display: flex;
+            gap: 18px;
+            font-size: 14px;
+
+            a {
+                transition: 0.2s;
+            }
+
+            a:hover {
+                transition: 0.2s;
+                margin-top: -3px;
+                color: white;
+                text-shadow: white 1px 1px 7px;
+            }
+        }
+
+        .Divider {
+            width: 100%;
+            height: 0.5px;
+            background-color: white;
+            margin-top: 32px;
+            margin-bottom: 32px;
+        }
+    }
+}
+
+@media screen and (max-width: 920px) {
+    .Footer {
+        padding: 40px 20px;
+
+        .FooterLogo {}
+
+        .FooterInfo {
+            .Top {
+                flex-direction: column-reverse;
+
+                .LinkList {
+                    justify-content: space-between;
+                    margin-top: 48px;
+                }
+
+                .MediaLinks {
+                    justify-content: space-between;
+                }
+            }
+
+            .LinkList {
+                flex-wrap: wrap;
+            }
+        }
+    }
+}

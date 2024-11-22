@@ -15,7 +15,7 @@ function CategoryContent() {
     const [categoryName, setCategoryName] = useState("")
     const [subcats, setSubcats] = useState([])
     useEffect(() => {
-        axios.get(`${BACK_URL}/api/category/${categoryId}/`).then(res => {
+        axios.get(`${BACK_URL}/api/factories/category/${categoryId}/`).then(res => {
             console.log(res.data);
             setCategoryName(res.data.cat_name);
             setSubcats(res.data.subcategories)

@@ -121,7 +121,7 @@ function AddProductForm({ setSubmitFunction }) {
     };
 
     React.useEffect(() => {
-        axios.get(`${BACK_URL}/api/cats`).then(res => {
+        axios.get(`${BACK_URL}/api/factories/cats`).then(res => {
             setCats(res.data)
         })
     }, [])
@@ -167,7 +167,7 @@ function AddProductForm({ setSubmitFunction }) {
 
         try {
             // Шаг 1: Создаём продукт
-            const productResponse = await axios.post(`${BACK_URL}/api/products/`, productData, {
+            const productResponse = await axios.post(`${BACK_URL}/api/factories/products/`, productData, {
                 headers: {
                     "Authorization": `Token ${token}`,
                     "Content-Type": "application/json"
@@ -187,7 +187,7 @@ function AddProductForm({ setSubmitFunction }) {
                     formData.append("image", variant.image); // Файл изображения
                 }
 
-                const variantResponse = await axios.post(`${BACK_URL}/api/products/color-variation/`, formData, {
+                const variantResponse = await axios.post(`${BACK_URL}/api/factories/products/color-variation/`, formData, {
                     headers: {
                         "Authorization": `Token ${token}`,
                         "Content-Type": "multipart/form-data"

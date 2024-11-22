@@ -46,7 +46,7 @@ const UploadAvatarModal = ({ isOpen, onClose, onUpload }) => {
     formData.append("avatar", avatar);
 
     try {
-      const response = await fetch(`${BACK_URL}/api/factory/avatar`, {
+      const response = await fetch(`${BACK_URL}/api/factories/factory/avatar`, {
         method: "POST",
         headers: {
           Authorization: `Token ${localStorage.getItem("TOKEN")}`,

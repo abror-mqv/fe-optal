@@ -8,7 +8,7 @@ function Feed() {
     const [products, setProducts] = useState([])
 
     useEffect(() => {
-        axios.get(`${BACK_URL}/api/latest-products`).then(res => {
+        axios.get(`${BACK_URL}/api/factories/latest-products`).then(res => {
             setProducts(res.data)
             console.log(res.data)
         }).catch(err => {
