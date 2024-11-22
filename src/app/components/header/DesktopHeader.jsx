@@ -47,23 +47,25 @@ function DesktopHeader() {
     }, []);
 
     const ProfileLink = () => {
-        // console.log("TOKKEN", localStorage.TOKEN)
-        if (localStorage.TOKEN == "undefined") {
-            return (
-                <Link href={'/account-factory'}>
-                    <ListItemButton
-                        aria-controls={open ? 'demo-positioned-menu' : undefined}
-                        aria-haspopup="true"
+        if (typeof window !== 'undefined') {
+            if (localStorage.getItem("TOKEN") == "undefined") {
+                return (
+                    <Link href={'/account-factory'}>
+                        <ListItemButton
+                            aria-controls={open ? 'demo-positioned-menu' : undefined}
+                            aria-haspopup="true"
 
-                    >
-                        <ListItemIcon>
-                            <AccountBoxIcon />
-                        </ListItemIcon>
-                        <ListItemText primary={"Мой профиль"} />
-                    </ListItemButton>
-                </Link>
-            )
-        } else {
+                        >
+                            <ListItemIcon>
+                                <AccountBoxIcon />
+                            </ListItemIcon>
+                            <ListItemText primary={"Мой профиль"} />
+                        </ListItemButton>
+                    </Link>
+                )
+            }
+        }
+        else {
             <Link href={'/newfactory'}>
                 <ListItemButton
                     aria-controls={open ? 'demo-positioned-menu' : undefined}
@@ -100,8 +102,8 @@ function DesktopHeader() {
                             </Link>
 
                             <ProfileLink />
-
-                            <Link href={(localStorage?.getItem("TOKEN")) ? "/account-factory" : "/newfactory"}>
+                            {/* (localStorage?.getItem("TOKEN")) ? "/account-factory" : "/newfactory" */}
+                            <Link href={(typeof window !== 'undefined') ? ((localStorage?.getItem("TOKEN")) ? "/account-factory" : "/newfactory") : ("/")}>
                                 <ListItemButton
                                     aria-controls={open ? 'demo-positioned-menu' : undefined}
                                     aria-haspopup="true"
@@ -109,7 +111,7 @@ function DesktopHeader() {
                                     <ListItemIcon>
                                         <AccountBoxIcon />
                                     </ListItemIcon>
-                                    <ListItemText primary={(localStorage.TOKEN) ? "Мой профиль" : "Начать продавать"} />
+                                    <ListItemText primary={(typeof window !== 'undefined') ? ((localStorage?.getItem("TOKEN")) ? "Мой профиль" : "Начать продавать") : ("/")} />
                                 </ListItemButton>
                             </Link>
                             <Link href={`/cart`}>

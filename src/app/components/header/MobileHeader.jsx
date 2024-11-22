@@ -31,41 +31,28 @@ function MobileHeader() {
         setOpen(newOpen);
     };
 
-    useEffect(() => {
-        console.log("TOKKEN", localStorage.TOKEN)
 
-        const fetchData = async () => {
-            try {
-                const response = await axios.get(`${BACK_URL}/api/factories/cats`);
-                setCategories(response.data);
-                setLoading(false);
-            } catch (err) {
-                setError(err.message);
-                setLoading(false);
-            }
-        };
-
-        fetchData();
-    }, []);
 
     const ProfileLink = () => {
-        // console.log("TOKKEN", localStorage.TOKEN)
-        if (localStorage.TOKEN == "undefined") {
-            return (
-                <Link href={'/account-factory'}>
-                    <ListItemButton
-                        aria-controls={open ? 'demo-positioned-menu' : undefined}
-                        aria-haspopup="true"
+        if (typeof window !== 'undefined') {
+            if (localStorage?.getItem("TOKEN") == "undefined") {
+                return (
+                    <Link href={'/account-factory'}>
+                        <ListItemButton
+                            aria-controls={open ? 'demo-positioned-menu' : undefined}
+                            aria-haspopup="true"
 
-                    >
-                        <ListItemIcon>
-                            <AccountBoxIcon />
-                        </ListItemIcon>
-                        <ListItemText primary={"Мой профиль"} />
-                    </ListItemButton>
-                </Link>
-            )
-        } else {
+                        >
+                            <ListItemIcon>
+                                <AccountBoxIcon />
+                            </ListItemIcon>
+                            <ListItemText primary={"Мой профиль"} />
+                        </ListItemButton>
+                    </Link>
+                )
+            }
+        }
+        else {
             <Link href={'/newfactory'}>
                 <ListItemButton
                     aria-controls={open ? 'demo-positioned-menu' : undefined}
@@ -102,7 +89,7 @@ function MobileHeader() {
 
                         <ProfileLink />
 
-                        <Link href={(localStorage.TOKEN) ? "/account-factory" : "/newfactory"}>
+                        <Link href={(localStorage?.getItem("TOKEN")) ? "/account-factory" : "/newfactory"}>
                             <ListItemButton
                                 aria-controls={open ? 'demo-positioned-menu' : undefined}
                                 aria-haspopup="true"
@@ -111,7 +98,7 @@ function MobileHeader() {
                                 <ListItemIcon>
                                     <AccountBoxIcon />
                                 </ListItemIcon>
-                                <ListItemText primary={(localStorage.TOKEN) ? "Мой профиль" : "Начать продавать"} />
+                                <ListItemText primary={(localStorage?.getItem("TOKEN")) ? "Мой профиль" : "Начать продавать"} />
                             </ListItemButton>
                         </Link>
                         <Link href={`/cart`}>

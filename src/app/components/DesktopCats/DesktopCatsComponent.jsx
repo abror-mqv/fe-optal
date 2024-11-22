@@ -49,7 +49,7 @@ function DesktopCatsComponent() {
 
         {categories.map(cat => {
           return (
-            <Accordion sx={{ boxShadow: "none", maxWidth: "200px", gap: "24px"}}>
+            <Accordion sx={{ boxShadow: "none", maxWidth: "200px", gap: "24px" }} key={cat.id}>
               <AccordionSummary
                 expandIcon={
                   <Button variant="contained" sx={{ backgroundColor: "#252421" }}>

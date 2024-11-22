@@ -71,7 +71,7 @@ function NewFactory() {
                 "password": password
             }
         ).then((res) => {
-            localStorage.setItem("TOKEN", res.data.token)
+            localStorage?.setItem("TOKEN", res.data.token)
             setOpen(true)
         }).catch(err => {
             alert("Ошибка регистрации. Просьба позвонить в службу поддержки по номеру +996559808243. За уведомлене об ошибке закинем 500 сом на баланс")
