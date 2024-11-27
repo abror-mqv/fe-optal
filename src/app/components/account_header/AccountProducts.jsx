@@ -56,7 +56,7 @@ function AccountProducts({ products, handleDelete }) {
                                         component="img"
                                         alt="green iguana"
                                         height="320"
-                                        image={`${BACK_URL}${product.color_variations[0].image}`}
+                                        image={`${BACK_URL}${product.color_variations[0]?.image}`}
                                     />
                                     <CardContent>
                                         <div className='first_info'>
