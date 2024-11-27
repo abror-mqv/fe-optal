@@ -98,7 +98,7 @@ function AddProductForm({ setSubmitFunction }) {
     }
     const handleDeleteVariation = (index) => {
         setColorVariants((prevVariants) =>
-            prevVariants.filter((_, idx) => idx !== index) // Удаляем элемент по индексу
+            prevVariants.filter((_, idx) => idx !== index)
         );
     };
 
@@ -117,9 +117,7 @@ function AddProductForm({ setSubmitFunction }) {
     const handleOpen = () => setOpen(true);
     const handleClose = () => {
         setOpen(false);
-        // router.push('/account-facory');
     };
-
     React.useEffect(() => {
         axios.get(`${BACK_URL}/api/factories/cats`).then(res => {
             setCats(res.data)
@@ -155,8 +153,6 @@ function AddProductForm({ setSubmitFunction }) {
     const handleSubmit = async (e) => {
         e.preventDefault();
         const token = localStorage.getItem("TOKEN");
-
-        // Формируем данные продукта для отправки
         const productData = {
             name: productname,
             price: price,
@@ -166,7 +162,6 @@ function AddProductForm({ setSubmitFunction }) {
         };
 
         try {
-            // Шаг 1: Создаём продукт
             const productResponse = await axios.post(`${BACK_URL}/api/factories/products/`, productData, {
                 headers: {
                     "Authorization": `Token ${token}`,
@@ -174,17 +169,16 @@ function AddProductForm({ setSubmitFunction }) {
                 }
             });
 
-            const productId = productResponse.data.id; // Получаем ID созданного продукта
+            const productId = productResponse.data.id;
             console.log("Продукт успешно создан:", productResponse.data);
             setOpen(true)
-            // Шаг 2: Отправляем цветовые вариации для созданного продукта
             for (const variant of colorVariants) {
                 const formData = new FormData();
-                formData.append("product", productId); // ID продукта
+                formData.append("product", productId);
                 formData.append("color_name", variant.color_name);
                 formData.append("color_code", variant.color_code);
                 if (variant.image) {
-                    formData.append("image", variant.image); // Файл изображения
+                    formData.append("image", variant.image);
                 }
 
                 const variantResponse = await axios.post(`${BACK_URL}/api/factories/products/color-variation/`, formData, {
@@ -355,7 +349,7 @@ function AddProductForm({ setSubmitFunction }) {
                                                 return (
                                                     <ListItem key={index} sx={{ width: "auto" }}>
                                                         <Button variant='outlined' onClick={() => {
-                                                            setCategory(subcat.subcat_name);
+                                                            setCategory(subcat.id);
                                                             setCategoryName(`${cat.cat_name} > ${subcat.subcat_name}`)
                                                             handleListItemClick()
                                                         }}>
