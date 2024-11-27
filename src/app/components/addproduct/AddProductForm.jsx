@@ -233,7 +233,9 @@ function AddProductForm({ setSubmitFunction }) {
                         </TextField>
                     </div>
                     <div className='forma category'>
-                        <p>
+                        <p onClick={() => {
+                            console.log("SUBCAT", category)
+                        }}>
                             Категория
                         </p>
                         <Button variant='outlined' sx={{ borderColor: "#CD0000", color: "#CD0000" }} onClick={() => {
@@ -337,9 +339,9 @@ function AddProductForm({ setSubmitFunction }) {
                     role="presentation"
                 >
                     {
-                        cats.map(cat => {
+                        cats.map((cat, index) => {
                             return (
-                                <Accordion key={cat.id}>
+                                <Accordion key={index}>
                                     <AccordionSummary
                                         expandIcon={<ExpandMoreIcon />}
                                         aria-controls="panel1a-content"
@@ -349,14 +351,13 @@ function AddProductForm({ setSubmitFunction }) {
                                     </AccordionSummary>
                                     <AccordionDetails sx={{ display: 'flex', flexWrap: "wrap", justifyContent: "start" }}>
                                         {
-                                            cat.subcategories.map(subcat => {
+                                            cat.subcategories.map((subcat, index) => {
                                                 return (
-                                                    <ListItem key={subcat.id} sx={{ width: "auto" }}>
+                                                    <ListItem key={index} sx={{ width: "auto" }}>
                                                         <Button variant='outlined' onClick={() => {
-                                                            setCategory(subcat.id);
+                                                            setCategory(subcat.subcat_name);
                                                             setCategoryName(`${cat.cat_name} > ${subcat.subcat_name}`)
                                                             handleListItemClick()
-
                                                         }}>
                                                             {subcat.subcat_name}
                                                         </Button>
