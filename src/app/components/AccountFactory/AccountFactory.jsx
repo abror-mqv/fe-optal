@@ -15,14 +15,13 @@ function AccountFactory() {
     const [products, setProducts] = useState([])
     useEffect(() => {
         const token = localStorage.getItem('TOKEN');
-
         if (!token) {
             console.error("Token not found");
             return;
         }
         axios.get(`${BACK_URL}/api/factories/get-factory/`, {
             headers: {
-                'Authorization': `Token ${token}`, // Add the token to headers
+                'Authorization': `Token ${token}`,
             },
         }).then(res => {
             console.log(res)
@@ -30,7 +29,6 @@ function AccountFactory() {
             if (res.data.factory_description != null) {
                 setDescription(res.data.factory_description)
             }
-            // setImage place an image here later
         }).catch(err => {
             console.log(err)
         });

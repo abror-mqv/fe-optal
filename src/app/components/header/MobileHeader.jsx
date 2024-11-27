@@ -31,6 +31,20 @@ function MobileHeader() {
         setOpen(newOpen);
     };
 
+    useEffect(() => {
+        const fetchData = async () => {
+            try {
+                const response = await axios.get(`${BACK_URL}/api/factories/cats`);
+                setCategories(response.data);
+                setLoading(false);
+            } catch (err) {
+                setError(err.message);
+                setLoading(false);
+            }
+        };
+
+        fetchData();
+    }, []);
 
 
     const ProfileLink = () => {
