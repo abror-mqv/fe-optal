@@ -141,7 +141,7 @@ function AddProductForm({ setSubmitFunction }) {
         }, 100);
     };
     const addColorVariant = () => {
-        setColorVariants([...colorVariants, { color_name: "", color_code: "", image: "" }]);
+        setColorVariants([...colorVariants, { color_name: "", color_code: "#000", image: "" }]);
     };
     const handleVariantChange = (index, field, value) => {
         const updatedVariants = colorVariants.map((variant, i) =>
@@ -378,11 +378,13 @@ function AddProductForm({ setSubmitFunction }) {
                     <p className='congrats'>
                         Поздравляем! <br />Вы успешно добавили свой товар!
                     </p>
-                    <Button variant='contained' color='success' fullWidth onClick={() => {
-                        handleClose()
-                    }}>
-                        ОК
-                    </Button>
+                    <Link href={"/account-factory"}>
+                        <Button variant='contained' color='success' fullWidth onClick={() => {
+                            handleClose()
+                        }}>
+                            ОК
+                        </Button>
+                    </Link>
                 </Box>
             </Modal>
         </form>

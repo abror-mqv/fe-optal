@@ -11,14 +11,13 @@
         .MuiPaper-elevation {
             height: fit-content !important;
             border-radius: 8px;
-            z-index: 100;
-
-            // padding: 2px !important;
+            z-index: 9;
             &::before {
                 display: none !important;
             }
         }
-        .MuiAccordionSummary-root{
+
+        .MuiAccordionSummary-root {
             gap: 12px;
         }
     }
