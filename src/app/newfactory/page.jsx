@@ -1,12 +1,12 @@
 'use client'
 import React from 'react'
 import '../styles/components/_newfactory.scss'
-import NewFactory from '../components/NewFactory/NewFactory';
+import RegisterFactory from '../components/Auth/RegisterFactory/RegisterFactory';
 
 function page() {
 
     return (
-        <NewFactory />
+        <RegisterFactory />
     )
 }
 

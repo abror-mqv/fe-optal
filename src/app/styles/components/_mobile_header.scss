@@ -1,18 +1,25 @@
-header {
+.MobileHeader {
     top: 0;
+    padding-top: 12px;
     height: 76px;
     background-color: rgba(255, 255, 255, 0);
-    width: calc(100% - 40px);
+    // width: calc(100% - 40px);
     // background-color: green;
-    // backdrop-filter: unset !important;
     padding-bottom: 4px;
+    position: fixed;
+    // backdrop-filter: blur(4px) !important;
+    width: calc(100vw - 40px);
+
+    backdrop-filter: blur(6px) !important;
+
+    z-index: 9;
 
     .navigation {
-        width: 100%;
         display: flex;
         justify-content: space-between;
         margin-top: 0px;
         align-items: center;
+        width: 100%;
 
         h1 {
             display: flex;

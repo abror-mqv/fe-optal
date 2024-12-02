@@ -1,7 +1,7 @@
 "use client"
 import React, { useEffect, useState } from 'react'
 import '../../styles/components/_product_details.scss';
-import { Button } from '@mui/material';
+import { Avatar, Button } from '@mui/material';
 import AddTaskIcon from '@mui/icons-material/AddTask';
 import Image from 'next/image';
 
@@ -22,6 +22,8 @@ import { useParams } from 'next/navigation';
 
 import axios from 'axios';
 import { BACK_URL } from '@/app/VAR';
+import Link from 'next/link';
+import Footer from '../footer/Footer';
 SwiperCore.use([Navigation, Pagination, Thumbs, Controller, EffectCube]);
 
 
@@ -70,8 +72,22 @@ function ProductDetails(props) {
 
     return (
         <div className='product_details'>
-            <nav>
-                Каталог {">"} женщинам
+            <nav className='product_nav'>
+                <Link href={"/"}>
+                    Каталог
+                </Link>
+                {">"}
+                <Link href={`/category/${product?.category?.category?.id}`}>
+                    {product?.category.category.name}
+                </Link>
+                {">"}
+                <Link href={`/subcategory/${product?.category?.subcategory?.id}`}>
+                    {product?.category.subcategory.name}
+                </Link>
+                {">"}
+                <Link href={`/product/${product?.id}`}>
+                    {product?.name}
+                </Link>
             </nav>
             <main>
                 <div className='Images'>
@@ -93,14 +109,18 @@ function ProductDetails(props) {
                         <div className='manufacter'>
                             <div>
 
-                                <img src={props.product.factory_logo} alt="" />
+                                <Avatar
+                                    alt={product?.manufacter?.factory_name}
+                                    src="/static/images/avatar/1.jpg"
+                                    sx={{ width: 24, height: 24 }}
+                                />
 
                             </div>
-                            <p>{props.product.factory}</p>
+                            <p>{product?.manufacter?.factory_name}</p>
                         </div>
                         <div className='approved'>
                             <AddTaskIcon color='success' fontSize='large' />
-                            <p className='approved_info'>цех прошел нашу проверку</p>
+                            {/* <p className='approved_info'>цех прошел нашу проверку</p> */}
                         </div>
                     </div>
                     {/* <div className='divider'>
@@ -155,11 +175,13 @@ function ProductDetails(props) {
                                     }
                                 )
                             }
+                            {/* {`(${product?.sizes?.split(",").length} размера в линейке)`} */}
                         </div>
+
 
                     </div>
                     <div className='buy'>
-                        <ActionButton mode="fav" className="fav" />
+                        {/* <ActionButton mode="fav" className="fav" /> */}
                         <ActionButton mode="cart" className="cart" />
                         <ActionButton mode="buy" className="buy_now" />
                     </div>
@@ -174,6 +196,7 @@ function ProductDetails(props) {
             <div className='Reviews'>
 
             </div>
+            <Footer />
         </div>
     )
 }

@@ -47,6 +47,11 @@ function AccountProducts({ products, handleDelete }) {
         return (
             <div>
                 <div className='products'>
+                    <Link href="/addproduct">
+                        <Button variant='contained' fullWidth sx={{ background: "#CD0000", marginBottom: 4, display: "flex", justifyContent: "space-between"}}>
+                            Добавить товар <AddCircleIcon />
+                        </Button>
+                    </Link>
                     {
                         products.map(product => {
                             console.log(product)
@@ -78,12 +83,7 @@ function AccountProducts({ products, handleDelete }) {
                             )
                         })
                     }
-                    <Link href="/addproduct">
 
-                        <Button variant='contained'>
-                            Добавить товар <AddCircleIcon />
-                        </Button>
-                    </Link>
                 </div>
             </div >
         )

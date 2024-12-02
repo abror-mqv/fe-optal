@@ -7,12 +7,12 @@ import { AccountCircle } from '@mui/icons-material';
 
 import Visibility from '@mui/icons-material/Visibility';
 import VisibilityOff from '@mui/icons-material/VisibilityOff';
-import ActionButton from '../../components/buttons/ActionButton';
 import axios from 'axios';
 
-import { BACK_URL } from '../../VAR';
+import { BACK_URL } from '../../../VAR';
 import Link from 'next/link';
-import Header from '../header/Header';
+import Header from '../../header/Header';
+import Footer from '../../footer/Footer';
 
 const style = {
     position: 'absolute',
@@ -21,29 +21,38 @@ const style = {
     transform: 'translate(-50%, -50%)',
     width: "70%",
     bgcolor: 'background.paper',
-    border: '2px solid #000',
+    // border: '2px solid #000',
+    borderRadius: 3,
     boxShadow: 24,
     p: 4,
     display: "flex",
     flexDirection: 'column',
     gap: "24px"
 };
-function NewFactory() {
+
+
+function RegisterFactory() {
     const [factoryNumber, setFactoryNumber] = React.useState("")
     const [firstName, setFirstName] = React.useState("")
     const [factoryName, setFactoryName] = React.useState("")
     const [password, setPassword] = React.useState("")
 
     const [ablebutton, setAbleButton] = React.useState(true)
+
     const [open, setOpen] = React.useState(false)
+    const [openFail, setOpenFail] = React.useState(false)
+
 
     const handleClose = () => {
         setOpen(true)
     }
 
     React.useEffect(() => {
-        if (true) {
+        console.log([factoryName.length, factoryNumber.length, password.length, firstName])
+        if ((factoryName.length > 4) && (factoryNumber.length > 9) && (firstName != "") && (password.length > 6)) {
             setAbleButton(true)
+        } else {
+            setAbleButton(false)
         }
     }, [factoryName, factoryNumber, password, firstName])
 
@@ -71,9 +80,12 @@ function NewFactory() {
             }
         ).then((res) => {
             localStorage?.setItem("TOKEN", res.data.token)
+            localStorage?.setItem("USER_TYPE", "FACTORY")
+
             setOpen(true)
         }).catch(err => {
-            alert("Ошибка регистрации. Просьба позвонить в службу поддержки по номеру +996559808243. За уведомлене об ошибке закинем 500 сом на баланс")
+            // alert("Ошибка регистрации. Просьба позвонить в службу поддержки по номеру +996559808243. За уведомлене об ошибке закинем 500 сом на баланс")
+            setOpenFail(true)
             console.log(err)
         })
     }
@@ -163,19 +175,24 @@ function NewFactory() {
                         </div>
 
                         <div className='RegisterSubmit'>
+                            <p className='fillFields'>
+                                {ablebutton ? "" : "Заполните все поля"}
+                            </p>
                             <Button mode="create" disabled={!ablebutton} onClick={() => {
                                 sendData()
-                            }} fullWidth variant='contained'>
+                            }} fullWidth variant='contained' style={ablebutton ? { backgroundColor: "#CD0000" } : { backgroundColor: "rgba(0, 0, 0, 0.549)", color: "rgb(222,222,222)" }}>
                                 Зарегистрировать
                             </Button>
+
                         </div>
                     </div>
-                    <div className='RegisterFirst'>
-                        <p>
-                            Уже есть аккаунт? <Link href='/login-factory' className='Link'>Войти</Link>
-                        </p>
 
-                    </div>
+                </div>
+                <div className='RegisterFirst'>
+                    <p>
+                        Уже есть аккаунт? <Link href='/login-factory' className='Link'>Войти</Link>
+                    </p>
+
                 </div>
                 <Modal
                     open={open}
@@ -199,9 +216,33 @@ function NewFactory() {
 
                     </Box>
                 </Modal>
+                <Modal
+                    open={openFail}
+                    onClose={() => setOpenFail(false)}
+                    aria-labelledby="modal-modal-title"
+                    aria-describedby="modal-modal-description"
+                >
+                    <Box sx={style}>
+                        <Typography id="modal-modal-title" variant="h6" component="h2" color='error'>
+                            Ошибка регистрации
+                        </Typography>
+                        <Typography id="modal-modal-description" sx={{ mt: 2 }} >
+
+
+                            <Link href="/login-factory" >
+                                Уже есть аккаунт?
+                            </Link>
+
+                        </Typography>
+                        <Button variant='contained' onClick={() => setOpenFail(false)}>
+                            попробывать еще раз
+                        </Button>
+                    </Box>
+                </Modal>
             </div>
+            <Footer />
         </>
     )
 }
 
-export default NewFactory
+export default RegisterFactory

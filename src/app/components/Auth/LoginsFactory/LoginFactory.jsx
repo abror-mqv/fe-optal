@@ -1,11 +1,13 @@
 "use client"
+import { BACK_URL } from '@/app/VAR'
 
 import { Visibility, VisibilityOff } from '@mui/icons-material'
-import { Button, FormControl, IconButton, InputAdornment, InputLabel, OutlinedInput, TextField } from '@mui/material'
+import { Box, Button, FormControl, IconButton, InputAdornment, InputLabel, Modal, OutlinedInput, TextField, Typography } from '@mui/material'
 import React from 'react'
+import axios from 'axios'
 
 import '@/app/styles/components/_loginfactory.scss'
-import Header from '../header/Header'
+import Header from '../../header/Header'
 import Link from 'next/link'
 
 function LoginFactory() {
@@ -13,6 +15,12 @@ function LoginFactory() {
     const [login, setLogin] = React.useState("")
     const [password, setPassword] = React.useState("")
     const [showPassword, setShowPassword] = React.useState(false)
+
+    const [open, setOpen] = React.useState(false)
+    const [openFail, setOpenFail] = React.useState(false)
+
+    const [ablebutton, setAbleButton] = React.useState(true)
+
 
     const handleClickShowPassword = () => setShowPassword((show) => !show);
 
@@ -24,6 +32,47 @@ function LoginFactory() {
         event.preventDefault();
     };
 
+    React.useEffect(() => {
+        if ((login != "") && (password.length > 6)) {
+            setAbleButton(true)
+        } else {
+            setAbleButton(false)
+        }
+    }, [login, password])
+
+    const handleSubmit = () => {
+        axios.post(`${BACK_URL}/api/factories/login/`,
+            {
+                "username": login,
+                "password": password
+            }
+        ).then((res) => {
+            localStorage?.setItem("TOKEN", res.data.token)
+            localStorage?.setItem("USER_TYPE", "FACTORY")
+
+            setOpen(true)
+        }).catch(err => {
+            setOpenFail(true)
+            setLogin("")
+            setPassword("")
+            console.log(err)
+        })
+    }
+    const style = {
+        position: 'absolute',
+        top: '50%',
+        left: '50%',
+        transform: 'translate(-50%, -50%)',
+        width: "70%",
+        bgcolor: 'background.paper',
+        // border: '2px solid #000',
+        borderRadius: 3,
+        boxShadow: 24,
+        p: 4,
+        display: "flex",
+        flexDirection: 'column',
+        gap: "24px"
+    };
 
 
     return (
@@ -93,7 +142,7 @@ function LoginFactory() {
                     </div>
                 </div>
                 <div className='LoginSubmit'>
-                    <Button variant='contained' fullWidth className='LoginSubmitButton'>
+                    <Button variant='contained' disabled={!ablebutton} onClick={handleSubmit} fullWidth className='LoginSubmitButton' style={ablebutton ? { backgroundColor: "#CD0000" } : { backgroundColor: "rgba(0, 0, 0, 0.549)", color: "rgb(222,222,222)" }}>
                         Войти
                     </Button>
                 </div>
@@ -104,6 +153,50 @@ function LoginFactory() {
                 </p>
 
             </div>
+            <Modal
+                open={open}
+                onClose={() => setOpen(false)}
+                aria-labelledby="modal-modal-title"
+                aria-describedby="modal-modal-description"
+            >
+                <Box sx={style}>
+                    <Typography id="modal-modal-title" variant="h6" component="h2">
+                        С возвращением!
+                    </Typography>
+                    <Typography id="modal-modal-description" sx={{ mt: 2 }} >
+
+
+                    </Typography>
+                    <Link href="/account-factory">
+                        <Button variant='outlined' onClick={() => setOpen(false)}>
+                            Перейти в личный кабинет
+                        </Button>
+                    </Link>
+                </Box>
+            </Modal>
+            <Modal
+                open={openFail}
+                onClose={() => setOpenFail(false)}
+                aria-labelledby="modal-modal-title"
+                aria-describedby="modal-modal-description"
+            >
+                <Box sx={style}>
+                    <Typography id="modal-modal-title" variant="h6" component="h2" color='error'>
+                        Неверный номер телефона или пароль
+                    </Typography>
+                    <Typography id="modal-modal-description" sx={{ mt: 2 }} >
+                        <p className='forgotPassword'>
+
+                            <Link href="/forgot-password-factory" >
+                                Забыли пароль?
+                            </Link>
+                        </p>
+                    </Typography>
+                    <Button variant='contained' onClick={() => setOpenFail(false)} >
+                        попробывать еще раз
+                    </Button>
+                </Box>
+            </Modal>
         </div>
     )
 }

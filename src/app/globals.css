@@ -57,7 +57,7 @@ a {
 
 @media screen and (max-width: 920px) {
   .Swiper__main {
-    width: calc(100vw - 40px);
+    width: calc(100% - 40px);
     border-radius: 24px;
     overflow: hidden;
   }

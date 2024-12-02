@@ -83,7 +83,7 @@ function MobileHeader() {
     }
 
     return (
-        <header>
+        <header className='MobileHeader'>
             <Drawer open={open} onClose={toggleDrawer(false)}>
                 <Box sx={{ width: 350 }} role="presentation">
 
@@ -98,12 +98,13 @@ function MobileHeader() {
                                     <HomeIcon />
                                 </ListItemIcon>
                                 <ListItemText primary={"OPTAL.RU"} />
+                                <Image width={42} height={42} src="/optal_logo.svg" />
                             </ListItemButton>
                         </Link>
 
                         <ProfileLink />
 
-                        <Link href={(localStorage?.getItem("TOKEN")) ? "/account-factory" : "/newfactory"}>
+                        <Link href={(localStorage?.getItem("TOKEN")) ? "/account-customer" : "/register-customer"}>
                             <ListItemButton
                                 aria-controls={open ? 'demo-positioned-menu' : undefined}
                                 aria-haspopup="true"
@@ -112,7 +113,7 @@ function MobileHeader() {
                                 <ListItemIcon>
                                     <AccountBoxIcon />
                                 </ListItemIcon>
-                                <ListItemText primary={(localStorage?.getItem("TOKEN")) ? "Мой профиль" : "Начать продавать"} />
+                                <ListItemText primary={(localStorage?.getItem("TOKEN")) ? "Личный кабинет" : "Зарегистрироваться"} />
                             </ListItemButton>
                         </Link>
                         <Link href={`/cart`}>

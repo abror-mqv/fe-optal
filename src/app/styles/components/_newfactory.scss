@@ -1,14 +1,15 @@
 .newfactory {
     .boxer {
+        margin-top: 90px;
         display: flex;
         justify-content: center;
         align-items: center;
         width: 100%;
-        height: 90vh;
+        // height: 90vh;
 
         .CardLogin {
             width: 360px;
-            border-radius: 32px;
+            border-radius: 26px;
             box-shadow: 11px 11px 22px #969696,
                 -11px -11px 22px #ffffff;
             padding: 24px;
@@ -18,8 +19,8 @@
             .header {
                 display: flex;
                 flex-direction: column;
-                align-items: center;
-                justify-content: center;
+                align-items: flex-start;
+                justify-content: start;
                 gap: 12px;
                 h4 {
                     font-size: 32px;
@@ -40,6 +41,16 @@
             }
 
             .RegisterSubmit {
+                .fillFields{
+                    // height: 24px;
+                    padding-bottom: 12px;
+                    display: flex;
+                    justify-content: start;
+                    align-items: center;
+                    font-size: 14px;
+                    color: rgba(0, 0, 0, 0.693);
+
+                }
                 button {
                     background-color: #CD0000;
                 }
@@ -47,26 +58,27 @@
 
         }
 
-        .RegisterFirst {
-            position: absolute;
-            // margin-top: 44px;
-            bottom: 24px;
-            display: flex;
-            align-items: flex-end;
-            justify-content: center;
-            // width: 360px;
+        
+    }
+    .RegisterFirst {
+        // position: absolute;
+        margin-top: 44px;
+        bottom: 24px;
+        display: flex;
+        align-items: flex-end;
+        justify-content: center;
+        // width: 360px;
 
-            p {
-                font-size: 14px;
-                color: #000000a8;
-                text-align: end;
+        p {
+            font-size: 14px;
+            color: #000000a8;
+            text-align: end;
 
-                .Link {
-                    text-decoration: underline;
-                    color: #CD0000;
-                }
-
+            .Link {
+                text-decoration: underline;
+                color: #CD0000;
             }
+
         }
     }
 }

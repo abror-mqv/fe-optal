@@ -6,7 +6,8 @@
 }
 
 
-header {
+.AccountHeader {
+    margin-top: 90px;
     position: relative;
     // background-color: rgba(255, 0, 0, 0.427);
     display: flex;
@@ -145,53 +146,57 @@ header {
             transform: scale(105%);
         }
     }
+
     @media screen and (max-width: 920px) {
         svg {
             font-size: 14px !important;
         }
-    
-        &{
+
+        & {
             flex-direction: column;
             gap: 12px;
-    
+
             .left_header {
                 font-size: 12px;
                 width: 100%;
             }
-    
+
             .profile_div {
                 width: 100%;
                 display: flex;
                 justify-content: space-between;
             }
-    
+
             .profile_picture {
                 img {
                     width: 40px !important;
                 }
             }
-    
+
             .right_header {
                 width: 100%;
-    
+
                 .description {
                     width: 100%;
                 }
             }
-    
+
             .third_header {
                 justify-content: space-between;
                 width: 100%;
-    
+
                 p {
                     font-size: 14px !important;
                 }
-    
+
                 svg {
                     font-size: 26px !important;
                 }
             }
+
+            .Introduction {
+                margin-top: 14px;
+            }
         }
     }
 }
-
