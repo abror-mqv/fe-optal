@@ -1,0 +1,14 @@
+.GoToCartModal{
+    font-family: "Roboto", serif;
+    .GoToCartModalInfo{
+        display: flex;
+        a{
+            margin-left: 4px;
+            color: #CD0000;
+            text-decoration: underline;
+        }
+    }
+    .GoToCartModalButtons{
+        margin-top: 24px;
+    }
+}

@@ -10,7 +10,8 @@ import Link from 'next/link';
 import { BACK_URL } from '@/app/VAR';
 
 import DoNotDisturbAltIcon from '@mui/icons-material/DoNotDisturbAlt';
-import DownloadIcon from '@mui/icons-material/Download';
+import AddToCartButton from './AddToCartButton';
+import CurrencyFormatter from '../CurrencyFormatter/CurrencyFormatter';
 function ProductCard(props) {
   const ImageHolder = () => {
     if (props.image) {
@@ -38,20 +39,16 @@ function ProductCard(props) {
         </Link>
       </div>
       <div className='info_block'>
-        <p className='price'>{props.price} р</p>
+        <p className='price'><CurrencyFormatter amount={props.price} /></p>
         <Link href={`/product/${props.id}`}>
           <h3>
             {props.name}
           </h3>
         </Link>
-        <p className='rate'>
+        {/* <p className='rate'>
           <Image src='/star.svg' width={22} height={22} />  {(Math.floor(Math.random() * 15) / 10) + 3.5} • {Math.floor(Math.random() * 20) + 3} оценок
-        </p>
-        <Button >
-          {/* <Image src="/logistics.svg" alt="" width={36} height={36} /> */}
-          <DownloadIcon />
-          В корзину
-        </Button>
+        </p> */}
+        <AddToCartButton productId={props.id} setAuthError={props.setAuthError} setCAError={props.setCAError} />
       </div>
     </div>
   )

@@ -3,18 +3,25 @@
 }
 
 .DesktopHeader {
-    height: 60px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 50px;
-    position: fixed;
-    z-index: 10;
-    backdrop-filter: blur(8px);
-    // background-color: #EAEAEA;
+    top: 0;
     width: 100%;
+    backdrop-filter: blur(8px);
+    position: fixed;
     left: 0;
-    padding: 40px 50px !important;
+    z-index: 10;
+
+    .DesktopHeaderContainer{
+        height: 60px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 50px;
+        // 
+        // background-color: #EAEAEA;
+        width: 100%;
+        padding: 40px 50px !important;
+    }
+   
     // background-color: #cd000066;
 
     .LeftSection {

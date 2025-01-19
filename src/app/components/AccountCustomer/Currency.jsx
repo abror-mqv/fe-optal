@@ -78,11 +78,11 @@ function Currency() {
                 <p>
                     Валюта
                 </p>
+                
+                <div className='current_currency_sign'>
                 {
-                    flags.RUB
+                    flags[currency]
                 }
-                <div>
-
                     {currency}
                 </div>
             </div>
@@ -98,8 +98,10 @@ function Currency() {
                 <div
                     role="presentation"
                 >
+                    
                     <ListItem sx={{ width: "auto", display: "flex", gap: 2 }} onClick={() => handleListItemClick("KGS")}>
                         <div className='currency_ly'>
+                            
                             {
                                 flags.KGS
                             }

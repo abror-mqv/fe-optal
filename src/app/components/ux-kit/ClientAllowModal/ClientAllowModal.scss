@@ -1,0 +1,19 @@
+.ClientAllowModal{
+    font-family: "Roboto";
+    font-weight: 300;
+    font-size: 1.2rem;
+    .ModalInfo{
+        width: 77%;
+    }
+    .ModalButtons{
+        margin-top: 48px;
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        
+    }
+    .BiggerText{
+        // font-size: 1.62rem;
+        font-weight: 500;
+    }
+}

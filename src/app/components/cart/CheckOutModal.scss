@@ -1,0 +1,30 @@
+.ModalInfo{
+    display: flex;
+    flex-direction: column;
+    gap: 48px;
+    .DeliveryInfo{
+        display: flex;
+        flex-direction: column;
+        gap: 18px;
+        h5{
+            font-size: 18px;
+            font-weight: 500;
+            margin-bottom: 12px;
+            color: rgba(0, 0, 0, 0.555);
+        }
+    }
+    .CityAccept{
+        height: 32px;
+        font-size: 18px;
+            font-weight: 500;
+            margin-bottom: 12px;
+            color: rgba(0, 0, 0, 0.555);
+        span{
+            color: black;
+            // font-weight: 500;
+        }
+    }
+}
+.ButtonsList{
+    margin-top: 24px;
+}

@@ -19,6 +19,7 @@
     "@reduxjs/toolkit": "^2.2.8",
     "axios": "^1.7.7",
     "country-flag-icons": "^1.5.13",
+    "decimal.js": "^10.4.3",
     "next": "14.2.13",
     "react": "^18",
     "react-color": "^2.19.3",

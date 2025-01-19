@@ -1,0 +1,13 @@
+.OrdersPage{
+    margin-top: 90px;
+    .List{
+        margin-top: 24px;
+    }
+    .EmptyList{
+        margin-top: 160px;
+        text-align: center;
+        font-size: 20px;
+        color: #000;
+        min-height: 400px;
+    }
+}

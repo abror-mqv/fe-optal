@@ -1,3 +1,12 @@
+.chip{
+    margin: 0 12px 12px 0;
+}
+.chip_doubled{
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
 header {
     display: flex;
     // background-color: white;
@@ -35,9 +44,25 @@ header {
 
 
 .form {
+    font-family: "Roboto", serif;
     margin-top: 32px;
-
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    column-gap: 64px;
+    .main_data{
+        // border: 1px solid rgba(0, 0, 0, 0.249);
+        // border-radius: 6px;
+        // padding: 6px;
+        min-width: 33%;
+    }
+    .meta_data{
+        min-width: 33%;
+    }
     .forma {
+        background-color: #fff;
+        padding: 18px 12px;
+        border-radius: 6px;
         margin-top: 24px;
 
         .input {
@@ -46,7 +71,7 @@ header {
 
         p {
             margin-bottom: 12px;
-            font-size: 12px;
+            font-size: 1rem;
             font-weight: 700;
         }
     }
@@ -59,13 +84,15 @@ header {
             background-color: #CD0000 !important;
         }
     }
-
+    
     .variants {
         margin-top: 24px;
 
         .title {
             font-weight: 700;
             margin-bottom: 12px;
+            color: #222;
+            font-size: 1rem;
         }
 
         .variants_row {

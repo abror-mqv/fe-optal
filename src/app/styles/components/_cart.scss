@@ -4,23 +4,30 @@
     flex-wrap: wrap;
     align-items: flex-start;
     margin-top: 42px;
-
+    font-family: "Roboto";
     .cart_items {
         width: calc(100% - 420px);
         min-width: 620px;
         gap: 24px;
-        border-radius: 28px;
-        background-color: white;
-        padding: 24px 16px;
+        border-radius: 28px;    
+        // background-color: white;
+        // padding: 24px 16px;
         margin-bottom: 24px;
         
         // background: #f8d9e1;
-        box-shadow: 5px 5px 26px #ceb4bb,
-            -5px -5px 26px #fffeff;
+        // box-shadow: 5px 5px 26px #eaeaea,
+        //     -5px -5px 26px #fffeff;
         .cart_info{
             font-size: 24px;
             font-weight: 400;
         }
+        .cart_items_list{
+            .cart_item_divider{
+                // height: 48px;
+                margin-top: 200px;
+            }
+        }
+        
     }
 
     .checkout {
@@ -29,7 +36,7 @@
         border-radius: 28px;
         padding: 32px 16px;
        
-        box-shadow: 5px 5px 26px #ceb4bb,
+        box-shadow: 5px 5px 26px #eaeaea,
             -5px -5px 26px #fffeff;
 
         .chose_adress {
@@ -52,6 +59,48 @@
             margin-top: 36px;
             font-weight: 900;
             font-size: larger;
+        }
+        .buttons{
+            display: flex;
+            justify-content: space-between;
+            margin-top: 36px;
+            gap: 12px;
+            button{
+                width: 100%;
+                padding: 12px 0;
+                border: none;
+                border-radius: 8px;
+                background-color: #CD0000;
+                color: white;
+                font-size: 16px;
+                font-weight: 700;
+                cursor: pointer;
+                transition: 0.3s;
+                &:hover{
+                    background-color: #ffffff !important;
+                    color: #CD0000;
+                }
+            }
+            button:first-child{
+                background-color: white;
+                color: #CD0000;
+                border: 1px solid #CD0000;
+                &:hover{
+                    background-color: #CD0000 !important;
+                    color: white !important;
+                }
+            }
+        }
+    }
+    padding-bottom: 40px;
+}
+
+@media screen and (max-width: 920px) {
+    .cart{
+        margin-top: 90px;
+        .cart_items{
+            min-width: 240px;
+            width: 100% !important;
         }
     }
 }

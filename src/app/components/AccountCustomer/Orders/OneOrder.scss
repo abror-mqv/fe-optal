@@ -1,0 +1,85 @@
+.OneOrder{
+    font-family: "Roboto", sans-serif;
+    display: flex;
+    flex-direction: column;
+    // margin: 10px;
+    padding: 10px 10px 10px 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+    box-shadow: 0 0 5px #ccc;
+    transition: all 0.3s;
+    .OrderInfo{
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        p{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+    }
+    .productsList{
+        display: flex;
+        flex-direction: column;
+        // gap: 12px;
+    }
+    &:hover{
+        box-shadow: 0 0 10px #ccc;
+    }
+    .orderHeader{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 10px;
+        .orderDate{
+            font-size: 1.2em;
+            font-weight: bold;
+        }
+        .orderStatus{
+            font-size: 1.2em;
+            font-weight: bold;
+            color: #ff0000;
+        }
+    }
+    .orderDetails{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        .orderTotal{
+            font-size: 1.2em;
+            font-weight: bold;
+        }
+        .orderDetailsButton{
+            background-color: #ff0000;
+            color: #fff;
+            padding: 5px 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s;
+            &:hover{
+                background-color: #cc0000;
+            }
+        }
+    }
+    .orderProducts{
+        display: flex;
+        flex-direction: column;
+        margin-top: 10px;
+        .product{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 5px;
+            .productName{
+                font-size: 1.2em;
+                font-weight: bold;
+            }
+            .productPrice{
+                font-size: 1.2em;
+                font-weight: bold;
+            }
+        }
+    }
+}

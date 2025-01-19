@@ -6,6 +6,9 @@ import AccountHeader from '../../components/account_header/AccountHeader'
 import AccountProducts from '../../components/account_header/AccountProducts'
 import axios from 'axios'
 import { BACK_URL } from '../../VAR'
+import ManufacterAllowModal from '../ux-kit/ManufacterAllowModal/ManufacterAllowModal'
+import ManufacterIntroModal from '../ux-kit/ManufacterIntroModal/ManufacterIntroModal'
+import Footer from '../footer/Footer'
 
 
 function AccountFactory() {
@@ -13,6 +16,28 @@ function AccountFactory() {
     const [description, setDescription] = useState("")
     const [image, setImage] = useState("")
     const [products, setProducts] = useState([])
+
+
+    const [openMAModal, setOpenMAModal] = useState(false)
+    const [openMIModal, setOpenMIModal] = useState(false)
+
+    const handleCloseMAModal = () => {
+        // setOpenMAModal(false)
+    }
+    const handleCloseMIModal = () => {
+        // setOpenMIModal(false)
+    }
+
+
+    useEffect(() => {
+        if (!localStorage.getItem("TOKEN")) {
+            setOpenMIModal(true)
+        } else if (localStorage.getItem("USER_TYPE") == "CUSTOMER") {
+            setOpenMAModal(true)
+        }
+    }, [])
+
+
     useEffect(() => {
         const token = localStorage.getItem('TOKEN');
         if (!token) {
@@ -76,6 +101,9 @@ function AccountFactory() {
         <div>
             <AccountHeader name={name} description={description} image={image} />
             <AccountProducts products={products} handleDelete={handleDelete} />
+            <ManufacterAllowModal open={openMAModal} handleClose={handleCloseMAModal} />
+            <ManufacterIntroModal open={openMIModal} handleClose={handleCloseMIModal} />
+            <Footer/>
         </div>
     )
 }

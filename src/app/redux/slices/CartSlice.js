@@ -1,17 +1,39 @@
 // src/redux/slices/cartSlice.js
+import { BACK_URL } from '@/app/VAR';
 import { createSlice } from '@reduxjs/toolkit';
+import { createAsyncThunk } from '@reduxjs/toolkit';
+import axios from 'axios';
+
 
 const initialState = {
   items: [], // Здесь будут храниться товары в корзине
 };
+
+
+export const saveCart = createAsyncThunk('cart/saveCart', async (cart) => {
+  console.log("REquseted")
+  const formattedCart = cart.map((item) => ({
+      product_id: item.product_id,
+      colors: item.colors.map((color) => ({
+          color_id: color.id,
+          quantity: color.quantity,
+      })),
+  }));
+
+  const response = await axios.put(`${BACK_URL}/api/customers/cart/`, { cart: formattedCart });
+  return response.data;
+});
+
 
 const cartSlice = createSlice({
   name: 'cart',
   initialState,
   reducers: {
     setCart(state, action) {
-      console.log(123123123)
+      console.log(action.payload)
+      console.log(123)
       state.items = action.payload;
+      // state.total = action.payload.total;
     },
     addItem(state, action) {
       const { productId, color, quantity } = action.payload;
@@ -59,8 +81,8 @@ const cartSlice = createSlice({
       const { product_id, color_id } = action.payload;
       const item = state.items.find(item => item.product_id === product_id);
       if (item) {
-        const color = item.colors.find(color => color.id === color_id);
-        console.log("COLOR ID", color_id)
+        const color = item.color_variations.find(color => color.id === color_id);
+        console.log("COLOR ID", color)
 
         if (color.quantity >= 100) {
           alert("Слишком много(((")
@@ -74,7 +96,7 @@ const cartSlice = createSlice({
       const { product_id, color_id } = action.payload;
       const item = state.items.find(item => item.product_id === product_id);
       if (item) {
-        const color = item.colors.find(color => color.id === color_id);
+        const color = item.color_variations.find(color => color.id === color_id);
         console.log("COLOR ID", color_id)
 
         if (color.quantity <= 0) {
@@ -88,10 +110,7 @@ const cartSlice = createSlice({
 
       }
     },
-    testQuantity(state) {
-      console.log("testQuantity reducer triggered");
-      state.items = []
-    },
+
   },
 });
 

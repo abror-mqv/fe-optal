@@ -47,11 +47,48 @@ function MobileHeader() {
     }, []);
 
 
+    // const ProfileLink = () => {
+    //     if (typeof window !== 'undefined') {
+    //         if (localStorage?.getItem("TOKEN") == "undefined") {
+    //             return (
+    //                 <Link href={'/account-factory'}>
+    //                     <ListItemButton
+    //                         aria-controls={open ? 'demo-positioned-menu' : undefined}
+    //                         aria-haspopup="true"
+
+    //                     >
+    //                         <ListItemIcon>
+    //                             <AccountBoxIcon />
+    //                         </ListItemIcon>
+    //                         <ListItemText primary={"Мой профиль"} />
+    //                     </ListItemButton>
+    //                 </Link>
+    //             )
+    //         }else if(localStorage.getItem("USER_TYPE") == "FACTORY"){
+
+    //         }
+    //     }
+    //     else {
+    //         <Link href={'/newfactory'}>
+    //             <ListItemButton
+    //                 aria-controls={open ? 'demo-positioned-menu' : undefined}
+    //                 aria-haspopup="true"
+
+    //             >
+    //                 <ListItemIcon>
+    //                     <AccountBoxIcon />
+    //                 </ListItemIcon>
+    //                 <ListItemText primary={"Начать продавать"} />
+    //             </ListItemButton>
+    //         </Link>
+    //     }
+    // }
+
     const ProfileLink = () => {
-        if (typeof window !== 'undefined') {
-            if (localStorage?.getItem("TOKEN") == "undefined") {
-                return (
-                    <Link href={'/account-factory'}>
+        if (!localStorage.getItem("TOKEN")) {
+            return (
+                <>
+                    <Link href="/register-customer">
                         <ListItemButton
                             aria-controls={open ? 'demo-positioned-menu' : undefined}
                             aria-haspopup="true"
@@ -60,25 +97,53 @@ function MobileHeader() {
                             <ListItemIcon>
                                 <AccountBoxIcon />
                             </ListItemIcon>
-                            <ListItemText primary={"Мой профиль"} />
+                            <ListItemText primary="Зарегистрироваться" />
                         </ListItemButton>
                     </Link>
-                )
-            }
-        }
-        else {
-            <Link href={'/newfactory'}>
-                <ListItemButton
-                    aria-controls={open ? 'demo-positioned-menu' : undefined}
-                    aria-haspopup="true"
+                    <Link href="/newfactory">
+                        <ListItemButton
+                            aria-controls={open ? 'demo-positioned-menu' : undefined}
+                            aria-haspopup="true"
 
-                >
-                    <ListItemIcon>
-                        <AccountBoxIcon />
-                    </ListItemIcon>
-                    <ListItemText primary={"Начать продавать"} />
-                </ListItemButton>
-            </Link>
+                        >
+                            <ListItemIcon>
+                                <AccountBoxIcon />
+                            </ListItemIcon>
+                            <ListItemText primary="Начать продавать" />
+                        </ListItemButton>
+                    </Link>
+                </>
+            )
+        } else if (localStorage.getItem("USER_TYPE") == "CUSTOMER") {
+            return (
+                <Link href="/account-customer">
+                    <ListItemButton
+                        aria-controls={open ? 'demo-positioned-menu' : undefined}
+                        aria-haspopup="true"
+
+                    >
+                        <ListItemIcon>
+                            <AccountBoxIcon />
+                        </ListItemIcon>
+                        <ListItemText primary="Личный кабинет" />
+                    </ListItemButton>
+                </Link>
+            )
+        } else if (localStorage.getItem("USER_TYPE") == "FACTORY") {
+            return (
+                <Link href="/account-factory">
+                    <ListItemButton
+                        aria-controls={open ? 'demo-positioned-menu' : undefined}
+                        aria-haspopup="true"
+
+                    >
+                        <ListItemIcon>
+                            <AccountBoxIcon />
+                        </ListItemIcon>
+                        <ListItemText primary="Личный кабинет" />
+                    </ListItemButton>
+                </Link>
+            )
         }
     }
 
@@ -103,19 +168,6 @@ function MobileHeader() {
                         </Link>
 
                         <ProfileLink />
-
-                        <Link href={(localStorage?.getItem("TOKEN")) ? "/account-customer" : "/register-customer"}>
-                            <ListItemButton
-                                aria-controls={open ? 'demo-positioned-menu' : undefined}
-                                aria-haspopup="true"
-
-                            >
-                                <ListItemIcon>
-                                    <AccountBoxIcon />
-                                </ListItemIcon>
-                                <ListItemText primary={(localStorage?.getItem("TOKEN")) ? "Личный кабинет" : "Зарегистрироваться"} />
-                            </ListItemButton>
-                        </Link>
                         <Link href={`/cart`}>
                             <ListItemButton
                                 aria-controls={open ? 'demo-positioned-menu' : undefined}

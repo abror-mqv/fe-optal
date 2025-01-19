@@ -1,6 +1,6 @@
 "use client"
 
-import { Button, TextField, ListItem } from '@mui/material'
+import { Button, TextField, ListItem, Chip } from '@mui/material'
 import React, { useState } from 'react'
 import '../../styles/components/_addproduct.scss'
 import AddCircleOutlineIcon from '@mui/icons-material/AddCircleOutline';
@@ -217,9 +217,9 @@ function AddProductForm({ setSubmitFunction }) {
             <div className='main_data'>
                 <div>
                     <div className='forma name'>
-                        <p>
-                            Название товара
-                        </p>
+                        <div className='chip'>
+                            <Chip label="Название товара" />
+                        </div>
 
                         <TextField fullWidth inputProps={{ maxLength: 44 }} id="outlined-basic" label="Куртка демисезонная с капюшоном" variant="outlined" value={productname} className='input' onChange={e => {
                             setProductname(e.target.value)
@@ -228,11 +228,10 @@ function AddProductForm({ setSubmitFunction }) {
                         </TextField>
                     </div>
                     <div className='forma category'>
-                        <p onClick={() => {
-                            console.log("SUBCAT", category)
-                        }}>
-                            Категория
-                        </p>
+                        <div className='chip'>
+                            <Chip label="Категория" />
+                        </div>
+
                         <Button variant='outlined' sx={{ borderColor: "#CD0000", color: "#CD0000" }} onClick={() => {
                             setIsOpen(true)
                         }}>
@@ -244,9 +243,9 @@ function AddProductForm({ setSubmitFunction }) {
 
                     </div>
                     <div className='forma size'>
-                        <p>
-                            Размеры в одной линейке (перечисляйте через запятую)
-                        </p>
+                        <div className='chip chip_doubled'>
+                            <Chip label="Размеры в одной линейке" /><Chip variant='outlined' label="перечисляйте через запятую" />
+                        </div>
 
                         <TextField fullWidth inputProps={{ maxLength: 44 }} id="outlined-basic" label="38, 39, 40, 40, 41, 42" variant="outlined" value={sizesline} className='input' onChange={e => {
                             setSizesLine(e.target.value)
@@ -255,9 +254,11 @@ function AddProductForm({ setSubmitFunction }) {
                         </TextField>
                     </div>
                     <div className='forma desc'>
-                        <p>
-                            Опсиание товара
-                        </p>
+
+                        <div className='chip'>
+                            <Chip label="Опсиание товара" />
+                        </div>
+
 
                         <TextField
                             id="outlined-multiline-static"
@@ -275,45 +276,49 @@ function AddProductForm({ setSubmitFunction }) {
                     </div>
                 </div>
             </div>
-            <div className='variants'>
-                <p className='title' onClick={() => console.log(colorVariants)}>
-                    Варианты цветов
-                </p>
-                <div className='variants_row'>
-                    {
-                        colorVariants.map((variant, index) => {
-                            return (
-                                <div key={index} className='color_new'>
-                                    <ButtonVariant index={index} variant={variant} />
-                                    <ColorPicker onChange={(e) => { handleVariantChange(index, 'color_code', e.target.value) }} value={colorVariants[index].color_code} />
-                                    <TextField
+            <div className='meta_data'>
+                <div className='variants'>
+                    <div className='chip'>
+                        <Chip label="Варианты цветов" />
+                    </div>
 
-                                        className='color_code'
-                                        value={variant.color_name}
-                                        onChange={(e) => handleVariantChange(index, 'color_name', e.target.value)}
-                                        fullWidth inputProps={{ maxLength: 44 }} id="outlined-Аbasic" label="Название цвета"
-                                    />
-                                </div>
-                            )
-                        })
-                    }
-                    <Button variant='contained' className='AddNewColor' onClick={addColorVariant}>
-                        <AddCircleOutlineIcon />
-                    </Button>
+
+
+                    <div className='variants_row'>
+                        {
+                            colorVariants.map((variant, index) => {
+                                return (
+                                    <div key={index} className='color_new'>
+                                        <ButtonVariant index={index} variant={variant} />
+                                        <ColorPicker onChange={(e) => { handleVariantChange(index, 'color_code', e.target.value) }} value={colorVariants[index].color_code} />
+                                        <TextField
+
+                                            className='color_code'
+                                            value={variant.color_name}
+                                            onChange={(e) => handleVariantChange(index, 'color_name', e.target.value)}
+                                            fullWidth inputProps={{ maxLength: 44 }} id="outlined-Аbasic" label="Название цвета"
+                                        />
+                                    </div>
+                                )
+                            })
+                        }
+                        <Button variant='contained' className='AddNewColor' onClick={addColorVariant}>
+                            <AddCircleOutlineIcon />
+                        </Button>
+                    </div>
+
                 </div>
-
-            </div>
-            <div className='main_data'>
-
                 <div className='forma price'>
-                    <p>Цена за 1 единицу товара</p>
+                    <div className='chip'>
+                        <Chip label="Цена за 1 штуку товара" />
+                    </div>
                     <div className='PriceForm'>
                         <TextField fullWidth inputProps={{ maxLength: 44 }} id="outlined-basic" label="0" variant="outlined" value={price} className='input' onChange={e => {
                             setPrice(e.target.value)
                         }}>
 
                         </TextField>
-                        рублей
+                        <Chip variant='outlined' label="сом" />
                     </div>
 
                 </div>
@@ -321,6 +326,8 @@ function AddProductForm({ setSubmitFunction }) {
                     <Button type="submit" variant='contained' fullWidth>ГОТОВО</Button>
                 </div>
             </div>
+
+
             <SwipeableDrawer
                 anchor="bottom"
                 open={isOpen}
@@ -353,6 +360,7 @@ function AddProductForm({ setSubmitFunction }) {
                                                             setCategory(subcat.id);
                                                             setCategoryName(`${cat.cat_name} > ${subcat.subcat_name}`)
                                                             handleListItemClick()
+                                                            console.log(category)
                                                         }}>
                                                             {subcat.subcat_name}
                                                         </Button>

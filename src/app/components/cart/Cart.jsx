@@ -1,224 +1,287 @@
 'use client'
 
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import '../../styles/components/_cart.scss';
 import { useDispatch, useSelector } from 'react-redux';
 import CartItem from './CartItem';
 
 import { incrementLineQuantity, decrementLineQuantity, testQuantity, setCart } from '../../redux/slices/CartSlice';
 import { Button } from '@mui/material';
-import ActionButton from '../buttons/ActionButton';
+import { fetchCart } from '@/app/redux/api/cartApi';
+import { saveCart } from '../../redux/slices/CartSlice';
 
 
-const products = [
-  {
-    product_id: 1,
-    factory: "Швейпромакс",
-    factory_logo: "https://bulak.kg/wp-content/uploads/2023/11/Bez-nazvaniya-1.png",
-    name: "Блузка базовая DeFacto",
-    description: "Lorem ipsum dolor sit amed. Lorem ipsum dolor sit amed sit amed dolor imagocos ",
-    price: "350",
-    image: "https://ir.ozone.ru/s3/multimedia-1-u/wc1000/7082871474.jpg",
-    line_sizes: [
-      38, 39, 40, 41, 41, 42, 43, 44
-    ],
-    colors: [
-      {
-        id: 1,
-        color_hex: "A2D2DF",
-        color_name: "Светлый синий",
-        color_image: "https://basket-12.wbbasket.ru/vol1872/part187217/187217779/images/big/2.webp",
-        in_stock: true,
-        quantity: 0
-      },
-      {
-        id: 2,
-        color_hex: "F6EFBD",
-        color_name: "Пшеничный",
-        color_image: "https://basket-15.wbbasket.ru/vol2383/part238377/238377705/images/big/1.webp",
-        in_stock: true,
-        quantity: 0
-      },
-      {
-        id: 3,
-        color_hex: "E4C087",
-        color_name: "Грязный",
-        color_image: "https://basket-11.wbbasket.ru/vol1605/part160585/160585517/images/big/1.webp",
-        in_stock: true,
-        quantity: 0
-      },
-      {
-        id: 4,
-        color_hex: "BC7C7C",
-        color_name: "Золотой",
-        color_image: "https://basket-15.wbbasket.ru/vol2383/part238378/238378566/images/big/1.webp",
-        in_stock: true,
-        quantity: 0
-      },
-      {
-        id: 5,
-        color_hex: "789DBC",
-        color_name: "Сизый",
-        color_image: "https://basket-12.wbbasket.ru/vol1872/part187216/187216787/images/big/2.webp",
-        in_stock: true,
-        quantity: 0
-      }
-    ]
-  },
-  {
-    product_id: 2,
-    factory: "Швейпромакс",
-    factory_logo: "https://bulak.kg/wp-content/uploads/2023/11/Bez-nazvaniya-1.png",
-    name: "Блузка базовая DeFacto",
-    description: "Lorem ipsum dolor sit amed. Lorem ipsum dolor sit amed sit amed dolor imagocos ",
-    price: "350",
-    image: "https://ir.ozone.ru/s3/multimedia-1-u/wc1000/7082871474.jpg",
-    line_sizes: [
-      38, 39, 40, 41, 41, 42, 43, 44
-    ],
-    colors: [
-      {
-        id: 1,
-        color_hex: "A2D2DF",
-        color_name: "Светлый синий",
-        color_image: "https://basket-12.wbbasket.ru/vol1872/part187217/187217779/images/big/2.webp",
-        in_stock: true,
-        quantity: 0
-      },
-      {
-        id: 2,
-        color_hex: "F6EFBD",
-        color_name: "Пшеничный",
-        color_image: "https://basket-15.wbbasket.ru/vol2383/part238377/238377705/images/big/1.webp",
-        in_stock: true,
-        quantity: 0
-      },
-      {
-        id: 3,
-        color_hex: "E4C087",
-        color_name: "Грязный",
-        color_image: "https://basket-11.wbbasket.ru/vol1605/part160585/160585517/images/big/1.webp",
-        in_stock: true,
-        quantity: 0
-      },
-      {
-        id: 4,
-        color_hex: "BC7C7C",
-        color_name: "Золотой",
-        color_image: "https://basket-15.wbbasket.ru/vol2383/part238378/238378566/images/big/1.webp",
-        in_stock: true,
-        quantity: 0
-      },
-      {
-        id: 5,
-        color_hex: "789DBC",
-        color_name: "Сизый",
-        color_image: "https://basket-12.wbbasket.ru/vol1872/part187216/187216787/images/big/2.webp",
-        in_stock: true,
-        quantity: 0
-      }
-    ]
-  },
-]
+import axios from 'axios';
+import { BACK_URL } from '@/app/VAR';
+import SaveModal from './SaveModal';
+import CheckOutModal from './CheckOutModal';
+import { setNewCity } from '@/app/util/NewCity';
+import CurrencyFormatter from '../CurrencyFormatter/CurrencyFormatter';
+import BackPage from '../ui-kit/BackPage/BackPage';
+import QuickAuthModal from '../ux-kit/QuickAuthModal/QuickAuthModal';
+import ClientAllowModal from '../ux-kit/ClientAllowModal/ClientAllowModal';
 
 
 function Cart(props) {
-  const dispatch = useDispatch();
-  const cart = useSelector((state) => state.cart.items);
+	const [openSaveModal, setOpenSaveModal] = useState(false)
+	const [openCheckOutModal, setOpenCheckOutModal] = useState(false)
 
 
-  const handleIncrement = (product_id, color_id) => {
-    dispatch(incrementLineQuantity({ product_id, color_id }));
-  };
-  const handleDecrement = (product_id, color_id) => {
-    dispatch(decrementLineQuantity({ product_id, color_id }));
-  };
+	const [openQAModal, setOpenQAModal] = useState(false)
+	const [openCAModal, setOpenCAModal] = useState(false)
+	const [lineCount, setLineCount] = useState(0);
+
+
+	useEffect(() => {
+		const token = typeof window !== 'undefined' ? localStorage.getItem("TOKEN") : null;
+		const userType = typeof window !== 'undefined' ? localStorage.getItem("USER_TYPE") : null;
+
+		if (!token) {
+			setOpenQAModal(true);
+		} else if (userType === "FACTORY") {
+			setOpenCAModal(true);
+		}
+	}, []);
+
+	const handleCloseCAModal = () => {
+		// setOpenCAModal(false)
+	}
 
 
 
-  useEffect(() => {
-    const fetchCart = async () => {
-      dispatch(setCart(products));
-    };
 
-    fetchCart();
-  }, [dispatch]);
 
-  const onTestQuantity = () => {
-    dispatch(testQuantity())
-  }
+	const handleCloseQAModal = () => {
+		// setOpenQAModal(false)
+	}
 
-  var line_count = 0
-  cart.map(el => {
-    el.colors.map(el => {
-      line_count = line_count + el.quantity
-    })
-  })
+	const handleCloseSaveModal = () => {
+		setOpenSaveModal(false)
+	}
 
-  var summary = 0
-  cart.map(el => {
-    var product_summary = 0
-    el.colors.map(color => {
-      product_summary = product_summary + (color.quantity * el.price * el.line_sizes.length)
-    })
-    summary = summary + product_summary
-  })
+	const handleOpenSaveModal = () => {
+		setOpenSaveModal(true)
+	}
 
-  var sale_drop = summary * 0.01
+	const handleOpenCheckOutModal = () => {
+		setOpenCheckOutModal(true)
+	}
+	const handleCloseCheckOutModal = () => {
+		setOpenCheckOutModal(false)
+	}
+	const handleNextCheckOutModal = (city) => {
+		handleCloseCheckOutModal();
+		setNewCity(city);
+	}
 
-  return (
-    <div className='cart'>
-      <div className='cart_items'>
-        <div className='cart_info' onClick={() => {
-          onTestQuantity()
-        }}>
-          Корзина
-        </div>
-        <div className='cart_items_list'>
-          {
-            cart.map(el => {
+	const dispatch = useDispatch();
+	const cart = useSelector((state) => state.cart.items);
 
-              return (
-                <CartItem data={el}
-                  key={el.id}
-                  onIncrement={handleIncrement}
-                  onDecrement={handleDecrement}
-                />
-              )
-            })
-          }
-        </div>
-      </div>
-      <div className='checkout'>
-        <p className='chose_adress'>
-          Выбрать адрес доставки
-        </p>
-        <p className='secondary_text'>
-          <span>
-            Товары ({line_count} линеек):
-          </span>
-          <span>
-            {summary} р
-          </span>
-        </p>
-        <p className='secondary_text'>
+	const handleIncrement = (product_id, color_id) => {
+		dispatch(incrementLineQuantity({ product_id, color_id }));
+	};
 
-          <span>
-            Моя скидка:
-          </span>
-          <span>
-            {sale_drop} р
-          </span>
-        </p>
-        <p className='summary'>
+	const handleDecrement = (product_id, color_id) => {
+		dispatch(decrementLineQuantity({ product_id, color_id }));
+	};
 
-          <span>ИТОГО:</span>
-          <span>{summary - sale_drop} р</span>
-        </p>
-        <ActionButton mode="checkout" className="checkout_button" />
-      </div>
-    </div>
-  )
+
+
+	useEffect(() => {
+		fetchCart(dispatch);
+	}, [dispatch]);
+
+	const onTestQuantity = () => {
+		dispatch(testQuantity())
+	}
+
+	useEffect(() => {
+		const count = cart?.reduce((acc, el) => {
+			const itemCount = el.color_variations.reduce((subAcc, color) => subAcc + color.quantity, 0);
+			return acc + itemCount;
+		}, 0);
+
+		setLineCount(count || 0);
+	}, [cart]);
+
+	var summary = 0
+	cart?.map(el => {
+		var product_summary = 0
+		el.color_variations.map(color => {
+			product_summary = product_summary + (color.quantity * el.price * el.sizes.length)
+		})
+		summary = summary + product_summary
+	})
+
+	var sale_drop = summary * 0.01
+
+
+	const handleSaveCart = async () => {
+
+		const token = typeof window !== 'undefined' ? localStorage.getItem('TOKEN') : null;
+
+		if (!token) {
+			console.error("Пользователь не авторизован");
+			return;
+		}
+
+
+		const formattedCart = cart.map((item) => ({
+			product_id: item.product_id,
+			colors: item.color_variations.map((color) => ({
+				color_id: color.id,
+				quantity: color.quantity,
+			})),
+		}));
+
+		const obj = {
+			cart: [
+				...formattedCart
+			]
+		}
+
+		axios.put(`${BACK_URL}/api/customers/cart-update/`, obj, {
+			headers: {
+				Authorization: `Token ${token}`,
+			},
+		})
+			.then(res => {
+				console.log(obj)
+				console.log(res)
+				handleOpenSaveModal()
+			}).catch(err => {
+				console.log(obj)
+				console.log(err)
+			})
+
+
+	};
+
+	useEffect(() => {
+		const fetchUserInfo = async () => {
+			const token = typeof window !== 'undefined' ? localStorage.getItem("TOKEN") : null;
+
+			if (!token) return;
+
+			try {
+				const res = await axios.get(`${BACK_URL}/api/customers/get-user-info`, {
+					headers: {
+						Authorization: `Token ${token}`,
+					},
+				});
+
+				console.log(res.data);
+				setFirstName(res.data.first_name);
+				setPhone(res.data.username);
+				if (typeof window !== 'undefined') {
+					localStorage.setItem("city", res.data.city);
+				}
+			} catch (err) {
+				console.log(err);
+			}
+		};
+
+		fetchUserInfo();
+	}, []);
+
+	const handleCheckout = () => {
+		if (typeof window !== 'undefined') {
+			const token = localStorage.getItem('TOKEN');
+			if (!token) {
+				console.error("Пользователь не авторизован");
+				return;
+			}
+			const obj = {}
+			axios.get(`${BACK_URL}/api/customers/cart/checkout`, {
+				headers: {
+					Authorization: `Token ${token}`
+				}
+			}).then(res => {
+				console.log("CHECKOUT RES: ", res.data)
+				handleOpenCheckOutModal()
+			}).catch(err => {
+				console.log("CHECKOUT ERROR: ", err)
+			})
+		}
+	}
+
+	const backs = [
+		{
+			"url": "/",
+			"label": "На главную"
+		},
+		{
+			"url": "/account-customer",
+			"label": "В личный кабинет"
+		}
+	]
+
+	return (
+		<div className='cart'>
+			<div className='cart_items'>
+				<BackPage backs={backs} />
+				<div className='cart_info'>
+					Корзина
+				</div>
+				<div className='cart_items_list'>
+					{
+						cart?.map((el, index) => {
+
+							return (
+
+
+								<CartItem data={el}
+									key={index}
+									onIncrement={handleIncrement}
+									onDecrement={handleDecrement}
+								/>
+
+
+							)
+						})
+					}
+				</div>
+			</div>
+			<div className='checkout'>
+				<p className='chose_adress'>
+					Выбрать адрес доставки
+				</p>
+				<p className='secondary_text'>
+					<span>
+						Товары ({lineCount} линеек):
+					</span>
+					<span>
+						<CurrencyFormatter amount={summary} />
+
+					</span>
+				</p>
+				<p className='secondary_text'>
+
+					<span>
+						Моя скидка:
+					</span>
+					<span>
+						{/* {sale_drop} р */}
+						0 р.
+					</span>
+				</p>
+				<p className='summary'>
+
+					<span>ИТОГО:</span>
+					<span><CurrencyFormatter amount={summary - sale_drop} /></span>
+				</p>
+				<div className='buttons'>
+					<Button fullWidth variant='outlined' onClick={handleSaveCart}>Сохранить</Button>
+
+					<Button fullWidth variant='contained' onClick={() => handleCheckout()} style={{ background: "#CD0000" }} >Оформить</Button>
+				</div>
+				<SaveModal handleOpenCheckOut={handleOpenCheckOutModal} handleOpen={handleOpenSaveModal} handleClose={handleCloseSaveModal} open={openSaveModal} />
+				<CheckOutModal handleOpen={handleOpenCheckOutModal} handleClose={handleCloseCheckOutModal} open={openCheckOutModal} handleNext={handleNextCheckOutModal} handleSaveCart={handleSaveCart} />
+				<QuickAuthModal open={openQAModal} handleClose={handleCloseQAModal} warningText="Корзина доступна только после авторизации" />
+				<ClientAllowModal open={openCAModal} handleClose={handleCloseCAModal} isAddToCartAction={false} />
+			</div>
+		</div>
+	)
 }
 
 export default Cart

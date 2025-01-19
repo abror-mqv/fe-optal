@@ -1,0 +1,15 @@
+.SaveModal{
+    background-color: red($color: #000000);
+    h2{
+        margin-bottom: 24px;
+    }
+    .ButtonsList{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        gap: 12px;
+        button:first-child{
+            // color: #000000;
+        }
+    }
+}

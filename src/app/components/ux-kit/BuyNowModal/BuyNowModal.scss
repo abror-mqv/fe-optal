@@ -1,0 +1,17 @@
+.BuyNowModal{
+    font-family: "Roboto", serif !important;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    .GoToCartModalInfo{
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        margin-bottom: 24px;
+    }
+    .ChipHolder{
+        display: flex;
+        justify-content: flex-start;
+        // margin-bottom: 24px;
+    }
+}
