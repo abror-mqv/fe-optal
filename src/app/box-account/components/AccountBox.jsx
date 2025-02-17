@@ -6,14 +6,21 @@ import AccountHeader from '../../components/account_header/AccountHeader'
 import AccountProducts from '../../components/account_header/AccountProducts'
 import axios from 'axios'
 import { BACK_URL } from '../../VAR'
-import ManufacterAllowModal from '../ux-kit/ManufacterAllowModal/ManufacterAllowModal'
-import ManufacterIntroModal from '../ux-kit/ManufacterIntroModal/ManufacterIntroModal'
-import Footer from '../footer/Footer'
+
+// import ManufacterAllowModal from '../ux-kit/ManufacterAllowModal/ManufacterAllowModal'
+// import ManufacterIntroModal from '../ux-kit/ManufacterIntroModal/ManufacterIntroModal'
 
 
-function AccountFactory() {
+import Footer from '@/app/components/footer/Footer'
+import AccountBoxHeader from './AccountBoxHeader'
+import AccountBoxFooter from './AccountBoxFooter'
+import AccountBoxProducts from './AccountBoxProducts'
+
+
+function AccountBox() {
     const [name, setName] = useState("Название цеха")
     const [description, setDescription] = useState("")
+    const [firstName, setFirstName] = useState("Аброр")
     const [image, setImage] = useState("")
     const [products, setProducts] = useState([])
 
@@ -51,6 +58,7 @@ function AccountFactory() {
         }).then(res => {
             console.log(res)
             setName(res.data.factory_name)
+            setFirstName(res.data.first_name)
             if (res.data.factory_description != null) {
                 setDescription(res.data.factory_description)
             }
@@ -100,13 +108,14 @@ function AccountFactory() {
 
     return (
         <div>
-            <AccountHeader name={name} description={description} image={image} />
-            <AccountProducts products={products} handleDelete={handleDelete} />
-            <ManufacterAllowModal open={openMAModal} handleClose={handleCloseMAModal} />
-            <ManufacterIntroModal open={openMIModal} handleClose={handleCloseMIModal} />
+            <AccountBoxHeader name={name} description={description} image={image} first_name={firstName} />
+            <AccountBoxProducts products={products} handleDelete={handleDelete} />
             <Footer />
+            {/* <ManufacterAllowModal open={openMAModal} handleClose={handleCloseMAModal} />
+            <ManufacterIntroModal open={openMIModal} handleClose={handleCloseMIModal} /> */}
+            {/* <Footer /> */}
         </div>
     )
 }
 
-export default AccountFactory
+export default AccountBox

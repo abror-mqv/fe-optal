@@ -20,9 +20,9 @@ import DeleteForeverIcon from '@mui/icons-material/DeleteForever';
 
 
 import axios from 'axios';
-import ProductList from './ProductList';
+import BoxProductList from './BoxProductList';
 const products = false
-function AccountProducts({ products, handleDelete }) {
+function AccountBoxProducts({ products, handleDelete }) {
 
     if (
         products == false
@@ -34,7 +34,7 @@ function AccountProducts({ products, handleDelete }) {
                         Это - витрина вашего цеха <br></br>
                     </p>
                     <div>
-                        <Link href="/addproduct">
+                        <Link href="/box-addproduct">
 
                             <Button variant='contained'>
                                 Добавить товар <AddCircleIcon />
@@ -51,13 +51,13 @@ function AccountProducts({ products, handleDelete }) {
         return (
             <div>
                 <div className='products'>
-                    <Link href="/addproduct">
+                    <Link href="/box-addproduct">
                         <Button variant='contained' fullWidth sx={{ background: "#CD0000", marginBottom: 4, display: "flex", justifyContent: "space-between" }}>
                             Добавить товар <AddCircleIcon />
                         </Button>
                     </Link>
 
-                    <ProductList products={products} handleDelete={handleDelete} />
+                    <BoxProductList products={products} handleDelete={handleDelete} />
                     {/* {
                         products.map(product => {
                             console.log(product)
@@ -99,6 +99,6 @@ function AccountProducts({ products, handleDelete }) {
 
 }
 
-export default AccountProducts
+export default AccountBoxProducts
 
 

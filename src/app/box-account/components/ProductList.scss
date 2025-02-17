@@ -1,0 +1,24 @@
+.ProductList{
+    .product_main_info{
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        gap: 18px;
+        .image_container{
+            width: 60px;
+            img{
+                height: 60px;
+                border-radius: 6px;
+                box-shadow: -2px 1px 5px 1px rgba(0, 0, 0, 0.32);
+            }
+        }
+        
+    }
+    .Mui-checked{
+        color: #CD0000 !important;
+    }
+    .MuiSwitch-track{
+        background-color: black !important;
+    }
+    
+}

@@ -44,7 +44,7 @@ const style = {
     fontSize: "18px"
 };
 
-function AddProductForm({ setSubmitFunction }) {
+function BoxAddProductForm({ setSubmitFunction }) {
 
     const ButtonVariant = ({ variant, index }) => {
         console.log("VAR: ", variant, "IDX: ", index)
@@ -380,7 +380,7 @@ function AddProductForm({ setSubmitFunction }) {
                     <p className='congrats'>
                         Поздравляем! <br />Вы успешно добавили свой товар!
                     </p>
-                    <Link href={"/account-factory"}>
+                    <Link href={"/box-account"}>
                         <Button variant='contained' color='success' fullWidth onClick={() => {
                             handleClose()
                         }}>
@@ -393,4 +393,4 @@ function AddProductForm({ setSubmitFunction }) {
     )
 }
 
-export default AddProductForm
+export default BoxAddProductForm
