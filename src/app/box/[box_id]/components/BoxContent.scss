@@ -1,5 +1,5 @@
 .Category {
-    margin-top: 90px;
+    margin-top: 100px;
 
     .main_feed {
         .sub_feed {
@@ -13,6 +13,22 @@
 
 
 @media screen and (max-width: 920px) {
+    .BoxInfo{
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        .topInfo{
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background-color: #ffffff;
+            padding: 12px;
+            border-radius: 6px;
+        }
+        .bottomInfo{
+            padding: 12px;
+        }
+    }
     
     .Category {
 

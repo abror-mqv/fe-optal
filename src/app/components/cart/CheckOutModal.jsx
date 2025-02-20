@@ -34,11 +34,14 @@ function CheckOutModal({ handleOpen, handleClose, open, handleNext, handleSaveCa
     }, [])
 
     React.useEffect(() => {
-        if (city.length == 0) {
-            setAbleNext(false)
-        } else {
-            setAbleNext(true)
+        if (city != null) {
+            if (city.length == 0) {
+                setAbleNext(false)
+            } else {
+                setAbleNext(true)
+            }
         }
+
     }, [city])
 
 

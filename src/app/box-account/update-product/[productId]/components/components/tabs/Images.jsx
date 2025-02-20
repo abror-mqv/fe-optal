@@ -33,12 +33,8 @@ function Images({ productId }) {
     const handleOpenDeleteModal = () => setOpenDeleteModal(true);
     const handleCloseDeleteModal = () => setOpenDeleteModal(false);
 
-
-
-
-
-
     useEffect(() => {
+        console.log("PPPID:  ", productId)
         axios.get(`${BACK_URL}/api/factories/products/${productId}`).then(res => {
             console.log(res.data)
             setOldImages(res.data.color_variations)

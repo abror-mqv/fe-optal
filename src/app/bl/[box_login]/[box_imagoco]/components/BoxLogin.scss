@@ -1,0 +1,19 @@
+.BoxBl{
+    font-family: "Roboto";
+    width: 100%;
+    height: 90vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .ChildBoxBl{
+        background-color: #cd00001c;
+        color: rgb(0, 0, 0);
+        text-transform: uppercase;
+        border-radius: 12px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 24px;
+        flex-direction: column;
+    }
+}

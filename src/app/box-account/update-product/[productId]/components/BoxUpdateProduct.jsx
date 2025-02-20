@@ -16,7 +16,7 @@ function BoxUpdateProduct() {
     const { productId } = useParams();
 
     const handleSubmitRef = useRef(null);
-
+    
 
     return (
         <div className='UpdateProduct'>

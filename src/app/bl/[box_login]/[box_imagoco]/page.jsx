@@ -1,10 +1,10 @@
 import React from 'react'
-import BoxCreate from './components/BoxCreate'
+import BoxLogin from './components/BoxLogin'
 
 function page() {
     return (
         <div>
-            <BoxCreate />
+            <BoxLogin />
         </div>
     )
 }

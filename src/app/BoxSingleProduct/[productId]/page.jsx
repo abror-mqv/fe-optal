@@ -1,10 +1,12 @@
+'use client'
+
 import React from 'react'
-import BoxCreate from './components/BoxCreate'
+import BoxSingleProduct from './componetns/BoxSingleProduct'
 
 function page() {
     return (
         <div>
-            <BoxCreate />
+            <BoxSingleProduct />
         </div>
     )
 }
