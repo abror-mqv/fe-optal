@@ -7,6 +7,12 @@
 
 
 .AccountHeader {
+    .boxidbox{
+        background-color: rgb(255, 255, 255);
+        padding: 8px 18px;
+        border-radius: 8px;
+        width: max-content;
+    }
     margin-top: 90px;
     position: relative;
     // background-color: rgba(255, 0, 0, 0.427);

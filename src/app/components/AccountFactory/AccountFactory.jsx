@@ -51,6 +51,9 @@ function AccountFactory() {
         }).then(res => {
             console.log(res)
             setName(res.data.factory_name)
+            if (res.data.factory_avatar != null) {
+                setImage(res.data.factory_avatar)
+            }
             if (res.data.factory_description != null) {
                 setDescription(res.data.factory_description)
             }

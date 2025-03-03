@@ -22,7 +22,7 @@ function Header() {
 
   return (
     <>
-      {isMobile ? <MobileHeader /> : <DesktopHeader />}
+      {/* {isMobile ? <MobileHeader /> : <DesktopHeader />} */}
     </>
   )
 }

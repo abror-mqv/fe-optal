@@ -17,6 +17,7 @@ import Box from '@mui/material/Box';
 
 import { useRouter } from 'next/router';
 import Link from 'next/link';
+import ChooseRazdel from './modals/ChooseRazdel';
 
 
 const ColorPicker = props => {
@@ -107,7 +108,10 @@ function BoxAddProductForm({ setSubmitFunction }) {
     const [isOpen, setIsOpen] = useState(false)
     const [category, setCategory] = useState(0)
     const [categoryName, setCategoryName] = useState("")
+    const [razdelId, setRazdelId] = useState(null)
+    const [razdelName, setRazdelName] = useState("Без раздела")
     const [open, setOpen] = React.useState(false);
+    const [openRazdelModal, setOpenRazdelModal] = React.useState(false);
 
     const handleClose = () => {
         setOpen(false);
@@ -152,7 +156,8 @@ function BoxAddProductForm({ setSubmitFunction }) {
             price: price,
             description: description,
             sizes: sizesline,
-            father: category
+            father: category,
+            store_category: razdelId
         };
 
         try {
@@ -234,6 +239,16 @@ function BoxAddProductForm({ setSubmitFunction }) {
 
                         </Button>
 
+                    </div>
+                    <div className='forma razdel'>
+                        <div className='chip'>
+                            <Chip label="Раздел" />
+                        </div>
+                        <Button variant='outlined' sx={{ borderColor: "#CD0000", color: "#CD0000" }} onClick={() => {
+                            setOpenRazdelModal(true)
+                        }}>
+                            {razdelName}
+                        </Button>
                     </div>
                     <div className='forma size'>
                         <div className='chip chip_doubled'>
@@ -389,6 +404,9 @@ function BoxAddProductForm({ setSubmitFunction }) {
                     </Link>
                 </Box>
             </Modal>
+            <ChooseRazdel open={openRazdelModal} onClose={() => {
+                setOpenRazdelModal(false)
+            }} setRazdelId={setRazdelId} setRazdelName={setRazdelName} />
         </form>
     )
 }

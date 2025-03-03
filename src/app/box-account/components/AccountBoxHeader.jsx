@@ -32,8 +32,7 @@ const style = {
 };
 
 
-function AccountBoxHeader({ name, description, image, first_name }) {
-
+function AccountBoxHeader({ name, description, image, first_name, box_id }) {
   const [openName, setOpenName] = React.useState(false);
 
   const [name_n, setName_n] = React.useState(name)
@@ -81,6 +80,9 @@ function AccountBoxHeader({ name, description, image, first_name }) {
     }
   };
 
+  const unformatNumber = (str) => str.replace(/-/g, "");
+
+
   return (
     <>
       <header className='AccountHeader'>
@@ -88,7 +90,7 @@ function AccountBoxHeader({ name, description, image, first_name }) {
         <div className='left_header'>
           <div className='profile_div'>
             <div className='profile_picture'>
-              <img src="https://assets.turbologo.ru/blog/ru/2019/03/18165914/%D0%91%D0%B5%D0%B7-%D0%B8%D0%BC%D0%B5%D0%BD%D0%B8-3-98.png" alt="" />
+              <img src={image} alt="" />
               <EditIcon sx={{ fontSize: 18, cursor: "pointer" }} onClick={handleOpenModal} />
 
             </div>
@@ -105,12 +107,25 @@ function AccountBoxHeader({ name, description, image, first_name }) {
         <div className='right_header'>
           <div className='description'>
 
-            <p className='title'>Описание вашего профиля <EditIcon sx={{ fontSize: 18, cursor: "pointer" }} onClick={() => {
+            <p className='title'>Описание вашего бокса <EditIcon sx={{ fontSize: 18, cursor: "pointer" }} onClick={() => {
               handleOpenName()
             }} /></p>
             <p className='description_text'>
               {desc_n}
             </p>
+          </div>
+          <div className='boxidbox' style={{ marginTop: "12px" }}>
+            <h2>
+              BOX_ID: <span onClick={() => {
+                navigator.clipboard.writeText(
+                  `https://optal.ru/box/${unformatNumber(box_id)}`
+                )
+              }}>
+                {box_id}
+              </span>
+
+
+            </h2>
           </div>
         </div>
         <div className='third_header'>

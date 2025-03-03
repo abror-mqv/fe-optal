@@ -8,6 +8,7 @@ import {
   Avatar,
 } from "@mui/material";
 import { BACK_URL } from "@/app/VAR";
+import axios from "axios";
 
 const style = {
   position: "absolute",
@@ -37,6 +38,7 @@ const UploadAvatarModal = ({ isOpen, onClose, onUpload }) => {
   };
 
   const handleSubmit = async () => {
+    console.log(avatar)
     if (!avatar) {
       alert("Пожалуйста, выберите файл!");
       return;
@@ -46,24 +48,18 @@ const UploadAvatarModal = ({ isOpen, onClose, onUpload }) => {
     formData.append("avatar", avatar);
 
     try {
-      const response = await fetch(`${BACK_URL}/api/factories/factory/avatar`, {
-        method: "POST",
+      const response = await axios.put(`${BACK_URL}/api/factories/factory/update-avatar/`, formData, {
         headers: {
-          Authorization: `Token ${localStorage.getItem("TOKEN")}`,
+          "Content-Type": "multipart/form-data",
+          "Authorization": `Token ${localStorage.getItem("TOKEN")}`,
         },
-        body: formData,
       });
 
-      if (response.ok) {
-        alert("Аватарка успешно загружена!");
-        onUpload();
-        onClose();
-      } else {
-        alert("Ошибка при загрузке аватарки.");
-      }
+      console.log("Аватарка обновлена:", response.data.avatar_url);
+      onClose()
+      return response.data.avatar_url;
     } catch (error) {
-      console.error("Ошибка:", error);
-      alert("Ошибка при соединении с сервером.");
+      console.error("Ошибка при загрузке аватарки:", error.response?.data || error.message);
     }
   };
 

@@ -16,7 +16,7 @@ function DesktopFooter() {
       <div className='FooterLogo'>
 
         <Image src="/optal_logo.svg" width={80} height={80} />
-        <Link href='/'>
+        <Link href='#'>
           <h4>
             Optal.ru
           </h4>
@@ -26,40 +26,40 @@ function DesktopFooter() {
       <div className='FooterInfo'>
         <div className='Top'>
           <div className='LinkList'>
-            <Link href="/">
+            <Link href="#">
               О наc
             </Link>
-            <Link href="/">
+            <Link href="#">
               Доставка
             </Link>
-            <Link href="/">
+            <Link href="#">
               Цены
             </Link>
-            <Link href="/">
+            <Link href="#">
               Отзывы
             </Link>
-            <Link href="/">
+            <Link href="#">
               Гарантии
             </Link>
           </div>
           <div className='MediaLinks'>
-            <Link href='/'>
+            <Link href='https://www.instagram.com/optal.ru/'>
               <InstagramIcon />
             </Link>
-            <Link href='/'>
+            <Link href='https://t.me/optal_ru'>
               <TelegramIcon />
             </Link>
-            <Link href='/'>
+            <Link href='https://x.com/abror_mqv'>
               <XIcon />
             </Link>
-            <Link href='/'>
+            <Link href='https://wa.me/996559808243'>
               <WhatsAppIcon />
             </Link>
 
-            <Link href='/'>
+            <Link href='#'>
               <YouTubeIcon />
             </Link>
-            <Link href='/'>
+            <Link href='#'>
               <GestureIcon />
             </Link>
           </div>
@@ -69,22 +69,22 @@ function DesktopFooter() {
         </div>
         <div className='Bottom'>
           <div className='LinkList'>
-            <Link href="/">
+            <Link href="#">
               Политика конфиденциальности
             </Link>
-            <Link href="/">
+            <Link href="#">
               Условия пользования
             </Link>
-            <Link href="/">
+            <Link href="#">
               Условия платежей
             </Link>
-            <Link href="/">
+            <Link href="#">
               Карта сайта
             </Link>
-            <Link href="/">
+            <Link href="#">
               Для специальных предложений
             </Link>
-            <Link href="/">
+            <Link href="#">
               Связаться с владельцем
             </Link>
           </div>

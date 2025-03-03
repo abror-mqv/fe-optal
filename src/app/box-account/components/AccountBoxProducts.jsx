@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import '../../styles/components/_account_products.scss'
 import { Button } from '@mui/material'
 import AddCircleIcon from '@mui/icons-material/AddCircle';
@@ -21,8 +21,21 @@ import DeleteForeverIcon from '@mui/icons-material/DeleteForever';
 
 import axios from 'axios';
 import BoxProductList from './BoxProductList';
+import CreateNewStoreCategoryModal from './modals/CreateNewStoreCategoryModal';
 const products = false
-function AccountBoxProducts({ products, handleDelete }) {
+function AccountBoxProducts({ products, handleDelete, reload }) {
+    const [openStoreCategoryModal, setOpenStoreCategoryModal] = useState(false)
+
+    const handleOpenSCModal = () => {
+        setOpenStoreCategoryModal(true)
+    }
+    const handleCloseSCModal = () => {
+        setOpenStoreCategoryModal(false)
+    }
+
+    const handleCreateNewStoreCategory = () => {
+        handleOpenSCModal()
+    }
 
     if (
         products == false
@@ -51,48 +64,26 @@ function AccountBoxProducts({ products, handleDelete }) {
         return (
             <div>
                 <div className='products'>
+
+                    <Button variant='contained' fullWidth sx={{ background: "#343131", marginBottom: 4, display: "flex", justifyContent: "space-between" }} onClick={() => {
+                        handleCreateNewStoreCategory()
+                        console.log(12312)
+                    }}>
+                        Добавить раздел <AddCircleIcon />
+                    </Button>
+
+
+
+
                     <Link href="/box-addproduct">
                         <Button variant='contained' fullWidth sx={{ background: "#CD0000", marginBottom: 4, display: "flex", justifyContent: "space-between" }}>
                             Добавить товар <AddCircleIcon />
                         </Button>
                     </Link>
 
-                    <BoxProductList products={products} handleDelete={handleDelete} />
-                    {/* {
-                        products.map(product => {
-                            console.log(product)
-                            return (
-                                <Card sx={{ maxWidth: 420 }} key={product.id}>
-                                    <CardMedia
-                                        component="img"
-                                        alt="green iguana"
-                                        height="320"
-                                        image={`${BACK_URL}${product.color_variations[0]?.image}`}
-                                    />
-                                    <CardContent>
-                                        <div className='first_info'>
-                                            <h3>{product.name}</h3>
-                                            <h3>{product.color_variations.length} цветовых вариаций</h3>
-                                        </div>
-                                        <div gutterBottom variant="h5" component="div">
-                                            {product.price} ₽
-                                        </div>
-                                    </CardContent>
-                                    <CardActions sx={{ justifyContent: "end" }}>
-                                        <Link href={`/product/${product.id}`}>
-                                            <Button variant='contained' size="small"><VisibilityIcon /></Button>
-                                        </Link>
-                                        <Link href={`/account-factory/update-product/${product.id}`}>
-                                            <Button color='success' variant='contained' size="small" ><EditIcon /></Button>
-                                        </Link>
-                                        <Button color="error" variant='contained' size="small" onClick={() => handleDelete(product.id)}><DeleteForeverIcon /></Button>
-                                    </CardActions>
-                                </Card>
-                            )
-                        })
-                    } */}
-
+                    <BoxProductList products={products} handleDelete={handleDelete} reload={reload}/>
                 </div>
+                <CreateNewStoreCategoryModal open={openStoreCategoryModal} onClose={handleCloseSCModal} reload={reload}/>
             </div >
         )
     }

@@ -1,6 +1,6 @@
 'use client'
 
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, useCallback } from 'react'
 import Header from '../../components/header/Header'
 import AccountHeader from '../../components/account_header/AccountHeader'
 import AccountProducts from '../../components/account_header/AccountProducts'
@@ -22,7 +22,10 @@ function AccountBox() {
     const [description, setDescription] = useState("")
     const [firstName, setFirstName] = useState("Аброр")
     const [image, setImage] = useState("")
+    const [box_id, setBoxId] = useState("000000")
     const [products, setProducts] = useState([])
+    const [reloadFlag, setReloadFlag] = useState(false)
+    const formatNumber = (num) => num.toString().replace(/(\d{3})(\d{3})/, "$1-$2");
 
 
     const [openMAModal, setOpenMAModal] = useState(false)
@@ -59,6 +62,10 @@ function AccountBox() {
             console.log(res)
             setName(res.data.factory_name)
             setFirstName(res.data.first_name)
+            setBoxId(formatNumber(res.data.supplier_id))
+            if (res.data.factory_avatar != null) {
+                setImage(res.data.factory_avatar)
+            }
             if (res.data.factory_description != null) {
                 setDescription(res.data.factory_description)
             }
@@ -67,7 +74,7 @@ function AccountBox() {
         });
 
 
-    }, [name])
+    }, [name, reloadFlag])
 
     useEffect(() => {
         const token = localStorage.getItem('TOKEN');
@@ -86,30 +93,34 @@ function AccountBox() {
         }).catch(err => {
             console.log(err)
         });
-    }, [])
+    }, [reloadFlag])
 
     const handleDelete = async (productId) => {
-        // try {
-        //     const token = localStorage.getItem("TOKEN");
-        //     await axios.delete(`${BACK_URL}/api/factories/factory/products/${productId}/`, {
-        //         headers: {
-        //             Authorization: `Token ${token}`
-        //         }
-        //     });
-        //     setProducts(products.filter(product => product.id !== productId));
-        //     alert("Товар успешно удален");
-        //     // Обновление списка товаров или редирект после удаления
-        // } catch (error) {
-        //     console.error("Ошибка при удалении товара:", error);
-        //     alert("Не удалось удалить товар");
-        // }
-        alert(`Deleting ${productId}`)
+        try {
+            const token = localStorage.getItem("TOKEN");
+            await axios.delete(`${BACK_URL}/api/factories/factory/products/${productId}/`, {
+                headers: {
+                    Authorization: `Token ${token}`
+                }
+            });
+            setProducts(products.filter(product => product.id !== productId));
+            alert("Товар успешно удален");
+            reload()
+            // Обновление списка товаров или редирект после удаления
+        } catch (error) {
+            console.error("Ошибка при удалении товара:", error);
+            alert("Не удалось удалить товар");
+        }
     };
+
+    const reload = useCallback(() => {
+        setReloadFlag(prevReload => !prevReload);
+    }, []);
 
     return (
         <div>
-            <AccountBoxHeader name={name} description={description} image={image} first_name={firstName} />
-            <AccountBoxProducts products={products} handleDelete={handleDelete} />
+            <AccountBoxHeader name={name} description={description} image={image} first_name={firstName} box_id={box_id} />
+            <AccountBoxProducts products={products} handleDelete={handleDelete} reload={reload} />
             <Footer />
             {/* <ManufacterAllowModal open={openMAModal} handleClose={handleCloseMAModal} />
             <ManufacterIntroModal open={openMIModal} handleClose={handleCloseMIModal} /> */}

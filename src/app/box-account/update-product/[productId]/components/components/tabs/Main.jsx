@@ -12,6 +12,7 @@ import axios from 'axios';
 import { BACK_URL } from '@/app/VAR';
 
 import "./Main.scss"
+import ChooseRazdel from '@/app/box-addproduct/componetns/modals/ChooseRazdel';
 
 function Main({ productId }) {
     const [productname, setProductname] = useState("")
@@ -23,6 +24,10 @@ function Main({ productId }) {
     const [price, setPrice] = useState(0)
     const [isOpen, setIsOpen] = useState(false)
     const [open, setOpen] = useState(false)
+
+    const [razdelId, setRazdelId] = useState(null)
+    const [razdelName, setRazdelName] = useState("Без раздела")
+    const [openRazdelModal, setOpenRazdelModal] = React.useState(false);
 
     const [cats, setCats] = useState([])
     const toggleDrawer = (open) => (event) => {
@@ -76,16 +81,16 @@ function Main({ productId }) {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        alert(
-            `
-            SubmitData \n 
-                ${productname}
-                ${price}
-                ${sizesline}
-                ${description}
-                ${category}
-            `
-        )
+        // alert(
+        //     `
+        //     SubmitData \n 
+        //         ${productname}
+        //         ${price}
+        //         ${sizesline}
+        //         ${description}
+        //         ${category}
+        //     `
+        // )
         axios.patch(
             `${BACK_URL}/api/factories/products/update/${productId}/`,
             {
@@ -93,7 +98,8 @@ function Main({ productId }) {
                 "sizes": sizesline,
                 "price": price,
                 "description": description,
-                "father": category
+                "father": category,
+                "store_category": razdelId
             },
             {
                 headers: {
@@ -182,10 +188,22 @@ function Main({ productId }) {
                     </Button>
 
                 </div>
+                <div className='InputForm'>
+                    <p>
+                        Раздел
+                    </p>
+                    <Button  variant='outlined' sx={{ color: "rgba(0, 0, 0, 0.652);", border: "none", backgroundColor: "#00000014", padding: "12px 16px" }} onClick={() => {
+                        setOpenRazdelModal(true)
+                    }}>
+                        {razdelName}
+                    </Button>
+                </div>
                 <div className='InputButton'>
                     <Button type="submit" variant='contained' sx={{ backgroundColor: "#CD0000" }}>СОХРАНИТЬ</Button>
                 </div>
+                <div className='FooterLikeSpace'>
 
+                </div>
             </div>
 
 
@@ -258,6 +276,9 @@ function Main({ productId }) {
                     </Link>
                 </Box>
             </Modal>
+            <ChooseRazdel open={openRazdelModal} onClose={() => {
+                setOpenRazdelModal(false)
+            }} setRazdelId={setRazdelId} setRazdelName={setRazdelName} />
         </form >
     )
 }

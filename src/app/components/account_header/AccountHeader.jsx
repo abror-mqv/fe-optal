@@ -43,6 +43,7 @@ function AccountHeader({ name, description, image }) {
     const [newName, setNewName] = React.useState(name)
     const [newDesc, setNewDesc] = React.useState(description)
 
+
     React.useEffect(() => {
         setNewName(name);
         setNewDesc(description);
@@ -90,7 +91,7 @@ function AccountHeader({ name, description, image }) {
                 <div className='left_header'>
                     <div className='profile_div'>
                         <div className='profile_picture'>
-                            <img src="https://assets.turbologo.ru/blog/ru/2019/03/18165914/%D0%91%D0%B5%D0%B7-%D0%B8%D0%BC%D0%B5%D0%BD%D0%B8-3-98.png" alt="" />
+                            <img src={image} alt="" />
                             <EditIcon sx={{ fontSize: 18, cursor: "pointer" }} onClick={handleOpenModal} />
 
                         </div>

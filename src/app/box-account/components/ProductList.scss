@@ -1,4 +1,15 @@
 .ProductList{
+    .OneRazdel{
+        margin-top: 28px;
+        h3{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #fff;
+            padding: 6px 24px;
+            border-radius: 6px 6px 0px 0px;
+        }
+    }
     .product_main_info{
         display: flex;
         justify-content: flex-start;

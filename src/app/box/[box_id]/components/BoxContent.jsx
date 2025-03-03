@@ -8,8 +8,9 @@ import { deepOrange, deepPurple } from '@mui/material/colors';
 import Link from 'next/link';
 import QuickAuthModal from '@/app/components/ux-kit/QuickAuthModal/QuickAuthModal';
 import ClientAllowModal from '@/app/components/ux-kit/ClientAllowModal/ClientAllowModal';
+import Razdel from './Razdel'
 
-function BoxContent({ data, box_name, box_description, supplier_id }) {
+function BoxContent({ data, box_name, box_description, box_avatar, supplier_id }) {
     const [openQAModal, setOpenQAModal] = useState(false)
     const [openCAModal, setOpenCAModal] = useState(false)
 
@@ -31,8 +32,13 @@ function BoxContent({ data, box_name, box_description, supplier_id }) {
         <div className='Category'>
             <Link href={`/box/${supplier_id}`} className='BoxInfo'>
                 <div className='topInfo'>
-                    <Avatar sx={{ bgcolor: deepOrange[500] }}>{box_name[0]}</Avatar>
+                    <div className='profile_picture'>
+                        <img src={box_avatar} alt="" />
+
+
+                    </div>
                     <h1>
+
                         {box_name}
                     </h1>
                 </div>
@@ -44,8 +50,17 @@ function BoxContent({ data, box_name, box_description, supplier_id }) {
             </Link>
 
             <div className='main_feed'>
-                <div className='sub_feed'>
-                    {data.map((el, index) => {
+
+                {
+                    data.map((razdel, index) => {
+                        return (
+                            <Razdel key={index} razdel={razdel} setAuthError={handleOpenQAModal}  setCAError={handleOpenCAModal}/>
+                        )
+                    })
+                }
+
+
+                {/* {data.map((el, index) => {
                         return (
                             <BoxProductCard
                                 name={el.name}
@@ -55,10 +70,14 @@ function BoxContent({ data, box_name, box_description, supplier_id }) {
                                 image={(el.color_variations[0]?.image) ? (el.color_variations[0].image) : null}
                                 key={index}
                                 setAuthError={handleOpenQAModal}
+                                setCAError={handleOpenCAModal}
                             />
                         )
-                    })}
-                </div>
+                    })} */}
+
+
+
+
             </div>
 
             <QuickAuthModal open={openQAModal} handleClose={handleCloseQAModal} warningText="Корзина доступна только после авторизации" />
