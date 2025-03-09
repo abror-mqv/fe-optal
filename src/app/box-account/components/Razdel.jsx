@@ -85,7 +85,7 @@ function Razdel({ name, products, categoryId, reload, handleDelete }) {
 
                                         </TableCell>
                                         <TableCell align="right">
-                                            {product.price}
+                                            {product.price_with_commission}
                                         </TableCell  >
                                         <TableCell align="right">
                                             {product.color_variations.length}

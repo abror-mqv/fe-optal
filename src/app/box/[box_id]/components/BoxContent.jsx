@@ -60,21 +60,7 @@ function BoxContent({ data, box_name, box_description, box_avatar, supplier_id }
                 }
 
 
-                {/* {data.map((el, index) => {
-                        return (
-                            <BoxProductCard
-                                name={el.name}
-                                id={el.id}
-                                price={el.price}
-                                rate={5}
-                                image={(el.color_variations[0]?.image) ? (el.color_variations[0].image) : null}
-                                key={index}
-                                setAuthError={handleOpenQAModal}
-                                setCAError={handleOpenCAModal}
-                            />
-                        )
-                    })} */}
-
+              
 
 
 

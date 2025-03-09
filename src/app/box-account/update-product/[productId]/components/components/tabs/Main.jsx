@@ -11,8 +11,14 @@ import Link from 'next/link';
 import axios from 'axios';
 import { BACK_URL } from '@/app/VAR';
 
+import InfoIcon from '@mui/icons-material/Info';
+import PercentIcon from '@mui/icons-material/Percent';
+import TrendingUpIcon from '@mui/icons-material/TrendingUp';
+
 import "./Main.scss"
 import ChooseRazdel from '@/app/box-addproduct/componetns/modals/ChooseRazdel';
+import PriceComponent from './PriceComponent';
+import SuccessUpdated from './Modals/SuccessUpdated';
 
 function Main({ productId }) {
     const [productname, setProductname] = useState("")
@@ -22,9 +28,10 @@ function Main({ productId }) {
     const [sizesline, setSizesLine] = useState("")
     const [description, setDescription] = useState("")
     const [price, setPrice] = useState(0)
+    const [percentage, setPercentage] = useState(0)
     const [isOpen, setIsOpen] = useState(false)
     const [open, setOpen] = useState(false)
-
+    const [openSuccess, setOpenSuccess] = useState(false)
     const [razdelId, setRazdelId] = useState(null)
     const [razdelName, setRazdelName] = useState("Без раздела")
     const [openRazdelModal, setOpenRazdelModal] = React.useState(false);
@@ -65,6 +72,18 @@ function Main({ productId }) {
 
         axios.get(`${BACK_URL}/api/factories/cats`).then(res => {
             setCats(res.data)
+        })
+    }, [])
+
+    useEffect(() => {
+        axios.get(`${BACK_URL}/api/factories/get-my-percentage/`, {
+            headers: {
+                Authorization: `Token ${localStorage.getItem("TOKEN")}`, // Убедитесь, что токен сохранён
+            },
+        }).then((res => {
+            setPercentage(res.data.percentage)
+        })).catch(err => {
+            console.log(err)
         })
     }, [])
     useEffect(() => {
@@ -108,6 +127,7 @@ function Main({ productId }) {
             }
         ).then(res => {
             console.log("Submit Res", res)
+            setOpenSuccess(true)
         })
     }
 
@@ -163,16 +183,8 @@ function Main({ productId }) {
                         />
                     </div>
 
-                    <div className='InputForm'>
-                        <p>
-                            Цена единицы товара
-                        </p>
-                        <TextField fullWidth inputProps={{ maxLength: 44 }} id="outlined-basic" variant="outlined" value={price} className='custom-textfield' onChange={e => {
-                            setPrice(e.target.value)
-                        }}>
 
-                        </TextField>
-                    </div>
+
                 </div>
                 <div className='InputForm'>
                     <p>
@@ -192,15 +204,27 @@ function Main({ productId }) {
                     <p>
                         Раздел
                     </p>
-                    <Button  variant='outlined' sx={{ color: "rgba(0, 0, 0, 0.652);", border: "none", backgroundColor: "#00000014", padding: "12px 16px" }} onClick={() => {
+                    <Button variant='outlined' sx={{ color: "rgba(0, 0, 0, 0.652);", border: "none", backgroundColor: "#00000014", padding: "12px 16px" }} onClick={() => {
                         setOpenRazdelModal(true)
                     }}>
                         {razdelName}
                     </Button>
                 </div>
+                <div className='InputForm'>
+                    <p>
+                        Цена единицы товара
+                    </p>
+                    {/* <TextField fullWidth inputProps={{ maxLength: 44 }} id="outlined-basic" variant="outlined" value={price} className='custom-textfield' onChange={e => {
+                            setPrice(e.target.value)
+                        }}>
+
+                        </TextField> */}
+                    <PriceComponent price={price} setPrice={setPrice} percentage={percentage} />
+                </div>
                 <div className='InputButton'>
                     <Button type="submit" variant='contained' sx={{ backgroundColor: "#CD0000" }}>СОХРАНИТЬ</Button>
                 </div>
+
                 <div className='FooterLikeSpace'>
 
                 </div>
@@ -279,6 +303,9 @@ function Main({ productId }) {
             <ChooseRazdel open={openRazdelModal} onClose={() => {
                 setOpenRazdelModal(false)
             }} setRazdelId={setRazdelId} setRazdelName={setRazdelName} />
+            <SuccessUpdated open={openSuccess} onClose={() => {
+                setOpenSuccess(false)
+            }} />
         </form >
     )
 }

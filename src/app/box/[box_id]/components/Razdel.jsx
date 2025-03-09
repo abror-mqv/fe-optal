@@ -14,7 +14,7 @@ function Razdel(razdel, handleOpenQAModal, handleOpenCAModal) {
                             <BoxProductCard
                                 name={product.name}
                                 id={product.id}
-                                price={product.price}
+                                price={product.price_with_commission}
                                 rate={5}
                                 image={(product.color_variations[0]?.image) ? (product.color_variations[0].image) : null}
                                 key={index}

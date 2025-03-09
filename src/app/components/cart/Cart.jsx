@@ -268,7 +268,7 @@ function Cart(props) {
 				<p className='summary'>
 
 					<span>ИТОГО:</span>
-					<span><CurrencyFormatter amount={summary - sale_drop} /></span>
+					<span><CurrencyFormatter amount={summary} /></span>
 				</p>
 				<div className='buttons'>
 					<Button fullWidth variant='outlined' onClick={handleSaveCart}>Сохранить</Button>

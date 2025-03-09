@@ -50,7 +50,7 @@ function Main({ productId }) {
             console.log(res.data)
             setProductname(res.data.name)
             setSizesLine(res.data.sizes.join(", "))
-            setPrice(res.data.price)
+            setPrice(res.data.price_with_commission)
             setDescription(res.data.description)
             setCategory(res.data.father)
             setColorVariants(res.data.color_variations)

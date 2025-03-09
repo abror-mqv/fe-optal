@@ -32,7 +32,7 @@ const style = {
 };
 
 
-function AccountBoxHeader({ name, description, image, first_name, box_id }) {
+function AccountBoxHeader({ name, description, image, first_name, box_id, reload }) {
   const [openName, setOpenName] = React.useState(false);
 
   const [name_n, setName_n] = React.useState(name)
@@ -192,6 +192,7 @@ function AccountBoxHeader({ name, description, image, first_name, box_id }) {
           isOpen={isModalOpen}
           onClose={handleCloseModal}
           onUpload={handleAvatarUpload}
+          reload={reload}
         />
       </header>
     </>

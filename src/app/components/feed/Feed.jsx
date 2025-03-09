@@ -48,7 +48,7 @@ function Feed() {
                         <ProductCard
                             name={el.name}
                             id={el.id}
-                            price={el.price}
+                            price={el.price_with_commission}
                             rate={el.rate}
                             image={(el.color_variations[0]?.image) ? (el.color_variations[0].image) : null}
                             key={el.id}

@@ -10,7 +10,7 @@ import CloudUploadIcon from "@mui/icons-material/CloudUpload";
 import AddPhotoAlternateIcon from '@mui/icons-material/AddPhotoAlternate';
 import AttachFileIcon from '@mui/icons-material/AttachFile';
 import DeleteIcon from "@mui/icons-material/Delete";
-
+import imageCompression from "browser-image-compression";
 const style = {
     position: 'absolute',
     top: '50%',
@@ -40,8 +40,23 @@ function EditImage({ open, handleClose, color_id, update }) {
         setPreview(null);
     };
 
-    const handleFileChange = (event) => {
-        setSelectedFile(event.target.files[0]);
+    const handleFileChange = async (event) => {
+        const file = event.target.files[0];
+        if (!file) return;
+
+        const options = {
+            maxSizeMB: 3,
+            maxWidthOrHeight: 3036,
+            useWebWorker: true,
+        };
+
+        try {
+            const compressedFile = await imageCompression(file, options);
+            const newFile = new File([compressedFile], file.name, { type: file.type });
+            setSelectedFile(newFile);
+        } catch (error) {
+            console.error("Ошибка сжатия:", error);
+        }
     };
 
 

@@ -14,6 +14,7 @@ import Visibility from '@mui/icons-material/Visibility';
 import VisibilityOff from '@mui/icons-material/VisibilityOff';
 import axios from 'axios';
 import { BACK_URL } from '@/app/VAR';
+import BoxRegisteredModal from './BoxRegisteredModal';
 
 function BoxCreate() {
     const [factoryNumber, setFactoryNumber] = React.useState("")
@@ -62,19 +63,10 @@ function BoxCreate() {
                 <div className="boxer">
 
                     <div className='CardLogin'>
-
-                        <div className='header'>
-                            <h4>
-                                Начните
-                            </h4>
-                            <p>
-                                продавать как производитель
-                            </p>
-                        </div>
                         <div className='CardLoginForm'>
                             <div className='form name'>
                                 <p>
-                                    Как вас зовут?
+                                    Имя
                                 </p>
 
                                 <TextField fullWidth id="outlined-basic" label="Ваше имя" variant="outlined" value={firstName} className='input' onChange={e => {
@@ -85,7 +77,7 @@ function BoxCreate() {
                             </div>
                             <div className='form number'>
                                 <p>
-                                    Ваш номер
+                                    Номер
                                 </p>
                                 <TextField type="number" fullWidth id="outlined-basic" label="Номер" variant="outlined" value={factoryNumber} className='input' onChange={e => {
                                     setFactoryNumber(e.target.value)
@@ -95,7 +87,7 @@ function BoxCreate() {
                             </div>
                             <div className='form factoryname'>
                                 <p>
-                                    Название вашего цеха
+                                    Название бокса
                                 </p>
                                 <TextField fullWidth id="outlined-basic" label="Название" variant="outlined" value={factoryName} className='input' onChange={e => {
                                     setFactoryName(e.target.value)
@@ -123,6 +115,13 @@ function BoxCreate() {
                 </div>
 
             </main>
+            <BoxRegisteredModal open={open} onClose={() => {
+                setOpen(false)
+                setFactoryName("")
+                setFactoryNumber("")
+                setFirstName("")
+
+            }} />
 
         </div>
     )

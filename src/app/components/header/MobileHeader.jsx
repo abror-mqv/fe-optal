@@ -19,6 +19,7 @@ import MenuIcon from '@mui/icons-material/Menu';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import { BACK_URL } from '@/app/VAR';
 import CallMissedOutgoingIcon from '@mui/icons-material/CallMissedOutgoing';
+import SearchBar from './components/Search';
 
 
 function MobileHeader() {
@@ -166,6 +167,13 @@ function MobileHeader() {
                                 <Image width={42} height={42} src="/optal_logo.svg" />
                             </ListItemButton>
                         </Link>
+                        <ListItemButton
+                            aria-controls={open ? 'demo-positioned-menu' : undefined}
+                            aria-haspopup="true"
+
+                        >
+                            {/* <SearchBar /> */}
+                        </ListItemButton>
 
                         <ProfileLink />
                         <Link href={`/cart`}>

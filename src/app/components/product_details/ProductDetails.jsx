@@ -223,7 +223,7 @@ function ProductDetails(props) {
                             4.7
                         </div> */}
                             <div className='price'>
-                                <p><CurrencyFormatter amount={product?.price} /></p>
+                                <p><CurrencyFormatter amount={product?.price_with_commission} /></p>
                                 <span className='price_explaination'>Цена за 1 штуку</span>
                             </div>
                         </div>

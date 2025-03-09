@@ -18,6 +18,11 @@ import Box from '@mui/material/Box';
 import { useRouter } from 'next/router';
 import Link from 'next/link';
 import ChooseRazdel from './modals/ChooseRazdel';
+import EditColor from '@/app/box-account/update-product/[productId]/components/components/tabs/Modals/EditColor';
+import ChooseColor from './modals/ChooseColor';
+import ChooseColorButton from './сomponents/ChooseColorButton';
+import PriceComponent from './сomponents/PriceComponent';
+import imageCompression from "browser-image-compression";
 
 
 const ColorPicker = props => {
@@ -46,6 +51,7 @@ const style = {
 };
 
 function BoxAddProductForm({ setSubmitFunction }) {
+    const [openEditColorModal, setOpenEditColorModal] = React.useState(false);
 
     const ButtonVariant = ({ variant, index }) => {
         console.log("VAR: ", variant, "IDX: ", index)
@@ -57,6 +63,7 @@ function BoxAddProductForm({ setSubmitFunction }) {
                     component="label"
                     className='color_image'
                     onChange={(e) => handleImageChange(index, e.target.files[0])}
+
                 >
 
                     <img src={variant.image_url} alt="Variant" className="variant-image" />
@@ -112,6 +119,7 @@ function BoxAddProductForm({ setSubmitFunction }) {
     const [razdelName, setRazdelName] = useState("Без раздела")
     const [open, setOpen] = React.useState(false);
     const [openRazdelModal, setOpenRazdelModal] = React.useState(false);
+    const [percentage, setPercentage] = useState(0);
 
     const handleClose = () => {
         setOpen(false);
@@ -119,6 +127,17 @@ function BoxAddProductForm({ setSubmitFunction }) {
     React.useEffect(() => {
         axios.get(`${BACK_URL}/api/factories/cats`).then(res => {
             setCats(res.data)
+        })
+
+        axios.get(`${BACK_URL}/api/factories/get-my-percentage`, {
+            headers: {
+                Authorization: `Token ${localStorage.getItem("TOKEN")}`, // Убедитесь, что токен сохранён
+            },
+        }).then(res => {
+            console.log(res)
+            setPercentage(res.data.percentage)
+        }).catch(err => {
+            console.log(err)
         })
     }, [])
     const toggleDrawer = (open) => (event) => {
@@ -141,9 +160,9 @@ function BoxAddProductForm({ setSubmitFunction }) {
     const addColorVariant = () => {
         setColorVariants([...colorVariants, { color_name: "", color_code: "#000", image: "" }]);
     };
-    const handleVariantChange = (index, field, value) => {
+    const handleVariantChange = (index, newValues) => {
         const updatedVariants = colorVariants.map((variant, i) =>
-            i === index ? { ...variant, [field]: value } : variant
+            i === index ? { ...variant, ...newValues } : variant
         );
         setColorVariants(updatedVariants);
     };
@@ -201,14 +220,35 @@ function BoxAddProductForm({ setSubmitFunction }) {
 
     setSubmitFunction.current = handleSubmit;
 
-    const handleImageChange = (index, file) => {
-        const imageUrl = URL.createObjectURL(file);
+    const handleImageChange = async (index, file) => {
+        if (!file) return;
 
-        const updatedVariants = [...colorVariants];
-        updatedVariants[index].image_url = imageUrl;
-        updatedVariants[index].image = file;
-        setColorVariants(updatedVariants);
+        const options = {
+            maxSizeMB: 2,
+            maxWidthOrHeight: 3036,
+            useWebWorker: true,
+        };
+
+        try {
+            const compressedFile = await imageCompression(file, options);
+            const newFile = new File([compressedFile], file.name, { type: file.type });
+            const imageUrl = URL.createObjectURL(newFile);
+            const updatedVariants = [...colorVariants];
+            updatedVariants[index].image_url = imageUrl;
+            updatedVariants[index].image = newFile;
+
+            setColorVariants(updatedVariants);
+        } catch (error) {
+            console.error("Ошибка сжатия:", error);
+        }
     };
+
+    const [currentEditColorId, setCurrentEditColorId] = useState(null);
+
+    const handleColorPickModalOpen = (index) => {
+        setCurrentEditColorId(index);
+        setOpenEditColorModal(true)
+    }
 
     return (
         <form className='form' onSubmit={(e) => handleSubmit(e)}>
@@ -296,16 +336,9 @@ function BoxAddProductForm({ setSubmitFunction }) {
                         {
                             colorVariants.map((variant, index) => {
                                 return (
-                                    <div key={index} className='color_new'>
+                                    <div key={index} className='color_new' style={(variant.color_name == "") ? {} : { backgroundColor: variant.color_code, borderRadius: "12px" }}>
                                         <ButtonVariant index={index} variant={variant} />
-                                        <ColorPicker onChange={(e) => { handleVariantChange(index, 'color_code', e.target.value) }} value={colorVariants[index].color_code} />
-                                        <TextField
-
-                                            className='color_code'
-                                            value={variant.color_name}
-                                            onChange={(e) => handleVariantChange(index, 'color_name', e.target.value)}
-                                            fullWidth inputProps={{ maxLength: 44 }} id="outlined-Аbasic" label="Название цвета"
-                                        />
+                                        <ChooseColorButton handleModalOpen={handleColorPickModalOpen} index={index} color_name_value={variant.color_name} color_code_value={variant.color_code} />
                                     </div>
                                 )
                             })
@@ -316,20 +349,7 @@ function BoxAddProductForm({ setSubmitFunction }) {
                     </div>
 
                 </div>
-                <div className='forma price'>
-                    <div className='chip'>
-                        <Chip label="Цена за 1 штуку товара" />
-                    </div>
-                    <div className='PriceForm'>
-                        <TextField fullWidth inputProps={{ maxLength: 44 }} id="outlined-basic" label="0" variant="outlined" value={price} className='input' onChange={e => {
-                            setPrice(e.target.value)
-                        }}>
-
-                        </TextField>
-                        <Chip variant='outlined' label="сом" />
-                    </div>
-
-                </div>
+                <PriceComponent price={price} setPrice={setPrice} percentage={percentage} />
                 <div className='forma ready'>
                     <Button type="submit" variant='contained' fullWidth>ГОТОВО</Button>
                 </div>
@@ -407,6 +427,8 @@ function BoxAddProductForm({ setSubmitFunction }) {
             <ChooseRazdel open={openRazdelModal} onClose={() => {
                 setOpenRazdelModal(false)
             }} setRazdelId={setRazdelId} setRazdelName={setRazdelName} />
+            <ChooseColor open={openEditColorModal} handleClose={() => setOpenEditColorModal(false)} color_id={currentEditColorId} handleVariantChange={handleVariantChange} />
+            {/* <EditColor open={openEditColorModal} handleClose={() => setOpenEditColorModal(false)} color_id={currentColorVariationId} update={update} /> */}
         </form>
     )
 }

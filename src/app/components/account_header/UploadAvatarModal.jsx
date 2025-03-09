@@ -9,6 +9,7 @@ import {
 } from "@mui/material";
 import { BACK_URL } from "@/app/VAR";
 import axios from "axios";
+import imageCompression from 'browser-image-compression';
 
 const style = {
   position: "absolute",
@@ -22,18 +23,39 @@ const style = {
   p: 4,
 };
 
-const UploadAvatarModal = ({ isOpen, onClose, onUpload }) => {
+const UploadAvatarModal = ({ isOpen, onClose, onUpload, reload }) => {
   const [avatar, setAvatar] = useState(null);
   const [preview, setPreview] = useState("");
 
-  const handleFileChange = (event) => {
+  const handleFileChange = async (event) => {
     const file = event.target.files[0];
-    setAvatar(file);
-
-    if (file) {
+    if (!file) return;
+  
+    // Опции сжатия
+    const options = {
+      maxSizeMB: 1,
+      maxWidthOrHeight: 1024,
+      useWebWorker: true,
+    };
+  
+    try {
+      const compressedFile = await imageCompression(file, options);
+      const newFile = new File(
+        [compressedFile], 
+        file.name, // Сохраняем оригинальное имя
+        { type: file.type } // Сохраняем MIME-тип
+      );
+  
+      console.log("Оригинальный размер:", file.size / 1024 / 1024, "MB");
+      console.log("Сжатый размер:", newFile.size / 1024 / 1024, "MB");
+  
+      setAvatar(newFile); // Используем исправленный файл
+  
       const reader = new FileReader();
       reader.onloadend = () => setPreview(reader.result);
-      reader.readAsDataURL(file);
+      reader.readAsDataURL(newFile);
+    } catch (error) {
+      console.error("Ошибка сжатия:", error);
     }
   };
 
@@ -56,6 +78,7 @@ const UploadAvatarModal = ({ isOpen, onClose, onUpload }) => {
       });
 
       console.log("Аватарка обновлена:", response.data.avatar_url);
+      reload()
       onClose()
       return response.data.avatar_url;
     } catch (error) {

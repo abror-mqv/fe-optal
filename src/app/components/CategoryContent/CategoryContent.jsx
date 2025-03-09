@@ -45,7 +45,7 @@ function CategoryContent() {
                                         <ProductCard
                                             name={prod.name}
                                             id={prod.id}
-                                            price={prod.price}
+                                            price={prod.price_with_commission}
                                             rate={5}
                                             image={(prod.color_variations[0]?.image) ? (prod.color_variations[0].image) : null}
                                             key={prod.id}

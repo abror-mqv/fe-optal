@@ -11,7 +11,6 @@ const initialState = {
 
 
 export const saveCart = createAsyncThunk('cart/saveCart', async (cart) => {
-  console.log("REquseted")
   const formattedCart = cart.map((item) => ({
       product_id: item.product_id,
       colors: item.colors.map((color) => ({

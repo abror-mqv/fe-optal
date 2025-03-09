@@ -26,8 +26,8 @@ function Form({ productId, setSubmitFunction }) {
                         <Tabs value={value} onChange={handleChange} aria-label="basic tabs example">
                             <Tab label="Информация" {...a11yProps(0)} />
                             <Tab label="Расцветки" {...a11yProps(1)} />
-                            <Tab label="Продвижение" {...a11yProps(2)} />
-                            <Tab label="Предварительный просмотр" {...a11yProps(2)} />
+                            {/* <Tab label="Продвижение" {...a11yProps(2)} />
+                            <Tab label="Предварительный просмотр" {...a11yProps(2)} /> */}
 
                         </Tabs>
                     </Box>
@@ -37,12 +37,12 @@ function Form({ productId, setSubmitFunction }) {
                     <CustomTabPanel value={value} index={1}>
                         <Images productId={productId} />
                     </CustomTabPanel>
-                    <CustomTabPanel value={value} index={2}>
+                    {/* <CustomTabPanel value={value} index={2}>
                         <Sales />
                     </CustomTabPanel>
                     <CustomTabPanel value={value} index={2}>
                         <Preview />
-                    </CustomTabPanel>
+                    </CustomTabPanel> */}
                 </Box>
             </div>
         </div>

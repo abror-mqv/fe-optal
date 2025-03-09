@@ -119,7 +119,7 @@ function AccountBox() {
 
     return (
         <div>
-            <AccountBoxHeader name={name} description={description} image={image} first_name={firstName} box_id={box_id} />
+            <AccountBoxHeader name={name} description={description} image={image} reload={reload} first_name={firstName} box_id={box_id} />
             <AccountBoxProducts products={products} handleDelete={handleDelete} reload={reload} />
             <Footer />
             {/* <ManufacterAllowModal open={openMAModal} handleClose={handleCloseMAModal} />

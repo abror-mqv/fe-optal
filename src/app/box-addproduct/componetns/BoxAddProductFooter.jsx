@@ -2,7 +2,9 @@ import React from 'react'
 
 function BoxAddProductFooter() {
   return (
-    <div>BoxAddProductFooter</div>
+    <div style={{height: "80px"}}>
+
+    </div>
   )
 }
 
