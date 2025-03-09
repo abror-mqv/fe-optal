@@ -27,7 +27,7 @@ function Banner() {
                 </div>
             </div>
 
-            <Link href='/tutorial'>
+            {/* <Link href='/tutorial'>
                 <div className='AdBlock red_block'>
                     <div className='bottom_slice'>
                         <h3>
@@ -39,12 +39,12 @@ function Banner() {
                             <p>*легко</p>
                         </div>
                         <div className='top_slice'>
-                            {/* <img src="https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcQlOCzzQQBbd9OCyiXbvqD3ZzLJ35kVUQCl62Y4dlPJKXp4e3jF" alt="" /> */}
+                          
                         </div>
                     </div>
 
                 </div>
-            </Link>
+            </Link> */}
 
         </div>
 
