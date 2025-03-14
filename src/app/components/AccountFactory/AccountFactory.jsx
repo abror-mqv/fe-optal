@@ -12,14 +12,17 @@ import Footer from '../footer/Footer'
 import "@/app/box-account/components/ProductList.scss"
 
 function AccountFactory() {
-    localStorage.setItem("SELLER_TYPE", "FAC")
+    useEffect(() => {
+        localStorage.setItem("SELLER_TYPE", "FAC")
+
+    }, [window])
 
 
     const [name, setName] = useState("Название цеха")
     const [description, setDescription] = useState("")
     const [image, setImage] = useState("")
     const [products, setProducts] = useState([])
-const [firstName, setFirstName] = useState("Аброр")
+    const [firstName, setFirstName] = useState("Аброр")
 
     const [openMAModal, setOpenMAModal] = useState(false)
     const [openMIModal, setOpenMIModal] = useState(false)

@@ -1,7 +1,7 @@
 'use client'
 
 import { Container, Typography, TextField, Button, Modal, Box, InputAdornment, InputLabel, OutlinedInput, IconButton, FormControl } from '@mui/material';
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import NavigateNextIcon from '@mui/icons-material/NavigateNext';
 import { AccountCircle } from '@mui/icons-material';
 
@@ -38,6 +38,21 @@ function RegisterCustomer() {
     const [showPassword, setShowPassword] = React.useState(false);
     const [open, setOpen] = useState(false)
     const [openFail, setOpenFail] = React.useState(false)
+
+    const [ooo, setOOO] = useState("")
+    useEffect(() => {
+        setOOO(localStorage.getItem("BEFORE_REGISTRATION_PAGE"))
+    }, [window])
+
+    const [iii, setIII] = useState(true)
+
+    useEffect(() => {
+        if ((localStorage.getItem("BEFORE_REGISTRATION_PAGE") != "undefined")) {
+            setIII(true)
+        } else {
+            setIII(false)
+        }
+    }, [window])
 
     const [ablebutton, setAbleButton] = React.useState(true)
 
@@ -192,8 +207,8 @@ function RegisterCustomer() {
                             </Button>
                         </Link>
                         {
-                            (localStorage.getItem("BEFORE_REGISTRATION_PAGE") != "undefined") ? <>
-                                <Link href={`${localStorage.getItem("BEFORE_REGISTRATION_PAGE")}`}>
+                            iii ? <>
+                                <Link href={iii}>
                                     <Button variant='outlined' onClick={() => setOpen(false)}>
                                         Вернуться к покупкам
                                     </Button>

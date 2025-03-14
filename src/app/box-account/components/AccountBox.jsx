@@ -18,7 +18,9 @@ import AccountBoxProducts from './AccountBoxProducts'
 
 
 function AccountBox() {
-    localStorage.setItem("SELLER_TYPE", "BOX")
+    useEffect(() => {
+        localStorage.setItem("SELLER_TYPE", "BOX")
+    }, [window])
 
     const [name, setName] = useState("Название цеха")
     const [description, setDescription] = useState("")

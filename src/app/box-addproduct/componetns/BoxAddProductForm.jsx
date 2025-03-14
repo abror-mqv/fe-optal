@@ -1,7 +1,7 @@
 "use client"
 
 import { Button, TextField, ListItem, Chip } from '@mui/material'
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import '../../styles/components/_addproduct.scss'
 import AddCircleOutlineIcon from '@mui/icons-material/AddCircleOutline';
 import AddPhotoAlternateIcon from '@mui/icons-material/AddPhotoAlternate'; import axios from 'axios';
@@ -52,7 +52,14 @@ const style = {
 
 function BoxAddProductForm({ setSubmitFunction }) {
     const [openEditColorModal, setOpenEditColorModal] = React.useState(false);
-
+    const [iii, setIII] = useState(true)
+    useEffect(() => {
+        if ((localStorage.getItem("SELLER_TYPE") == "BOX")) {
+            setIII(true)
+        } else {
+            setIII(false)
+        }
+    }, [window])
     const ButtonVariant = ({ variant, index }) => {
         console.log("VAR: ", variant, "IDX: ", index)
         console.log(colorVariants)
@@ -416,7 +423,7 @@ function BoxAddProductForm({ setSubmitFunction }) {
                         Поздравляем! <br />Вы успешно добавили свой товар!
                     </p>
 
-                    <Link href={(localStorage.getItem("SELLER_TYPE") == "BOX") ? "/box-account" : "/account-factory"}>
+                    <Link href={iii ? "/box-account" : "/account-factory"}>
                         <Button variant='contained' color='success' fullWidth onClick={() => {
                             handleClose()
                         }}>
