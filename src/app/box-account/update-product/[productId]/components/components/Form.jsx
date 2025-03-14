@@ -4,10 +4,10 @@ import Box from '@mui/material/Box';
 import PropTypes from 'prop-types';
 import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
-import Main from './tabs/Main';
-import Sales from './tabs/Sales';
+import Main from './tabs/Main/Main';
+import Sales from './tabs/Sales/Sales';
 import { Preview } from '@mui/icons-material';
-import Images from './tabs/Images';
+import Images from './tabs/Images/Images';
 
 
 function Form({ productId, setSubmitFunction }) {
@@ -26,21 +26,21 @@ function Form({ productId, setSubmitFunction }) {
                         <Tabs value={value} onChange={handleChange} aria-label="basic tabs example">
                             <Tab label="Информация" {...a11yProps(0)} />
                             <Tab label="Расцветки" {...a11yProps(1)} />
-                            {/* <Tab label="Продвижение" {...a11yProps(2)} />
-                            <Tab label="Предварительный просмотр" {...a11yProps(2)} /> */}
+                            <Tab label="Продвижение" {...a11yProps(2)} />
+                            {/* <Tab label="Предварительный просмотр" {...a11yProps(2)} /> */}
 
                         </Tabs>
                     </Box>
-                    <CustomTabPanel value={value} index={0}>
+                    <CustomTabPanel value={value} index={2}>
                         <Main productId={productId} />
                     </CustomTabPanel>
                     <CustomTabPanel value={value} index={1}>
                         <Images productId={productId} />
                     </CustomTabPanel>
-                    {/* <CustomTabPanel value={value} index={2}>
-                        <Sales />
+                    <CustomTabPanel value={value} index={0}>
+                        <Sales productId={productId} />
                     </CustomTabPanel>
-                    <CustomTabPanel value={value} index={2}>
+                    {/* <CustomTabPanel value={value} index={2}>
                         <Preview />
                     </CustomTabPanel> */}
                 </Box>

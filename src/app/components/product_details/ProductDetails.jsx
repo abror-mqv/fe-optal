@@ -138,23 +138,26 @@ function ProductDetails(props) {
 
     return (
         <div className='product_details'>
-            <nav className='product_nav'>
-                <Link href={"/"}>
-                    <Chip label="Каталог" size="small" />
-                </Link>
-                {">"}
-                <Link href={`/category/${product?.category?.category?.id}`}>
-                    <Chip label={product?.category.category.name} size="small" />
-                </Link>
-                {">"}
-                <Link href={`/subcategory/${product?.category?.subcategory?.id}`}>
-                    <Chip label={product?.category.subcategory.name} size="small" />
-                </Link>
-                {">"}
-                <Link href={`/product/${product?.id}`}>
-                    <Chip label={product?.name} size="small" />
-                </Link>
-            </nav>
+            {
+                (localStorage.getItem("SELLER_TYPE") == "BOX") ? <></> : <nav className='product_nav'>
+                    <Link href={"/"}>
+                        <Chip label="Каталог" size="small" />
+                    </Link>
+                    {">"}
+                    <Link href={`/category/${product?.category?.category?.id}`}>
+                        <Chip label={product?.category.category.name} size="small" />
+                    </Link>
+                    {">"}
+                    <Link href={`/subcategory/${product?.category?.subcategory?.id}`}>
+                        <Chip label={product?.category.subcategory.name} size="small" />
+                    </Link>
+                    {">"}
+                    <Link href={`/product/${product?.id}`}>
+                        <Chip label={product?.name} size="small" />
+                    </Link>
+                </nav>
+            }
+
             <main>
                 <div className='Images'>
                     <Swiper onSlideChange={(swiper) => setColorName(color_varisnts[swiper.activeIndex]?.color_name)} className='Swiper__main' navigation={true} pagination={{ clickable: true }} controller={{ control: controlledSwiper }} thumbs={{
@@ -259,9 +262,8 @@ function ProductDetails(props) {
                             </p>
                         </div>
                         <div className='factory'>
-                            <div className='manufacter'>
+                            <Link href={`/box/${product?.manufacter?.supplier_id}`} className='manufacter'>
                                 <div>
-
                                     <Avatar
                                         alt={product?.manufacter?.factory_name}
                                         src="/static/images/avatar/1.jpg"
@@ -269,10 +271,9 @@ function ProductDetails(props) {
                                     />
                                 </div>
                                 <p>{product?.manufacter?.factory_name}</p>
-                            </div>
+                            </Link>
                             <div className='approved'>
                                 <ThumbUpOffAltIcon sx={{ color: "#CD0000" }} fontSize='large' />
-                                {/* <AddTaskIcon color='success' fontSize='large' /> */}
                             </div>
                         </div>
                     </div>

@@ -1,0 +1,46 @@
+.FactoryGuide{
+    font-family: Roboto;
+    .FactoryGuideHeader{
+        margin-top: 100px;
+        h1{
+            text-align: center;
+        }
+        h3{
+            text-align: center;
+            font-weight: normal;
+        }
+    }
+    .content{
+        
+        margin-top: 24px;
+        .MuiAccordionDetails-root{
+            p{
+                
+                margin-top: 24px;
+                font-weight: 300;
+                font-size: 14px;
+                a{
+                  
+                    text-decoration: underline;
+                    padding: 6px;
+                    color: #CD0000;
+                    border-radius: 3px;
+                    font-weight: 500;
+                }
+                
+
+            }
+            .NestedP{
+                margin-left: 24px;
+                margin-top: 12px;
+                .ValideSize{
+                    margin-top: 6px;
+                    // font-weight: 500;
+                    color: #000000;
+                    display: block;
+
+                }
+            }
+        }
+    }
+}

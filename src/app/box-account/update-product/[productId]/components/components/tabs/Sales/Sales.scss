@@ -1,0 +1,46 @@
+.SalesTab{
+    .momodal{
+        font-family: Roboto !important;
+    }
+    font-family: Roboto;
+    .SalesHeader{
+        
+    }
+    .SalesPromos{
+        margin-top: 24px;
+        .OnePromo{
+            margin-bottom: 24px;
+            margin-top: 12px;
+            background-color: #1976d2;
+            color: white;
+            padding: 12px 12px;
+            border-radius: 6px;
+            h3{
+                font-weight: 700;
+                font-size: 32px;
+            }
+            .description{
+                // font-size: 14px;
+                font-weight: 300;
+                padding: 24px 0px;
+            }
+            .recomended_drop{
+                padding: 12px;
+                color: #1976d2;
+                background-color: #fff;
+                border-radius: 6px;
+                display: flex;
+                justify-content: space-between;
+            }
+            .actionButtons{
+                display: flex;
+                width: 100%;
+                justify-content: space-between;
+                margin-top: 24px;
+                .actionDescription{
+
+                }
+            }
+        }
+    }
+}

@@ -1,15 +1,18 @@
 import React from 'react'
 import BoxProductCard from './BoxProductCard'
+import { Button } from '@mui/material'
 
-function Razdel(razdel, handleOpenQAModal, handleOpenCAModal) {
+function Razdel({ razdel, handleOpenQAModal, handleOpenCAModal }) {
     return (
         <div className='BoxViewRazdel'>
+            {
+                (razdel.name == "Без раздела") ? <></> : <h3 className='RazdelTop'>{razdel.name}</h3>
+            }
 
-            <h3 className='RazdelTop'>{razdel.razdel.name}</h3>
 
             <div className='sub_feed'>
                 {
-                    razdel.razdel.products.map((product, index) => {
+                    razdel.products.map((product, index) => {
                         return (
                             <BoxProductCard
                                 name={product.name}

@@ -34,13 +34,13 @@ function BoxProductCard(props) {
 
         <div className='ProductCard'>
             <div className='img_block'>
-                <Link href={`/BoxSingleProduct/${props.id}`}>
+                <Link href={`/product/${props.id}`}>
                     <ImageHolder />
                 </Link>
             </div>
             <div className='info_block'>
                 <p className='price'><CurrencyFormatter amount={props.price} /></p>
-                <Link href={`/BoxSingleProduct/${props.id}`}>
+                <Link href={`/product/${props.id}`}>
                     <h3>
                         {props.name}
                     </h3>

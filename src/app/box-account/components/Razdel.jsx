@@ -75,9 +75,9 @@ function Razdel({ name, products, categoryId, reload, handleDelete }) {
                                     <TableRow key={index} sx={{ '&:last-child td, &:last-child th': { border: 0 } }}>
                                         <TableCell>
 
-                                            <Link href={`/BoxSingleProduct/${product.id}`} className='product_main_info'>
+                                            <Link href={`/product/${product.id}`} className='product_main_info'>
                                                 <div className='image_container'>
-                                                    <img src={`${BACK_URL}/${product.color_variations[0].image}`} />
+                                                    <img src={`${BACK_URL}/${product.color_variations[0]?.image}`} />
                                                 </div>
 
                                                 {product.name}

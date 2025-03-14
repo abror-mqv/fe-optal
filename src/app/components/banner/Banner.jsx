@@ -10,7 +10,7 @@ function Banner() {
         <div className='Banner'>
 
 
-            <div className='AdBlock blue_block'>
+            <Link href="/promo/eliminating" className='AdBlock blue_block'>
                 <div className='bottom_slice'>
                     <h3>
                         ЛИКВИДАЦИЯ <span className='bigger_one'>ТОВАРА</span>
@@ -19,33 +19,13 @@ function Banner() {
                 <div className='slices'>
 
                     <div className='mid_slice'>
-                        <p>-90%</p>
+                        <p>-40%</p>
                     </div>
                     <div className='top_slice'>
                         {/* <img src="https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcTmzTW6PLZNFDJdvkKSShmrA89S4KFcufOMoKcipLC-SOefy-DJ" alt="" /> */}
                     </div>
                 </div>
-            </div>
-
-            {/* <Link href='/tutorial'>
-                <div className='AdBlock red_block'>
-                    <div className='bottom_slice'>
-                        <h3>
-                            <span className='bigger_one'>КАК</span> ПРОДАВАТЬ?
-                        </h3>
-                    </div>
-                    <div className='slices'>
-                        <div className='mid_slice'>
-                            <p>*легко</p>
-                        </div>
-                        <div className='top_slice'>
-                          
-                        </div>
-                    </div>
-
-                </div>
-            </Link> */}
-
+            </Link>
         </div>
 
 

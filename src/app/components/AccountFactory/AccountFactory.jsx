@@ -9,17 +9,22 @@ import { BACK_URL } from '../../VAR'
 import ManufacterAllowModal from '../ux-kit/ManufacterAllowModal/ManufacterAllowModal'
 import ManufacterIntroModal from '../ux-kit/ManufacterIntroModal/ManufacterIntroModal'
 import Footer from '../footer/Footer'
-
+import "@/app/box-account/components/ProductList.scss"
 
 function AccountFactory() {
+    localStorage.setItem("SELLER_TYPE", "FAC")
+
+
     const [name, setName] = useState("Название цеха")
     const [description, setDescription] = useState("")
     const [image, setImage] = useState("")
     const [products, setProducts] = useState([])
-
+const [firstName, setFirstName] = useState("Аброр")
 
     const [openMAModal, setOpenMAModal] = useState(false)
     const [openMIModal, setOpenMIModal] = useState(false)
+
+    const [reload, setReload] = useState(false)
 
     const handleCloseMAModal = () => {
         // setOpenMAModal(false)
@@ -51,6 +56,7 @@ function AccountFactory() {
         }).then(res => {
             console.log(res)
             setName(res.data.factory_name)
+            setFirstName(res.data.first_name)
             if (res.data.factory_avatar != null) {
                 setImage(res.data.factory_avatar)
             }
@@ -62,7 +68,7 @@ function AccountFactory() {
         });
 
 
-    }, [name])
+    }, [name, reload])
 
     useEffect(() => {
         const token = localStorage.getItem('TOKEN');
@@ -81,30 +87,34 @@ function AccountFactory() {
         }).catch(err => {
             console.log(err)
         });
-    }, [])
+    }, [reload])
 
     const handleDelete = async (productId) => {
-        // try {
-        //     const token = localStorage.getItem("TOKEN");
-        //     await axios.delete(`${BACK_URL}/api/factories/factory/products/${productId}/`, {
-        //         headers: {
-        //             Authorization: `Token ${token}`
-        //         }
-        //     });
-        //     setProducts(products.filter(product => product.id !== productId));
-        //     alert("Товар успешно удален");
-        //     // Обновление списка товаров или редирект после удаления
-        // } catch (error) {
-        //     console.error("Ошибка при удалении товара:", error);
-        //     alert("Не удалось удалить товар");
-        // }
-        alert(`Deleting ${productId}`)
+        try {
+            const token = localStorage.getItem("TOKEN");
+            await axios.delete(`${BACK_URL}/api/factories/factory/products/${productId}/`, {
+                headers: {
+                    Authorization: `Token ${token}`
+                }
+            });
+            setProducts(products.filter(product => product.id !== productId));
+            alert("Товар успешно удален");
+            reload()
+            // Обновление списка товаров или редирект после удаления
+        } catch (error) {
+            console.error("Ошибка при удалении товара:", error);
+            alert("Не удалось удалить товар");
+        }
     };
+
+    const handleReload = () => {
+        setReload(!reload)
+    }
 
     return (
         <div>
-            <AccountHeader name={name} description={description} image={image} />
-            <AccountProducts products={products} handleDelete={handleDelete} />
+            <AccountHeader name={name} first_name={firstName} description={description} image={image} reload={handleReload} />
+            <AccountProducts products={products} handleDelete={handleDelete} reload={handleReload} />
             <ManufacterAllowModal open={openMAModal} handleClose={handleCloseMAModal} />
             <ManufacterIntroModal open={openMIModal} handleClose={handleCloseMIModal} />
             <Footer />

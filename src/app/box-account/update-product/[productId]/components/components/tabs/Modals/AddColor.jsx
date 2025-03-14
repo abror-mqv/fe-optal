@@ -6,6 +6,7 @@ import axios from "axios";
 import { BACK_URL } from "@/app/VAR";
 import './EditProductModal.scss'
 import { COLORS_LIST } from "@/app/util/colors";
+import imageCompression from "browser-image-compression";
 
 const AddColorVariantModal = ({ open, onClose, productId, update }) => {
     const [colorName, setColorName] = useState("");
@@ -20,11 +21,23 @@ const AddColorVariantModal = ({ open, onClose, productId, update }) => {
         setColorHex(color.color_code)
     }
 
-    const handleFileChange = (event) => {
+    const handleFileChange = async (event) => {
         const file = event.target.files[0];
-        if (file) {
-            setImage(file);
-            setPreview(URL.createObjectURL(file));
+        if (!file) return;
+
+        const options = {
+            maxSizeMB: 1,
+            maxWidthOrHeight: 1024,
+            useWebWorker: true,
+        };
+
+        try {
+            const compressedFile = await imageCompression(file, options);
+            const newFile = new File([compressedFile], file.name, { type: file.type });
+            setImage(newFile);
+            setPreview(URL.createObjectURL(newFile));
+        } catch (error) {
+            console.error("Ошибка сжатия:", error);
         }
     };
 
@@ -87,10 +100,7 @@ const AddColorVariantModal = ({ open, onClose, productId, update }) => {
                                     <div className='dot' key={index} style={{ backgroundColor: `${el.color_code}`, transform: `${(currentColor == index) ? "scale(140%) rotate(45deg)" : "none"}` }} onClick={() => {
                                         handleChangeColor(el);
                                         setCurrentColor(index)
-                                    }}
-
-                                    >
-
+                                    }}>
                                     </div>
                                 )
                             })

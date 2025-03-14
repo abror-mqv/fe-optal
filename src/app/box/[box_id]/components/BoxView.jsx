@@ -8,6 +8,7 @@ import BoxHeader from './BoxHeader';
 import BoxFooter from './BoxFooter';
 import BoxContent from './BoxContent';
 import Footer from '@/app/components/footer/Footer';
+import Header from '@/app/components/header/Header';
 
 function BoxView() {
   const [categoryName, setCategroyName] = useState("")
@@ -35,7 +36,9 @@ function BoxView() {
 
   return (
     <div>
-      <BoxHeader />
+      {
+        (localStorage.getItem("SELLER_TYPE") == "BOX") ? <BoxHeader /> : <Header />
+      }
       <BoxContent data={data} box_name={categoryName} box_description={boxDescription} supplier_id={supplierId} box_avatar={box_avatar} />
       <Footer />
     </div>

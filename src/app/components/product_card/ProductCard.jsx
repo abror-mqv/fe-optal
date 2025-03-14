@@ -45,9 +45,6 @@ function ProductCard(props) {
             {props.name}
           </h3>
         </Link>
-        {/* <p className='rate'>
-          <Image src='/star.svg' width={22} height={22} />  {(Math.floor(Math.random() * 15) / 10) + 3.5} • {Math.floor(Math.random() * 20) + 3} оценок
-        </p> */}
         <AddToCartButton productId={props.id} setAuthError={props.setAuthError} setCAError={props.setCAError} />
       </div>
     </div>

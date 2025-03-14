@@ -8,7 +8,7 @@ import React from 'react'
 function Header({ onSubmit }) {
     return (
         <header style={{ flexDirection: "row", justifyContent: "flex-start", gap: "24px", width: "100%" }}>
-            <Link href="/box-account">
+            <Link href={(localStorage.getItem("SELLER_TYPE") == "BOX") ? "/box-account" : "/account-factory"}>
                 <Button className='close' >
                     <CloseIcon />
                 </Button>
@@ -18,7 +18,7 @@ function Header({ onSubmit }) {
                 Редактировать товар
             </div>
             <div className='submit'>
-                
+
             </div>
         </header>
     )

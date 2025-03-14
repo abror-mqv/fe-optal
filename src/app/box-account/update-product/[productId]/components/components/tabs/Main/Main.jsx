@@ -17,8 +17,8 @@ import TrendingUpIcon from '@mui/icons-material/TrendingUp';
 
 import "./Main.scss"
 import ChooseRazdel from '@/app/box-addproduct/componetns/modals/ChooseRazdel';
-import PriceComponent from './PriceComponent';
-import SuccessUpdated from './Modals/SuccessUpdated';
+import PriceComponent from '../components/PriceComponent';
+import SuccessUpdated from '../Modals/SuccessUpdated';
 
 function Main({ productId }) {
     const [productname, setProductname] = useState("")

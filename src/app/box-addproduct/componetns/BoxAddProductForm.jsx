@@ -415,7 +415,8 @@ function BoxAddProductForm({ setSubmitFunction }) {
                     <p className='congrats'>
                         Поздравляем! <br />Вы успешно добавили свой товар!
                     </p>
-                    <Link href={"/box-account"}>
+
+                    <Link href={(localStorage.getItem("SELLER_TYPE") == "BOX") ? "/box-account" : "/account-factory"}>
                         <Button variant='contained' color='success' fullWidth onClick={() => {
                             handleClose()
                         }}>

@@ -137,12 +137,15 @@ function AccountBoxHeader({ name, description, image, first_name, box_id, reload
               </p>
             </div>
           </Link>
-          <div className='docs'>
-            <HelpCenterIcon />
-            <p>
-              Инструкция
-            </p>
-          </div>
+          <Link href="/guide/box" className='docs'>
+            <div className='docs'>
+              <HelpCenterIcon />
+              <p>
+                Инструкция
+              </p>
+            </div>
+
+          </Link>
         </div>
         <div className='Introduction'>
           <h4>

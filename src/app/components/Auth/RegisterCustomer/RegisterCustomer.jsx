@@ -191,6 +191,15 @@ function RegisterCustomer() {
                                 Перейти в личный кабинет
                             </Button>
                         </Link>
+                        {
+                            (localStorage.getItem("BEFORE_REGISTRATION_PAGE") != "undefined") ? <>
+                                <Link href={`${localStorage.getItem("BEFORE_REGISTRATION_PAGE")}`}>
+                                    <Button variant='outlined' onClick={() => setOpen(false)}>
+                                        Вернуться к покупкам
+                                    </Button>
+                                </Link>
+                            </> : <></>
+                        }
                     </Box>
                 </Modal>
                 <Modal

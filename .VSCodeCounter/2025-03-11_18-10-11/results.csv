@@ -1,0 +1,236 @@
+"filename", "language", "XML", "JavaScript JSX", "JavaScript", "JSON", "SCSS", "CSS", "comment", "blank", "total"
+"c:\Users\HP\Desktop\optal\fe-optal\src\app\BoxSingleProduct\[productId]\componetns\BoxSingleProduct.jsx", "JavaScript JSX", 0, 259, 0, 0, 0, 0, 11, 33, 303
+"c:\Users\HP\Desktop\optal\fe-optal\src\app\BoxSingleProduct\[productId]\componetns\BoxSingleProduct.scss", "SCSS", 0, 0, 0, 0, 297, 0, 17, 46, 360
+"c:\Users\HP\Desktop\optal\fe-optal\src\app\BoxSingleProduct\[productId]\page.jsx", "JavaScript JSX", 0, 11, 0, 0, 0, 0, 0, 3, 14
+"c:\Users\HP\Desktop\optal\fe-optal\src\app\VAR.js", "JavaScript", 0, 0, 1, 0, 0, 0, 1, 3, 5
+"c:\Users\HP\Desktop\optal\fe-optal\src\app\account-customer\dels\page.jsx", "JavaScript JSX", 0, 9, 0, 0, 0, 0, 0, 2, 11
+"c:\Users\HP\Desktop\optal\fe-optal\src\app\account-customer\favorites\page.jsx", "JavaScript JSX", 0, 7, 0, 0, 0, 0, 0, 2, 9
+"c:\Users\HP\Desktop\optal\fe-optal\src\app\account-customer\history\page.jsx", "JavaScript JSX", 0, 7, 0, 0, 0, 0, 0, 2, 9
+"c:\Users\HP\Desktop\optal\fe-optal\src\app\account-customer\orders\page.jsx", "JavaScript JSX", 0, 14, 0, 0, 0, 0, 0, 2, 16
+"c:\Users\HP\Desktop\optal\fe-optal\src\app\account-customer\page.jsx", "JavaScript JSX", 0, 14, 0, 0, 0, 0, 0, 2, 16
+"c:\Users\HP\Desktop\optal\fe-optal\src\app\account-customer\reviews\page.jsx", "JavaScript JSX", 0, 7, 0, 0, 0, 0, 0, 2, 9
+"c:\Users\HP\Desktop\optal\fe-optal\src\app\account-factory\page.jsx", "JavaScript JSX", 0, 8, 0, 0, 0, 0, 0, 3, 11
+"c:\Users\HP\Desktop\optal\fe-optal\src\app\account-factory\update-product\[productId]\page.jsx", "JavaScript JSX", 0, 8, 0, 0, 0, 0, 0, 2, 10
+"c:\Users\HP\Desktop\optal\fe-optal\src\app\addproduct\page.jsx", "JavaScript JSX", 0, 7, 0, 0, 0, 0, 0, 2, 9
+"c:\Users\HP\Desktop\optal\fe-optal\src\app\bl\[box_login]\[box_imagoco]\components\BoxLogin.jsx", "JavaScript JSX", 0, 37, 0, 0, 0, 0, 0, 11, 48
+"c:\Users\HP\Desktop\optal\fe-optal\src\app\bl\[box_login]\[box_imagoco]\components\BoxLogin.scss", "SCSS", 0, 0, 0, 0, 19, 0, 0, 0, 19
+"c:\Users\HP\Desktop\optal\fe-optal\src\app\bl\[box_login]\[box_imagoco]\page.jsx", "JavaScript JSX", 0, 10, 0, 0, 0, 0, 0, 2, 12
+"c:\Users\HP\Desktop\optal\fe-optal\src\app\box-account\components\AccountBox.jsx", "JavaScript JSX", 0, 104, 0, 0, 0, 0, 8, 22, 134
+"c:\Users\HP\Desktop\optal\fe-optal\src\app\box-account\components\AccountBoxFooter.jsx", "JavaScript JSX", 0, 7, 0, 0, 0, 0, 0, 2, 9
+"c:\Users\HP\Desktop\optal\fe-optal\src\app\box-account\components\AccountBoxHeader.jsx", "JavaScript JSX", 0, 176, 0, 0, 0, 0, 1, 25, 202
+"c:\Users\HP\Desktop\optal\fe-optal\src\app\box-account\components\AccountBoxProducts.jsx", "JavaScript JSX", 0, 74, 0, 0, 0, 0, 0, 22, 96
+"c:\Users\HP\Desktop\optal\fe-optal\src\app\box-account\components\BoxProductList.jsx", "JavaScript JSX", 0, 17, 0, 0, 0, 0, 0, 7, 24
+"c:\Users\HP\Desktop\optal\fe-optal\src\app\box-account\components\ProductList.scss", "SCSS", 0, 0, 0, 0, 33, 0, 0, 2, 35
+"c:\Users\HP\Desktop\optal\fe-optal\src\app\box-account\components\Razdel.jsx", "JavaScript JSX", 0, 106, 0, 0, 0, 0, 0, 15, 121
+"c:\Users\HP\Desktop\optal\fe-optal\src\app\box-account\components\modals\CreateNewStoreCategoryModal.jsx", "JavaScript JSX", 0, 48, 0, 0, 0, 0, 0, 7, 55
+"c:\Users\HP\Desktop\optal\fe-optal\src\app\box-account\components\modals\EditRazdel.jsx", "JavaScript JSX", 0, 54, 0, 0, 0, 0, 0, 5, 59
+"c:\Users\HP\Desktop\optal\fe-optal\src\app\box-account\page.jsx", "JavaScript JSX", 0, 10, 0, 0, 0, 0, 0, 2, 12
+"c:\Users\HP\Desktop\optal\fe-optal\src\app\box-account\update-product\[productId]\components\BoxUpdateProduct.jsx", "JavaScript JSX", 0, 20, 0, 0, 0, 0, 0, 10, 30
+"c:\Users\HP\Desktop\optal\fe-optal\src\app\box-account\update-product\[productId]\components\components\Footer.jsx", "JavaScript JSX", 0, 8, 0, 0, 0, 0, 0, 3, 11
+"c:\Users\HP\Desktop\optal\fe-optal\src\app\box-account\update-product\[productId]\components\components\Form.jsx", "JavaScript JSX", 0, 62, 0, 0, 0, 0, 8, 14, 84
+"c:\Users\HP\Desktop\optal\fe-optal\src\app\box-account\update-product\[productId]\components\components\Header.jsx", "JavaScript JSX", 0, 22, 0, 0, 0, 0, 0, 5, 27
+"c:\Users\HP\Desktop\optal\fe-optal\src\app\box-account\update-product\[productId]\components\components\tabs\ColorVariant.jsx", "JavaScript JSX", 0, 0, 0, 0, 0, 0, 0, 1, 1
+"c:\Users\HP\Desktop\optal\fe-optal\src\app\box-account\update-product\[productId]\components\components\tabs\Images.jsx", "JavaScript JSX", 0, 105, 0, 0, 0, 0, 0, 15, 120
+"c:\Users\HP\Desktop\optal\fe-optal\src\app\box-account\update-product\[productId]\components\components\tabs\Images.scss", "SCSS", 0, 0, 0, 0, 87, 0, 5, 6, 98
+"c:\Users\HP\Desktop\optal\fe-optal\src\app\box-account\update-product\[productId]\components\components\tabs\Main.jsx", "JavaScript JSX", 0, 293, 0, 0, 0, 0, 15, 34, 342
+"c:\Users\HP\Desktop\optal\fe-optal\src\app\box-account\update-product\[productId]\components\components\tabs\Main.scss", "SCSS", 0, 0, 0, 0, 48, 0, 0, 2, 50
+"c:\Users\HP\Desktop\optal\fe-optal\src\app\box-account\update-product\[productId]\components\components\tabs\Modals\AddColor.jsx", "JavaScript JSX", 0, 148, 0, 0, 0, 0, 0, 16, 164
+"c:\Users\HP\Desktop\optal\fe-optal\src\app\box-account\update-product\[productId]\components\components\tabs\Modals\DeleteColor.jsx", "JavaScript JSX", 0, 37, 0, 0, 0, 0, 0, 8, 45
+"c:\Users\HP\Desktop\optal\fe-optal\src\app\box-account\update-product\[productId]\components\components\tabs\Modals\EditColor.jsx", "JavaScript JSX", 0, 70, 0, 0, 0, 0, 1, 8, 79
+"c:\Users\HP\Desktop\optal\fe-optal\src\app\box-account\update-product\[productId]\components\components\tabs\Modals\EditImage.jsx", "JavaScript JSX", 0, 97, 0, 0, 0, 0, 0, 9, 106
+"c:\Users\HP\Desktop\optal\fe-optal\src\app\box-account\update-product\[productId]\components\components\tabs\Modals\EditProductModal.scss", "SCSS", 0, 0, 0, 0, 30, 0, 0, 1, 31
+"c:\Users\HP\Desktop\optal\fe-optal\src\app\box-account\update-product\[productId]\components\components\tabs\Modals\SuccessUpdated.jsx", "JavaScript JSX", 0, 23, 0, 0, 0, 0, 0, 3, 26
+"c:\Users\HP\Desktop\optal\fe-optal\src\app\box-account\update-product\[productId]\components\components\tabs\Preview.jsx", "JavaScript JSX", 0, 7, 0, 0, 0, 0, 0, 2, 9
+"c:\Users\HP\Desktop\optal\fe-optal\src\app\box-account\update-product\[productId]\components\components\tabs\PriceComponent.jsx", "JavaScript JSX", 0, 27, 0, 0, 0, 0, 0, 6, 33
+"c:\Users\HP\Desktop\optal\fe-optal\src\app\box-account\update-product\[productId]\components\components\tabs\Sales.jsx", "JavaScript JSX", 0, 7, 0, 0, 0, 0, 0, 2, 9
+"c:\Users\HP\Desktop\optal\fe-optal\src\app\box-account\update-product\[productId]\page.jsx", "JavaScript JSX", 0, 10, 0, 0, 0, 0, 0, 2, 12
+"c:\Users\HP\Desktop\optal\fe-optal\src\app\box-activate\[box_key]\page.jsx", "JavaScript JSX", 0, 0, 0, 0, 0, 0, 0, 1, 1
+"c:\Users\HP\Desktop\optal\fe-optal\src\app\box-addproduct\componetns\BoxAddProduct.jsx", "JavaScript JSX", 0, 16, 0, 0, 0, 0, 0, 5, 21
+"c:\Users\HP\Desktop\optal\fe-optal\src\app\box-addproduct\componetns\BoxAddProductFooter.jsx", "JavaScript JSX", 0, 8, 0, 0, 0, 0, 0, 3, 11
+"c:\Users\HP\Desktop\optal\fe-optal\src\app\box-addproduct\componetns\BoxAddProductForm.jsx", "JavaScript JSX", 0, 386, 0, 0, 0, 0, 1, 50, 437
+"c:\Users\HP\Desktop\optal\fe-optal\src\app\box-addproduct\componetns\BoxAddProductHeader.jsx", "JavaScript JSX", 0, 26, 0, 0, 0, 0, 0, 4, 30
+"c:\Users\HP\Desktop\optal\fe-optal\src\app\box-addproduct\componetns\modals\ChooseColor.jsx", "JavaScript JSX", 0, 57, 0, 0, 0, 0, 2, 6, 65
+"c:\Users\HP\Desktop\optal\fe-optal\src\app\box-addproduct\componetns\modals\ChooseRazdel.jsx", "JavaScript JSX", 0, 58, 0, 0, 0, 0, 0, 6, 64
+"c:\Users\HP\Desktop\optal\fe-optal\src\app\box-addproduct\componetns\сomponents\ChooseColorButton.jsx", "JavaScript JSX", 0, 47, 0, 0, 0, 0, 2, 5, 54
+"c:\Users\HP\Desktop\optal\fe-optal\src\app\box-addproduct\componetns\сomponents\PriceComponent.jsx", "JavaScript JSX", 0, 30, 0, 0, 0, 0, 0, 6, 36
+"c:\Users\HP\Desktop\optal\fe-optal\src\app\box-addproduct\page.jsx", "JavaScript JSX", 0, 10, 0, 0, 0, 0, 0, 2, 12
+"c:\Users\HP\Desktop\optal\fe-optal\src\app\box-create\components\BoxCreate.jsx", "JavaScript JSX", 0, 106, 0, 0, 0, 0, 0, 24, 130
+"c:\Users\HP\Desktop\optal\fe-optal\src\app\box-create\components\BoxCreate.scss", "SCSS", 0, 0, 0, 0, 19, 0, 0, 0, 19
+"c:\Users\HP\Desktop\optal\fe-optal\src\app\box-create\components\BoxRegisteredModal.jsx", "JavaScript JSX", 0, 28, 0, 0, 0, 0, 0, 4, 32
+"c:\Users\HP\Desktop\optal\fe-optal\src\app\box-create\page.jsx", "JavaScript JSX", 0, 10, 0, 0, 0, 0, 0, 2, 12
+"c:\Users\HP\Desktop\optal\fe-optal\src\app\box\[box_id]\components\AddToCartButton.jsx", "JavaScript JSX", 0, 40, 0, 0, 0, 0, 0, 9, 49
+"c:\Users\HP\Desktop\optal\fe-optal\src\app\box\[box_id]\components\BoxContent.jsx", "JavaScript JSX", 0, 60, 0, 0, 0, 0, 0, 17, 77
+"c:\Users\HP\Desktop\optal\fe-optal\src\app\box\[box_id]\components\BoxContent.scss", "SCSS", 0, 0, 0, 0, 90, 0, 0, 19, 109
+"c:\Users\HP\Desktop\optal\fe-optal\src\app\box\[box_id]\components\BoxFooter.jsx", "JavaScript JSX", 0, 7, 0, 0, 0, 0, 0, 2, 9
+"c:\Users\HP\Desktop\optal\fe-optal\src\app\box\[box_id]\components\BoxHeader.jsx", "JavaScript JSX", 0, 192, 0, 0, 0, 0, 33, 38, 263
+"c:\Users\HP\Desktop\optal\fe-optal\src\app\box\[box_id]\components\BoxProductCard.jsx", "JavaScript JSX", 0, 47, 0, 0, 0, 0, 4, 6, 57
+"c:\Users\HP\Desktop\optal\fe-optal\src\app\box\[box_id]\components\BoxView.jsx", "JavaScript JSX", 0, 38, 0, 0, 0, 0, 0, 10, 48
+"c:\Users\HP\Desktop\optal\fe-optal\src\app\box\[box_id]\components\Razdel.jsx", "JavaScript JSX", 0, 31, 0, 0, 0, 0, 0, 4, 35
+"c:\Users\HP\Desktop\optal\fe-optal\src\app\box\[box_id]\page.jsx", "JavaScript JSX", 0, 10, 0, 0, 0, 0, 0, 2, 12
+"c:\Users\HP\Desktop\optal\fe-optal\src\app\cart\checkout\page.jsx", "JavaScript JSX", 0, 14, 0, 0, 0, 0, 0, 2, 16
+"c:\Users\HP\Desktop\optal\fe-optal\src\app\cart\page.jsx", "JavaScript JSX", 0, 18, 0, 0, 0, 0, 1, 5, 24
+"c:\Users\HP\Desktop\optal\fe-optal\src\app\category\[categoryId]\page.jsx", "JavaScript JSX", 0, 15, 0, 0, 0, 0, 0, 2, 17
+"c:\Users\HP\Desktop\optal\fe-optal\src\app\components\AccountCustomer\AccountCustomer.jsx", "JavaScript JSX", 0, 133, 0, 0, 0, 0, 2, 20, 155
+"c:\Users\HP\Desktop\optal\fe-optal\src\app\components\AccountCustomer\Currency.jsx", "JavaScript JSX", 0, 173, 0, 0, 0, 0, 0, 22, 195
+"c:\Users\HP\Desktop\optal\fe-optal\src\app\components\AccountCustomer\Orders\OneOrder.jsx", "JavaScript JSX", 0, 25, 0, 0, 0, 0, 0, 5, 30
+"c:\Users\HP\Desktop\optal\fe-optal\src\app\components\AccountCustomer\Orders\OneOrder.scss", "SCSS", 0, 0, 0, 0, 83, 0, 2, 0, 85
+"c:\Users\HP\Desktop\optal\fe-optal\src\app\components\AccountCustomer\Orders\Orders.jsx", "JavaScript JSX", 0, 57, 0, 0, 0, 0, 0, 7, 64
+"c:\Users\HP\Desktop\optal\fe-optal\src\app\components\AccountCustomer\Orders\Orders.scss", "SCSS", 0, 0, 0, 0, 13, 0, 0, 0, 13
+"c:\Users\HP\Desktop\optal\fe-optal\src\app\components\AccountFactory\AccountFactory.jsx", "JavaScript JSX", 0, 101, 0, 0, 0, 0, 3, 20, 124
+"c:\Users\HP\Desktop\optal\fe-optal\src\app\components\Auth\LoginCustomer\LoginCustomer.jsx", "JavaScript JSX", 0, 176, 0, 0, 0, 0, 2, 18, 196
+"c:\Users\HP\Desktop\optal\fe-optal\src\app\components\Auth\LoginsFactory\LoginFactory.jsx", "JavaScript JSX", 0, 178, 0, 0, 0, 0, 1, 25, 204
+"c:\Users\HP\Desktop\optal\fe-optal\src\app\components\Auth\RegisterCustomer\RegisterCustomer.jsx", "JavaScript JSX", 0, 201, 0, 0, 0, 0, 2, 30, 233
+"c:\Users\HP\Desktop\optal\fe-optal\src\app\components\Auth\RegisterFactory\RegisterFactory.jsx", "JavaScript JSX", 0, 207, 0, 0, 0, 0, 2, 39, 248
+"c:\Users\HP\Desktop\optal\fe-optal\src\app\components\CategoryContent\CategoryContent.jsx", "JavaScript JSX", 0, 59, 0, 0, 0, 0, 0, 7, 66
+"c:\Users\HP\Desktop\optal\fe-optal\src\app\components\CurrencyFormatter\CurrencyFormatter.jsx", "JavaScript JSX", 0, 19, 0, 0, 0, 0, 3, 8, 30
+"c:\Users\HP\Desktop\optal\fe-optal\src\app\components\DesktopCats\DesktopCats.jsx", "JavaScript JSX", 0, 21, 0, 0, 0, 0, 0, 3, 24
+"c:\Users\HP\Desktop\optal\fe-optal\src\app\components\DesktopCats\DesktopCatsComponent.jsx", "JavaScript JSX", 0, 73, 0, 0, 0, 0, 0, 14, 87
+"c:\Users\HP\Desktop\optal\fe-optal\src\app\components\SubCategoryContent\SubCategoryContent.jsx", "JavaScript JSX", 0, 37, 0, 0, 0, 0, 0, 4, 41
+"c:\Users\HP\Desktop\optal\fe-optal\src\app\components\account_header\AccountHeader.jsx", "JavaScript JSX", 0, 172, 0, 0, 0, 0, 1, 23, 196
+"c:\Users\HP\Desktop\optal\fe-optal\src\app\components\account_header\AccountProducts.jsx", "JavaScript JSX", 0, 63, 0, 0, 0, 0, 0, 17, 80
+"c:\Users\HP\Desktop\optal\fe-optal\src\app\components\account_header\ProductList.jsx", "JavaScript JSX", 0, 17, 0, 0, 0, 0, 0, 8, 25
+"c:\Users\HP\Desktop\optal\fe-optal\src\app\components\account_header\ProductList.scss", "SCSS", 0, 0, 0, 0, 22, 0, 0, 2, 24
+"c:\Users\HP\Desktop\optal\fe-optal\src\app\components\account_header\UploadAvatarModal.jsx", "JavaScript JSX", 0, 110, 0, 0, 0, 0, 1, 15, 126
+"c:\Users\HP\Desktop\optal\fe-optal\src\app\components\addproduct\AddProductFooter.jsx", "JavaScript JSX", 0, 8, 0, 0, 0, 0, 0, 2, 10
+"c:\Users\HP\Desktop\optal\fe-optal\src\app\components\addproduct\AddProductForm.jsx", "JavaScript JSX", 0, 350, 0, 0, 0, 0, 0, 46, 396
+"c:\Users\HP\Desktop\optal\fe-optal\src\app\components\addproduct\AddProductIndex.jsx", "JavaScript JSX", 0, 16, 0, 0, 0, 0, 0, 3, 19
+"c:\Users\HP\Desktop\optal\fe-optal\src\app\components\addproduct\AddproductHeader.jsx", "JavaScript JSX", 0, 26, 0, 0, 0, 0, 0, 4, 30
+"c:\Users\HP\Desktop\optal\fe-optal\src\app\components\addproduct\ColorVariant.jsx", "JavaScript JSX", 0, 7, 0, 0, 0, 0, 0, 2, 9
+"c:\Users\HP\Desktop\optal\fe-optal\src\app\components\addproduct\reserve.jsx", "JavaScript JSX", 0, 0, 0, 0, 0, 0, 0, 1, 1
+"c:\Users\HP\Desktop\optal\fe-optal\src\app\components\banner\Banner.jsx", "JavaScript JSX", 0, 25, 0, 0, 0, 0, 37, 15, 77
+"c:\Users\HP\Desktop\optal\fe-optal\src\app\components\buttons\ActionButton.jsx", "JavaScript JSX", 0, 44, 0, 0, 0, 0, 0, 3, 47
+"c:\Users\HP\Desktop\optal\fe-optal\src\app\components\cart\Backup.js", "JavaScript", 0, 0, 64, 0, 0, 0, 0, 0, 64
+"c:\Users\HP\Desktop\optal\fe-optal\src\app\components\cart\Cart.jsx", "JavaScript JSX", 0, 225, 0, 0, 0, 0, 3, 59, 287
+"c:\Users\HP\Desktop\optal\fe-optal\src\app\components\cart\CartItem.jsx", "JavaScript JSX", 0, 150, 0, 0, 0, 0, 3, 30, 183
+"c:\Users\HP\Desktop\optal\fe-optal\src\app\components\cart\CheckOutModal.jsx", "JavaScript JSX", 0, 91, 0, 0, 0, 0, 0, 16, 107
+"c:\Users\HP\Desktop\optal\fe-optal\src\app\components\cart\CheckOutModal.scss", "SCSS", 0, 0, 0, 0, 29, 0, 1, 0, 30
+"c:\Users\HP\Desktop\optal\fe-optal\src\app\components\cart\CitySelector.jsx", "JavaScript JSX", 0, 22, 0, 0, 0, 0, 0, 3, 25
+"c:\Users\HP\Desktop\optal\fe-optal\src\app\components\cart\SaveModal.jsx", "JavaScript JSX", 0, 50, 0, 0, 0, 0, 1, 9, 60
+"c:\Users\HP\Desktop\optal\fe-optal\src\app\components\cart\SaveModal.scss", "SCSS", 0, 0, 0, 0, 14, 0, 1, 0, 15
+"c:\Users\HP\Desktop\optal\fe-optal\src\app\components\cart\cities.jsx", "JavaScript JSX", 0, 16, 0, 0, 0, 0, 0, 1, 17
+"c:\Users\HP\Desktop\optal\fe-optal\src\app\components\cart\handleSaveCart.jsx", "JavaScript JSX", 0, 0, 0, 0, 0, 0, 0, 1, 1
+"c:\Users\HP\Desktop\optal\fe-optal\src\app\components\checkout\AreYouSureModal.jsx", "JavaScript JSX", 0, 50, 0, 0, 0, 0, 0, 5, 55
+"c:\Users\HP\Desktop\optal\fe-optal\src\app\components\checkout\ChangeUserCityModal.jsx", "JavaScript JSX", 0, 77, 0, 0, 0, 0, 0, 9, 86
+"c:\Users\HP\Desktop\optal\fe-optal\src\app\components\checkout\ChangeUserFirstNameModal.jsx", "JavaScript JSX", 0, 57, 0, 0, 0, 0, 0, 4, 61
+"c:\Users\HP\Desktop\optal\fe-optal\src\app\components\checkout\ChangeUserPhoneModal.jsx", "JavaScript JSX", 0, 57, 0, 0, 0, 0, 0, 5, 62
+"c:\Users\HP\Desktop\optal\fe-optal\src\app\components\checkout\CheckOut.jsx", "JavaScript JSX", 0, 196, 0, 0, 0, 0, 1, 27, 224
+"c:\Users\HP\Desktop\optal\fe-optal\src\app\components\checkout\CheckOut.scss", "SCSS", 0, 0, 0, 0, 190, 0, 12, 8, 210
+"c:\Users\HP\Desktop\optal\fe-optal\src\app\components\checkout\GotYouModal.jsx", "JavaScript JSX", 0, 43, 0, 0, 0, 0, 0, 6, 49
+"c:\Users\HP\Desktop\optal\fe-optal\src\app\components\checkout\ProductToCheckOut.jsx", "JavaScript JSX", 0, 140, 0, 0, 0, 0, 1, 9, 150
+"c:\Users\HP\Desktop\optal\fe-optal\src\app\components\checkout\Questions.jsx", "JavaScript JSX", 0, 52, 0, 0, 0, 0, 0, 3, 55
+"c:\Users\HP\Desktop\optal\fe-optal\src\app\components\feed\Feed.jsx", "JavaScript JSX", 0, 56, 0, 0, 0, 0, 0, 11, 67
+"c:\Users\HP\Desktop\optal\fe-optal\src\app\components\footer\DesktopFooter.jsx", "JavaScript JSX", 0, 90, 0, 0, 0, 0, 0, 7, 97
+"c:\Users\HP\Desktop\optal\fe-optal\src\app\components\footer\Footer.jsx", "JavaScript JSX", 0, 10, 0, 0, 0, 0, 12, 5, 27
+"c:\Users\HP\Desktop\optal\fe-optal\src\app\components\footer\MobileFooter.jsx", "JavaScript JSX", 0, 7, 0, 0, 0, 0, 0, 2, 9
+"c:\Users\HP\Desktop\optal\fe-optal\src\app\components\header\CatItem.jsx", "JavaScript JSX", 0, 61, 0, 0, 0, 0, 1, 9, 71
+"c:\Users\HP\Desktop\optal\fe-optal\src\app\components\header\DesktopHeader.jsx", "JavaScript JSX", 0, 209, 0, 0, 0, 0, 0, 37, 246
+"c:\Users\HP\Desktop\optal\fe-optal\src\app\components\header\Header.jsx", "JavaScript JSX", 0, 26, 0, 0, 0, 0, 0, 4, 30
+"c:\Users\HP\Desktop\optal\fe-optal\src\app\components\header\MobileHeader.jsx", "JavaScript JSX", 0, 202, 0, 0, 0, 0, 34, 36, 272
+"c:\Users\HP\Desktop\optal\fe-optal\src\app\components\header\SearchBar.jsx", "JavaScript JSX", 0, 47, 0, 0, 0, 0, 0, 5, 52
+"c:\Users\HP\Desktop\optal\fe-optal\src\app\components\header\components\Search.jsx", "JavaScript JSX", 0, 35, 0, 0, 0, 0, 0, 5, 40
+"c:\Users\HP\Desktop\optal\fe-optal\src\app\components\home_content\HomeContent.jsx", "JavaScript JSX", 0, 15, 0, 0, 0, 0, 0, 4, 19
+"c:\Users\HP\Desktop\optal\fe-optal\src\app\components\product_card\AddToCartButton.jsx", "JavaScript JSX", 0, 40, 0, 0, 0, 0, 0, 9, 49
+"c:\Users\HP\Desktop\optal\fe-optal\src\app\components\product_card\ProductCard.jsx", "JavaScript JSX", 0, 47, 0, 0, 0, 0, 4, 6, 57
+"c:\Users\HP\Desktop\optal\fe-optal\src\app\components\product_details\ProductDetails.jsx", "JavaScript JSX", 0, 259, 0, 0, 0, 0, 11, 26, 296
+"c:\Users\HP\Desktop\optal\fe-optal\src\app\components\product_details\_product_details.scss", "SCSS", 0, 0, 0, 0, 280, 0, 20, 48, 348
+"c:\Users\HP\Desktop\optal\fe-optal\src\app\components\support\Support.jsx", "JavaScript JSX", 0, 63, 0, 0, 0, 0, 0, 4, 67
+"c:\Users\HP\Desktop\optal\fe-optal\src\app\components\tutorial\Tutorial.jsx", "JavaScript JSX", 0, 180, 0, 0, 0, 0, 0, 19, 199
+"c:\Users\HP\Desktop\optal\fe-optal\src\app\components\ui-kit\BackPage\BackPage.jsx", "JavaScript JSX", 0, 24, 0, 0, 0, 0, 0, 5, 29
+"c:\Users\HP\Desktop\optal\fe-optal\src\app\components\ui-kit\BackPage\BackPage.scss", "SCSS", 0, 0, 0, 0, 5, 0, 0, 0, 5
+"c:\Users\HP\Desktop\optal\fe-optal\src\app\components\ui-kit\OrderCard\OrderCard.jsx", "JavaScript JSX", 0, 141, 0, 0, 0, 0, 1, 9, 151
+"c:\Users\HP\Desktop\optal\fe-optal\src\app\components\ui-kit\OrderCard\OrderCard.scss", "SCSS", 0, 0, 0, 0, 70, 0, 9, 2, 81
+"c:\Users\HP\Desktop\optal\fe-optal\src\app\components\updateProduct\UpdateProduct.jsx", "JavaScript JSX", 0, 21, 0, 0, 0, 0, 0, 10, 31
+"c:\Users\HP\Desktop\optal\fe-optal\src\app\components\updateProduct\UpdateProduct.scss", "SCSS", 0, 0, 0, 0, 0, 0, 52, 5, 57
+"c:\Users\HP\Desktop\optal\fe-optal\src\app\components\updateProduct\components\Footer.jsx", "JavaScript JSX", 0, 8, 0, 0, 0, 0, 0, 3, 11
+"c:\Users\HP\Desktop\optal\fe-optal\src\app\components\updateProduct\components\Form.jsx", "JavaScript JSX", 0, 70, 0, 0, 0, 0, 0, 14, 84
+"c:\Users\HP\Desktop\optal\fe-optal\src\app\components\updateProduct\components\Header.jsx", "JavaScript JSX", 0, 22, 0, 0, 0, 0, 0, 5, 27
+"c:\Users\HP\Desktop\optal\fe-optal\src\app\components\updateProduct\components\tabs\ColorVariant.jsx", "JavaScript JSX", 0, 0, 0, 0, 0, 0, 0, 1, 1
+"c:\Users\HP\Desktop\optal\fe-optal\src\app\components\updateProduct\components\tabs\Images.jsx", "JavaScript JSX", 0, 104, 0, 0, 0, 0, 0, 20, 124
+"c:\Users\HP\Desktop\optal\fe-optal\src\app\components\updateProduct\components\tabs\Images.scss", "SCSS", 0, 0, 0, 0, 87, 0, 5, 6, 98
+"c:\Users\HP\Desktop\optal\fe-optal\src\app\components\updateProduct\components\tabs\Main.jsx", "JavaScript JSX", 0, 264, 0, 0, 0, 0, 0, 30, 294
+"c:\Users\HP\Desktop\optal\fe-optal\src\app\components\updateProduct\components\tabs\Main.scss", "SCSS", 0, 0, 0, 0, 45, 0, 0, 2, 47
+"c:\Users\HP\Desktop\optal\fe-optal\src\app\components\updateProduct\components\tabs\Modals\AddColor.jsx", "JavaScript JSX", 0, 139, 0, 0, 0, 0, 0, 16, 155
+"c:\Users\HP\Desktop\optal\fe-optal\src\app\components\updateProduct\components\tabs\Modals\DeleteColor.jsx", "JavaScript JSX", 0, 37, 0, 0, 0, 0, 0, 8, 45
+"c:\Users\HP\Desktop\optal\fe-optal\src\app\components\updateProduct\components\tabs\Modals\EditColor.jsx", "JavaScript JSX", 0, 70, 0, 0, 0, 0, 1, 8, 79
+"c:\Users\HP\Desktop\optal\fe-optal\src\app\components\updateProduct\components\tabs\Modals\EditImage.jsx", "JavaScript JSX", 0, 83, 0, 0, 0, 0, 0, 8, 91
+"c:\Users\HP\Desktop\optal\fe-optal\src\app\components\updateProduct\components\tabs\Modals\EditProductModal.scss", "SCSS", 0, 0, 0, 0, 30, 0, 0, 1, 31
+"c:\Users\HP\Desktop\optal\fe-optal\src\app\components\updateProduct\components\tabs\Preview.jsx", "JavaScript JSX", 0, 7, 0, 0, 0, 0, 0, 2, 9
+"c:\Users\HP\Desktop\optal\fe-optal\src\app\components\updateProduct\components\tabs\Sales.jsx", "JavaScript JSX", 0, 7, 0, 0, 0, 0, 0, 2, 9
+"c:\Users\HP\Desktop\optal\fe-optal\src\app\components\ux-kit\BuyNowModal\BuyNowModal.jsx", "JavaScript JSX", 0, 95, 0, 0, 0, 0, 0, 17, 112
+"c:\Users\HP\Desktop\optal\fe-optal\src\app\components\ux-kit\BuyNowModal\BuyNowModal.scss", "SCSS", 0, 0, 0, 0, 16, 0, 1, 0, 17
+"c:\Users\HP\Desktop\optal\fe-optal\src\app\components\ux-kit\ClientAllowModal\ClientAllowModal.jsx", "JavaScript JSX", 0, 72, 0, 0, 0, 0, 0, 9, 81
+"c:\Users\HP\Desktop\optal\fe-optal\src\app\components\ux-kit\ClientAllowModal\ClientAllowModal.scss", "SCSS", 0, 0, 0, 0, 17, 0, 1, 1, 19
+"c:\Users\HP\Desktop\optal\fe-optal\src\app\components\ux-kit\GoToCartModal\GoToCartModal.jsx", "JavaScript JSX", 0, 40, 0, 0, 0, 0, 0, 3, 43
+"c:\Users\HP\Desktop\optal\fe-optal\src\app\components\ux-kit\GoToCartModal\GoToCartModal.scss", "SCSS", 0, 0, 0, 0, 14, 0, 0, 0, 14
+"c:\Users\HP\Desktop\optal\fe-optal\src\app\components\ux-kit\ManufacterAllowModal\ManufacterAllowModal.jsx", "JavaScript JSX", 0, 52, 0, 0, 0, 0, 2, 9, 63
+"c:\Users\HP\Desktop\optal\fe-optal\src\app\components\ux-kit\ManufacterAllowModal\ManufacterAllowModal.scss", "SCSS", 0, 0, 0, 0, 0, 0, 0, 1, 1
+"c:\Users\HP\Desktop\optal\fe-optal\src\app\components\ux-kit\ManufacterIntroModal\ManufacterIntroModal.jsx", "JavaScript JSX", 0, 52, 0, 0, 0, 0, 0, 8, 60
+"c:\Users\HP\Desktop\optal\fe-optal\src\app\components\ux-kit\ManufacterIntroModal\ManufacterIntroModal.scss", "SCSS", 0, 0, 0, 0, 0, 0, 0, 1, 1
+"c:\Users\HP\Desktop\optal\fe-optal\src\app\components\ux-kit\QuickAuthModal\QuickAuthModal.jsx", "JavaScript JSX", 0, 49, 0, 0, 0, 0, 2, 9, 60
+"c:\Users\HP\Desktop\optal\fe-optal\src\app\components\ux-kit\QuickAuthModal\QuickAuthModal.scss", "SCSS", 0, 0, 0, 0, 16, 0, 0, 2, 18
+"c:\Users\HP\Desktop\optal\fe-optal\src\app\globals.css", "CSS", 0, 0, 0, 0, 0, 74, 27, 17, 118
+"c:\Users\HP\Desktop\optal\fe-optal\src\app\layout.js", "JavaScript", 0, 0, 37, 0, 0, 0, 2, 7, 46
+"c:\Users\HP\Desktop\optal\fe-optal\src\app\login-customer\page.jsx", "JavaScript JSX", 0, 14, 0, 0, 0, 0, 0, 2, 16
+"c:\Users\HP\Desktop\optal\fe-optal\src\app\login-factory\page.jsx", "JavaScript JSX", 0, 10, 0, 0, 0, 0, 1, 2, 13
+"c:\Users\HP\Desktop\optal\fe-optal\src\app\newfactory\page.jsx", "JavaScript JSX", 0, 10, 0, 0, 0, 0, 0, 3, 13
+"c:\Users\HP\Desktop\optal\fe-optal\src\app\page.js", "JavaScript", 0, 0, 13, 0, 0, 0, 0, 2, 15
+"c:\Users\HP\Desktop\optal\fe-optal\src\app\product\[productId]\page.jsx", "JavaScript JSX", 0, 16, 0, 0, 0, 0, 0, 4, 20
+"c:\Users\HP\Desktop\optal\fe-optal\src\app\redux\api\cartApi.js", "JavaScript", 0, 0, 23, 0, 0, 0, 1, 8, 32
+"c:\Users\HP\Desktop\optal\fe-optal\src\app\redux\slices\AddProductSlice.js", "JavaScript", 0, 0, 35, 0, 0, 0, 18, 6, 59
+"c:\Users\HP\Desktop\optal\fe-optal\src\app\redux\slices\CartSlice.js", "JavaScript", 0, 0, 92, 0, 0, 0, 6, 20, 118
+"c:\Users\HP\Desktop\optal\fe-optal\src\app\redux\store.js", "JavaScript", 0, 0, 9, 0, 0, 0, 0, 3, 12
+"c:\Users\HP\Desktop\optal\fe-optal\src\app\register-customer\page.jsx", "JavaScript JSX", 0, 14, 0, 0, 0, 0, 0, 2, 16
+"c:\Users\HP\Desktop\optal\fe-optal\src\app\search\[query]\components\Search.jsx", "JavaScript JSX", 0, 11, 0, 0, 0, 0, 0, 3, 14
+"c:\Users\HP\Desktop\optal\fe-optal\src\app\search\[query]\components\Search.scss", "SCSS", 0, 0, 0, 0, 3, 0, 0, 1, 4
+"c:\Users\HP\Desktop\optal\fe-optal\src\app\search\[query]\page.jsx", "JavaScript JSX", 0, 14, 0, 0, 0, 0, 0, 6, 20
+"c:\Users\HP\Desktop\optal\fe-optal\src\app\styles\base\reset.scss", "SCSS", 0, 0, 0, 0, 0, 0, 0, 1, 1
+"c:\Users\HP\Desktop\optal\fe-optal\src\app\styles\base\typography.scss", "SCSS", 0, 0, 0, 0, 3, 0, 0, 0, 3
+"c:\Users\HP\Desktop\optal\fe-optal\src\app\styles\components\_account_customer.scss", "SCSS", 0, 0, 0, 0, 88, 0, 1, 17, 106
+"c:\Users\HP\Desktop\optal\fe-optal\src\app\styles\components\_account_header.scss", "SCSS", 0, 0, 0, 0, 165, 0, 2, 41, 208
+"c:\Users\HP\Desktop\optal\fe-optal\src\app\styles\components\_account_products.scss", "SCSS", 0, 0, 0, 0, 26, 0, 0, 4, 30
+"c:\Users\HP\Desktop\optal\fe-optal\src\app\styles\components\_addproduct.scss", "SCSS", 0, 0, 0, 0, 215, 0, 6, 41, 262
+"c:\Users\HP\Desktop\optal\fe-optal\src\app\styles\components\_banner.scss", "SCSS", 0, 0, 0, 0, 103, 0, 3, 25, 131
+"c:\Users\HP\Desktop\optal\fe-optal\src\app\styles\components\_button.scss", "SCSS", 0, 0, 0, 0, 6, 0, 0, 0, 6
+"c:\Users\HP\Desktop\optal\fe-optal\src\app\styles\components\_cart.scss", "SCSS", 0, 0, 0, 0, 91, 0, 7, 8, 106
+"c:\Users\HP\Desktop\optal\fe-optal\src\app\styles\components\_cartItem.scss", "SCSS", 0, 0, 0, 0, 180, 0, 14, 29, 223
+"c:\Users\HP\Desktop\optal\fe-optal\src\app\styles\components\_category.scss", "SCSS", 0, 0, 0, 0, 48, 0, 0, 16, 64
+"c:\Users\HP\Desktop\optal\fe-optal\src\app\styles\components\_desktop_header.scss", "SCSS", 0, 0, 0, 0, 112, 0, 4, 25, 141
+"c:\Users\HP\Desktop\optal\fe-optal\src\app\styles\components\_desktopcats.scss", "SCSS", 0, 0, 0, 0, 21, 0, 0, 3, 24
+"c:\Users\HP\Desktop\optal\fe-optal\src\app\styles\components\_factory_cabinet.scss", "SCSS", 0, 0, 0, 0, 7, 0, 0, 1, 8
+"c:\Users\HP\Desktop\optal\fe-optal\src\app\styles\components\_feed.scss", "SCSS", 0, 0, 0, 0, 18, 0, 1, 1, 20
+"c:\Users\HP\Desktop\optal\fe-optal\src\app\styles\components\_footer.scss", "SCSS", 0, 0, 0, 0, 78, 0, 1, 15, 94
+"c:\Users\HP\Desktop\optal\fe-optal\src\app\styles\components\_home_content.scss", "SCSS", 0, 0, 0, 0, 2, 0, 2, 0, 4
+"c:\Users\HP\Desktop\optal\fe-optal\src\app\styles\components\_loginfactory.scss", "SCSS", 0, 0, 0, 0, 66, 0, 6, 13, 85
+"c:\Users\HP\Desktop\optal\fe-optal\src\app\styles\components\_mobile_header.scss", "SCSS", 0, 0, 0, 0, 54, 0, 3, 10, 67
+"c:\Users\HP\Desktop\optal\fe-optal\src\app\styles\components\_newfactory.scss", "SCSS", 0, 0, 0, 0, 68, 0, 23, 19, 110
+"c:\Users\HP\Desktop\optal\fe-optal\src\app\styles\components\_product.scss", "SCSS", 0, 0, 0, 0, 0, 0, 0, 1, 1
+"c:\Users\HP\Desktop\optal\fe-optal\src\app\styles\components\_product_card.scss", "SCSS", 0, 0, 0, 0, 115, 0, 3, 20, 138
+"c:\Users\HP\Desktop\optal\fe-optal\src\app\styles\components\_search.scss", "SCSS", 0, 0, 0, 0, 104, 0, 0, 19, 123
+"c:\Users\HP\Desktop\optal\fe-optal\src\app\styles\components\_subcategory.scss", "SCSS", 0, 0, 0, 0, 18, 0, 0, 2, 20
+"c:\Users\HP\Desktop\optal\fe-optal\src\app\styles\components\_support.scss", "SCSS", 0, 0, 0, 0, 41, 0, 1, 8, 50
+"c:\Users\HP\Desktop\optal\fe-optal\src\app\styles\components\_tutorial.scss", "SCSS", 0, 0, 0, 0, 22, 0, 0, 0, 22
+"c:\Users\HP\Desktop\optal\fe-optal\src\app\styles\layout\grid.scss", "SCSS", 0, 0, 0, 0, 14, 0, 0, 1, 15
+"c:\Users\HP\Desktop\optal\fe-optal\src\app\styles\main.scss", "SCSS", 0, 0, 0, 0, 3, 0, 1, 2, 6
+"c:\Users\HP\Desktop\optal\fe-optal\src\app\subcategory\[subcatId]\page.jsx", "JavaScript JSX", 0, 14, 0, 0, 0, 0, 0, 3, 17
+"c:\Users\HP\Desktop\optal\fe-optal\src\app\support\page.jsx", "JavaScript JSX", 0, 12, 0, 0, 0, 0, 0, 2, 14
+"c:\Users\HP\Desktop\optal\fe-optal\src\app\temp_data\main_page_data.jsx", "JavaScript JSX", 0, 43, 0, 0, 0, 0, 0, 2, 45
+"c:\Users\HP\Desktop\optal\fe-optal\src\app\tutorial\page.jsx", "JavaScript JSX", 0, 12, 0, 0, 0, 0, 0, 3, 15
+"c:\Users\HP\Desktop\optal\fe-optal\src\app\util\NewCity.jsx", "JavaScript JSX", 0, 15, 0, 0, 0, 0, 0, 1, 16
+"c:\Users\HP\Desktop\optal\fe-optal\src\app\util\NewFirstName.jsx", "JavaScript JSX", 0, 15, 0, 0, 0, 0, 0, 1, 16
+"c:\Users\HP\Desktop\optal\fe-optal\src\app\util\NewPhoneNumber.jsx", "JavaScript JSX", 0, 14, 0, 0, 0, 0, 0, 1, 15
+"c:\Users\HP\Desktop\optal\fe-optal\src\app\util\colors.js", "JavaScript", 0, 0, 114, 0, 0, 0, 4, 4, 122
+"c:\Users\HP\Desktop\optal\fe-optal\src\app\util\currency.js", "JavaScript", 0, 0, 6, 0, 0, 0, 1, 1, 8
+"c:\Users\HP\Desktop\optal\fe-optal\src\app\util\currencyMap.js", "JavaScript", 0, 0, 8, 0, 0, 0, 0, 0, 8
+"c:\Users\HP\Desktop\optal\fe-optal\src\app\util\fetchExchangeRates.js", "JavaScript", 0, 0, 27, 0, 0, 0, 2, 8, 37
+"c:\Users\HP\Desktop\optal\fe-optal\src\app\util\formatCurrency.js", "JavaScript", 0, 0, 26, 0, 0, 0, 5, 9, 40
+"c:\Users\HP\Desktop\optal\fe-optal\src\app\util\formatNumber.js", "JavaScript", 0, 0, 10, 0, 0, 0, 0, 1, 11
+"c:\Users\HP\Desktop\optal\fe-optal\src\app\util\postConfirmOrder.js", "JavaScript", 0, 0, 18, 0, 0, 0, 0, 1, 19
+"c:\Users\HP\Desktop\optal\fe-optal\src\app\util\temp.json", "JSON", 0, 0, 0, 8, 0, 0, 0, 0, 8
+"c:\Users\HP\Desktop\optal\fe-optal\src\public\box.svg", "XML", 1, 0, 0, 0, 0, 0, 0, 0, 1
+"c:\Users\HP\Desktop\optal\fe-optal\src\public\boxtoo.svg", "XML", 1, 0, 0, 0, 0, 0, 0, 0, 1
+"c:\Users\HP\Desktop\optal\fe-optal\src\public\cart.svg", "XML", 1, 0, 0, 0, 0, 0, 0, 0, 1
+"c:\Users\HP\Desktop\optal\fe-optal\src\public\catalog.svg", "XML", 1, 0, 0, 0, 0, 0, 0, 0, 1
+"c:\Users\HP\Desktop\optal\fe-optal\src\public\profile.svg", "XML", 1, 0, 0, 0, 0, 0, 0, 0, 1
+"c:\Users\HP\Desktop\optal\fe-optal\src\public\search.svg", "XML", 1, 0, 0, 0, 0, 0, 0, 0, 1
+"c:\Users\HP\Desktop\optal\fe-optal\src\public\star.svg", "XML", 10, 0, 0, 0, 0, 0, 1, 0, 11
+"Total", "-", 16, 9626, 483, 8, 3225, 74, 491, 2064, 15987

@@ -1,28 +1,25 @@
-import React from 'react'
+import React, { useState } from 'react'
 import '../../styles/components/_account_products.scss'
 import { Button } from '@mui/material'
 import AddCircleIcon from '@mui/icons-material/AddCircle';
 import Link from 'next/link';
-
-import Card from '@mui/material/Card';
-import CardActions from '@mui/material/CardActions';
-import CardContent from '@mui/material/CardContent';
-import CardMedia from '@mui/material/CardMedia';
-import Typography from '@mui/material/Typography';
-import { BACK_URL } from '@/app/VAR';
-
-import VisibilityIcon from '@mui/icons-material/Visibility';
-import EditIcon from '@mui/icons-material/Edit';
-import DeleteForeverIcon from '@mui/icons-material/DeleteForever';
+import ProductList from './ProductList'
+import CreateNewStoreCategoryModal from '@/app/box-account/components/modals/CreateNewStoreCategoryModal';
 
 
+function AccountBoxProducts({ products, handleDelete, reload }) {
+    const [openStoreCategoryModal, setOpenStoreCategoryModal] = useState(false)
 
+    const handleOpenSCModal = () => {
+        setOpenStoreCategoryModal(true)
+    }
+    const handleCloseSCModal = () => {
+        setOpenStoreCategoryModal(false)
+    }
 
-
-import axios from 'axios';
-import ProductList from './ProductList';
-const products = false
-function AccountProducts({ products, handleDelete }) {
+    const handleCreateNewStoreCategory = () => {
+        handleOpenSCModal()
+    }
 
     if (
         products == false
@@ -34,7 +31,7 @@ function AccountProducts({ products, handleDelete }) {
                         Это - витрина вашего цеха <br></br>
                     </p>
                     <div>
-                        <Link href="/addproduct">
+                        <Link href="/box-addproduct">
 
                             <Button variant='contained'>
                                 Добавить товар <AddCircleIcon />
@@ -51,54 +48,32 @@ function AccountProducts({ products, handleDelete }) {
         return (
             <div>
                 <div className='products'>
-                    <Link href="/addproduct">
+
+                    <Button variant='contained' fullWidth sx={{ background: "#343131", marginBottom: 4, display: "flex", justifyContent: "space-between" }} onClick={() => {
+                        handleCreateNewStoreCategory()
+                        console.log(12312)
+                    }}>
+                        Добавить раздел <AddCircleIcon />
+                    </Button>
+
+
+
+
+                    <Link href="/box-addproduct">
                         <Button variant='contained' fullWidth sx={{ background: "#CD0000", marginBottom: 4, display: "flex", justifyContent: "space-between" }}>
                             Добавить товар <AddCircleIcon />
                         </Button>
                     </Link>
 
-                    <ProductList products={products} handleDelete={handleDelete} />
-                    {/* {
-                        products.map(product => {
-                            console.log(product)
-                            return (
-                                <Card sx={{ maxWidth: 420 }} key={product.id}>
-                                    <CardMedia
-                                        component="img"
-                                        alt="green iguana"
-                                        height="320"
-                                        image={`${BACK_URL}${product.color_variations[0]?.image}`}
-                                    />
-                                    <CardContent>
-                                        <div className='first_info'>
-                                            <h3>{product.name}</h3>
-                                            <h3>{product.color_variations.length} цветовых вариаций</h3>
-                                        </div>
-                                        <div gutterBottom variant="h5" component="div">
-                                            {product.price} ₽
-                                        </div>
-                                    </CardContent>
-                                    <CardActions sx={{ justifyContent: "end" }}>
-                                        <Link href={`/product/${product.id}`}>
-                                            <Button variant='contained' size="small"><VisibilityIcon /></Button>
-                                        </Link>
-                                        <Link href={`/account-factory/update-product/${product.id}`}>
-                                            <Button color='success' variant='contained' size="small" ><EditIcon /></Button>
-                                        </Link>
-                                        <Button color="error" variant='contained' size="small" onClick={() => handleDelete(product.id)}><DeleteForeverIcon /></Button>
-                                    </CardActions>
-                                </Card>
-                            )
-                        })
-                    } */}
-
+                    <ProductList products={products} handleDelete={handleDelete} reload={reload} />
                 </div>
+                <CreateNewStoreCategoryModal open={openStoreCategoryModal} onClose={handleCloseSCModal} reload={reload} />
             </div >
         )
     }
 
 }
 
-export default AccountProducts
+export default AccountBoxProducts
 
 

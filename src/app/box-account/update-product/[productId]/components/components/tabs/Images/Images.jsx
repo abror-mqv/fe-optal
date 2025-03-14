@@ -7,10 +7,10 @@ import ClearIcon from '@mui/icons-material/Clear';
 import ColorLensIcon from '@mui/icons-material/ColorLens';
 import axios from 'axios';
 import { BACK_URL } from '@/app/VAR';
-import EditColor from './Modals/EditColor';
-import EditImage from './Modals/EditImage';
-import AddColor from './Modals/AddColor';
-import DeleteColor from './Modals/DeleteColor';
+import EditColor from '../Modals/EditColor';
+import EditImage from '../Modals/EditImage';
+import AddColor from '../Modals/AddColor';
+import DeleteColor from '../Modals/DeleteColor';
 function Images({ productId }) {
 
     const [old_images, setOldImages] = useState([])

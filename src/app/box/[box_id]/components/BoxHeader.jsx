@@ -19,7 +19,7 @@ import MenuIcon from '@mui/icons-material/Menu';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import { BACK_URL } from '@/app/VAR';
 import CallMissedOutgoingIcon from '@mui/icons-material/CallMissedOutgoing';
-
+import StoreIcon from '@mui/icons-material/Store';
 
 function BoxHeader() {
     const [open, setOpen] = useState(false);
@@ -27,233 +27,24 @@ function BoxHeader() {
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
 
-    const toggleDrawer = (newOpen) => () => {
-        setOpen(newOpen);
-    };
 
-    useEffect(() => {
-        const fetchData = async () => {
-            try {
-                const response = await axios.get(`${BACK_URL}/api/factories/cats`);
-                setCategories(response.data);
-                setLoading(false);
-            } catch (err) {
-                setError(err.message);
-                setLoading(false);
-            }
-        };
-
-        fetchData();
-    }, []);
-
-
-    // const ProfileLink = () => {
-    //     if (typeof window !== 'undefined') {
-    //         if (localStorage?.getItem("TOKEN") == "undefined") {
-    //             return (
-    //                 <Link href={'/account-factory'}>
-    //                     <ListItemButton
-    //                         aria-controls={open ? 'demo-positioned-menu' : undefined}
-    //                         aria-haspopup="true"
-
-    //                     >
-    //                         <ListItemIcon>
-    //                             <AccountBoxIcon />
-    //                         </ListItemIcon>
-    //                         <ListItemText primary={"Мой профиль"} />
-    //                     </ListItemButton>
-    //                 </Link>
-    //             )
-    //         }else if(localStorage.getItem("USER_TYPE") == "FACTORY"){
-
-    //         }
-    //     }
-    //     else {
-    //         <Link href={'/newfactory'}>
-    //             <ListItemButton
-    //                 aria-controls={open ? 'demo-positioned-menu' : undefined}
-    //                 aria-haspopup="true"
-
-    //             >
-    //                 <ListItemIcon>
-    //                     <AccountBoxIcon />
-    //                 </ListItemIcon>
-    //                 <ListItemText primary={"Начать продавать"} />
-    //             </ListItemButton>
-    //         </Link>
-    //     }
-    // }
-
-    const ProfileLink = () => {
-        if (!localStorage.getItem("TOKEN")) {
-            return (
-                <>
-                    <Link href="/register-customer">
-                        <ListItemButton
-                            aria-controls={open ? 'demo-positioned-menu' : undefined}
-                            aria-haspopup="true"
-
-                        >
-                            <ListItemIcon>
-                                <AccountBoxIcon />
-                            </ListItemIcon>
-                            <ListItemText primary="Зарегистрироваться" />
-                        </ListItemButton>
-                    </Link>
-                    <Link href="/newfactory">
-                        <ListItemButton
-                            aria-controls={open ? 'demo-positioned-menu' : undefined}
-                            aria-haspopup="true"
-
-                        >
-                            <ListItemIcon>
-                                <AccountBoxIcon />
-                            </ListItemIcon>
-                            <ListItemText primary="Начать продавать" />
-                        </ListItemButton>
-                    </Link>
-                </>
-            )
-        } else if (localStorage.getItem("USER_TYPE") == "CUSTOMER") {
-            return (
-                <Link href="/account-customer">
-                    <ListItemButton
-                        aria-controls={open ? 'demo-positioned-menu' : undefined}
-                        aria-haspopup="true"
-
-                    >
-                        <ListItemIcon>
-                            <AccountBoxIcon />
-                        </ListItemIcon>
-                        <ListItemText primary="Личный кабинет" />
-                    </ListItemButton>
-                </Link>
-            )
-        } else if (localStorage.getItem("USER_TYPE") == "FACTORY") {
-            return (
-                <Link href="/account-factory">
-                    <ListItemButton
-                        aria-controls={open ? 'demo-positioned-menu' : undefined}
-                        aria-haspopup="true"
-
-                    >
-                        <ListItemIcon>
-                            <AccountBoxIcon />
-                        </ListItemIcon>
-                        <ListItemText primary="Личный кабинет" />
-                    </ListItemButton>
-                </Link>
-            )
-        }
-    }
 
     return (
         <header className='MobileHeader'>
-            <Drawer open={open} onClose={toggleDrawer(false)}>
-                <Box sx={{ width: 350 }} role="presentation">
-
-                    <List>
-                        <Link href={`/`}>
-                            <ListItemButton
-                                aria-controls={open ? 'demo-positioned-menu' : undefined}
-                                aria-haspopup="true"
-
-                            >
-                                <ListItemIcon>
-                                    <HomeIcon />
-                                </ListItemIcon>
-                                <ListItemText primary={"OPTAL.RU"} />
-                                <Image width={42} height={42} src="/optal_logo.svg" />
-                            </ListItemButton>
-                        </Link>
-
-                        <ProfileLink />
-                        <Link href={`/cart`}>
-                            <ListItemButton
-                                aria-controls={open ? 'demo-positioned-menu' : undefined}
-                                aria-haspopup="true"
-
-                            >
-                                <ListItemIcon>
-                                    <ShoppingCartIcon />
-                                </ListItemIcon>
-                                <ListItemText primary={"Корзина"} />
-                            </ListItemButton>
-                        </Link>
-
-
-
-
-                        {categories.map(cat => {
-                            return (
-                                <Accordion sx={{ boxShadow: "none" }} key={cat.id}>
-
-                                    <AccordionSummary
-                                        expandIcon={<Button variant='contained' sx={{ backgroundColor: "#252421" }}>
-                                            <ExpandMoreIcon />
-                                        </Button>}
-                                        aria-controls="panel1a-content"
-                                        id="panel1a-header"
-                                    >
-                                        <Link href={`/category/${cat.id}`} sx={{ zIndex: "99999999" }}>
-                                            <Button variant='contained' sx={{ backgroundColor: "#CD0000" }}>
-                                                {cat.cat_name}
-                                            </Button>
-                                        </Link>
-
-                                    </AccordionSummary>
-                                    <AccordionDetails>
-                                        {
-                                            cat.subcategories.map(subcat => {
-                                                return (
-                                                    <Link href={`/subcategory/${subcat.id}`} key={subcat.id}>
-                                                        <ListItemButton
-                                                            aria-controls={open ? 'demo-positioned-menu' : undefined}
-                                                            aria-haspopup="true"
-
-                                                        >
-                                                            <ListItemIcon>
-                                                                <CallMissedOutgoingIcon />
-                                                            </ListItemIcon>
-                                                            <ListItemText primary={subcat.subcat_name} />
-                                                        </ListItemButton>
-                                                    </Link>
-                                                )
-                                            })
-                                        }
-                                    </AccordionDetails>
-                                </Accordion>
-
-                            )
-                        })}
-                    </List>
-
-                </Box>
-            </Drawer>
-            <div className='navigation'>
-
-                <Link href="/cart" className='additional' >
-
-                    <Button variant='contained'>
-                        <ShoppingCartIcon />
-                    </Button>
-                </Link>
+            <div className='navigation' style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
                 <Link href="#">
-                    <h1>
+                    <h1 style={{ textAlign: "start" }}>
                         OPTAL
                         <span>
                             ОПТОМ ИЗ КЫРГЫЗСТАНА
                         </span>
                     </h1>
                 </Link>
-                <div className='burger'>
+                <Link href={"/box-account"} className='store_button' >
                     <div>
-                        <Image width={42} height={42} src="/optal_logo.svg" />
+                        <StoreIcon sx={{ color: "#CD0000", fontSize: "64px" }} />
                     </div>
-                </div>
-
-
-
+                </Link>
             </div>
 
         </header >

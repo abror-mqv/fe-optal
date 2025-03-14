@@ -33,7 +33,7 @@ const style = {
 };
 
 
-function AccountHeader({ name, description, image }) {
+function AccountHeader({ name, description, image, first_name, reload }) {
 
     const [openName, setOpenName] = React.useState(false);
 
@@ -131,16 +131,19 @@ function AccountHeader({ name, description, image }) {
                             </p>
                         </div>
                     </Link>
-                    <div className='docs'>
-                        <HelpCenterIcon />
-                        <p>
-                            Инструкция
-                        </p>
-                    </div>
+                    <Link href="/guide/factory">
+                        <div className='docs'>
+                            <HelpCenterIcon />
+                            <p>
+                                Инструкция
+                            </p>
+                        </div>
+                    </Link>
+
                 </div>
                 <div className='Introduction'>
                     <h4>
-                        Ваши товары в продаже, Аброр:
+                        Ваши товары в продаже, {first_name}:
                     </h4>
                 </div>
                 <Modal
@@ -186,6 +189,7 @@ function AccountHeader({ name, description, image }) {
                     isOpen={isModalOpen}
                     onClose={handleCloseModal}
                     onUpload={handleAvatarUpload}
+                    reload={reload}
                 />
             </header>
         </>

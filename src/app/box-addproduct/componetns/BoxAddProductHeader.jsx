@@ -9,7 +9,7 @@ import Link from 'next/link';
 function BoxAddProductHeader({ onSubmit }) {
     return (
         <header style={{ flexDirection: "row", justifyContent: "space-between", width: "100%" }}>
-            <Link href="/box-account">
+            <Link href={(localStorage.getItem("SELLER_TYPE") == "BOX") ? "/box-account" : "/account-factory"}>
                 <Button className='close' >
                     <CloseIcon />
                 </Button>

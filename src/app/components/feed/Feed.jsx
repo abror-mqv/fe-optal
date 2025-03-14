@@ -45,16 +45,19 @@ function Feed() {
 
                 {products.map(el => {
                     return (
-                        <ProductCard
-                            name={el.name}
-                            id={el.id}
-                            price={el.price_with_commission}
-                            rate={el.rate}
-                            image={(el.color_variations[0]?.image) ? (el.color_variations[0].image) : null}
-                            key={el.id}
-                            setAuthError={handleOpenQAModal}
-                            setCAError={handleOpenCAModal}
-                        />
+                        <>
+                            <ProductCard
+                                name={el.name}
+                                id={el.id}
+                                price={el.price_with_commission}
+                                rate={el.rate}
+                                image={(el.color_variations[0]?.image) ? (el.color_variations[0].image) : null}
+                                key={el.id}
+                                setAuthError={handleOpenQAModal}
+                                setCAError={handleOpenCAModal}
+                            />
+                           
+                        </>
                     )
                 })}
             </div>

@@ -23,7 +23,9 @@ function BoxContent({ data, box_name, box_description, box_avatar, supplier_id }
     }
     const handleOpenQAModal = (id) => {
         setOpenQAModal(true)
-        localStorage.setItem("PRODUCT_ADD_TO_CART_ID", id)
+        console.log("toggled QA MODAL")
+        localStorage.setItem("PRODUCT_ADD_TO_CART_ID", id),
+            localStorage.setItem("BEFORE_REGISTRATION_PAGE", window.location.href)
     }
     const handleOpenCAModal = () => {
         setOpenCAModal(true)
@@ -54,13 +56,13 @@ function BoxContent({ data, box_name, box_description, box_avatar, supplier_id }
                 {
                     data.map((razdel, index) => {
                         return (
-                            <Razdel key={index} razdel={razdel} setAuthError={handleOpenQAModal}  setCAError={handleOpenCAModal}/>
+                            <Razdel key={index} razdel={razdel} handleOpenQAModal={handleOpenQAModal} setCAError={handleOpenCAModal} />
                         )
                     })
                 }
 
 
-              
+
 
 
 

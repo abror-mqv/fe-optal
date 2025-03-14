@@ -18,6 +18,8 @@ import AccountBoxProducts from './AccountBoxProducts'
 
 
 function AccountBox() {
+    localStorage.setItem("SELLER_TYPE", "BOX")
+
     const [name, setName] = useState("Название цеха")
     const [description, setDescription] = useState("")
     const [firstName, setFirstName] = useState("Аброр")
@@ -118,7 +120,7 @@ function AccountBox() {
     }, []);
 
     return (
-        <div>
+        <div style={{ marginTop: "-80px" }}>
             <AccountBoxHeader name={name} description={description} image={image} reload={reload} first_name={firstName} box_id={box_id} />
             <AccountBoxProducts products={products} handleDelete={handleDelete} reload={reload} />
             <Footer />

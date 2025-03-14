@@ -8,6 +8,7 @@ import BoxAddProductFooter from './BoxAddProductFooter';
 
 function BoxAddProduct() {
     const handleSubmitRef = useRef(null);
+
     return (
         <div>
             <BoxAddProductHeader onSubmit={() => handleSubmitRef.current()} />
