@@ -1,4 +1,28 @@
 .Eliminating{
+    .PromoHeader{
+        font-family: Roboto;
+        padding: 18px 12px;
+        background-color: #222222d4;
+        border-radius: 6px;
+        color: white;
+        h1{
+            font-weight: 500;
+            text-transform: uppercase;
+        }
+        p{
+            margin-top: 16px;
+            font-weight: 300;
+            
+        }
+        .NoticeMe{
+            margin-top: 12px;
+            width: 100%;
+            text-align: start;
+            font-size: 24px;
+            text-transform: uppercase;
+            font-weight: 500;
+        }
+    }
     .content{
         margin-top: 90px;
     }

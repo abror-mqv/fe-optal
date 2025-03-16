@@ -11,7 +11,7 @@ const SuccessModal = ({ open, onClose }) => {
                     fontFamily: "Roboto",
 
                 }}>
-                    Добавление товара в акцию одобрено!
+                    Запрос прошел успешно!
                 </p>
             </DialogContent>
             <DialogActions>

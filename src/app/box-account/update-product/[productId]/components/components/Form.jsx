@@ -31,13 +31,13 @@ function Form({ productId, setSubmitFunction }) {
 
                         </Tabs>
                     </Box>
-                    <CustomTabPanel value={value} index={2}>
+                    <CustomTabPanel value={value} index={0}>
                         <Main productId={productId} />
                     </CustomTabPanel>
                     <CustomTabPanel value={value} index={1}>
                         <Images productId={productId} />
                     </CustomTabPanel>
-                    <CustomTabPanel value={value} index={0}>
+                    <CustomTabPanel value={value} index={2}>
                         <Sales productId={productId} />
                     </CustomTabPanel>
                     {/* <CustomTabPanel value={value} index={2}>

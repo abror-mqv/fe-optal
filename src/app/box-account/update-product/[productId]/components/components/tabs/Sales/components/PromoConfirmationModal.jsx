@@ -4,7 +4,7 @@ import axios from "axios";
 import { useState } from "react";
 import SuccessModal from "./SuccessModal";
 
-const PromoConfirmationModal = ({ open, onClose, productName, productId, promoName, promoId }) => {
+const PromoConfirmationModal = ({ open, onClose, productName, productId, promoName, promoId, reload }) => {
   const [openSucess, setOpenSucess] = useState(false)
   const onConfirm = () => {
     axios.post(`${BACK_URL}/api/factories/promotions/apply/`, {
@@ -71,6 +71,7 @@ const PromoConfirmationModal = ({ open, onClose, productName, productId, promoNa
       <SuccessModal open={openSucess} onClose={() => {
         setOpenSucess(false)
         onClose()
+        reload()
       }} />
     </Dialog>
   );

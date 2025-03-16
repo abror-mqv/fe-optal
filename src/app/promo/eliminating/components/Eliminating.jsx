@@ -1,11 +1,12 @@
 import React from 'react'
 import PromoHeader from './PromoHeader'
+import Feed from './Feed'
 
 function Eliminating() {
     return (
         <div className='content'>
             <PromoHeader />
-            Распродажа
+            <Feed />
         </div>
     )
 }

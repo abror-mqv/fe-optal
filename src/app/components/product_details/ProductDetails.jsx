@@ -109,6 +109,7 @@ function ProductDetails(props) {
                 console.log(response)
                 setProduct(response.data);
                 setColor_variants(response.data.color_variations)
+                setColorName(response.data.color_variations[0].color_name)
             } catch (error) {
                 console.error("Error fetching product data:", error);
             }
@@ -266,7 +267,7 @@ function ProductDetails(props) {
                                 <div>
                                     <Avatar
                                         alt={product?.manufacter?.factory_name}
-                                        src="/static/images/avatar/1.jpg"
+                                        src={product?.manufacter?.factory_avatar}
                                         sx={{ width: 24, height: 24 }}
                                     />
                                 </div>

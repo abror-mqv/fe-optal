@@ -41,6 +41,15 @@
 
                 }
             }
+            .actionButtonsExist{
+                background-color: #fff;
+                color: #1976d2;
+                padding: 12px;
+                border-radius: 6px;
+                display: flex;
+                justify-content: space-between;
+                margin-top: 12px;
+            }
         }
     }
 }
