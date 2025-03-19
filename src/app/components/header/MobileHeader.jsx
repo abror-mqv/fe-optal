@@ -8,7 +8,7 @@ import Box from '@mui/material/Box';
 import Drawer from '@mui/material/Drawer';
 import Button from '@mui/material/Button';
 import List from '@mui/material/List';
-import { Accordion, AccordionDetails, AccordionSummary, ListItem, ListItemButton, ListItemIcon, ListItemText } from '@mui/material';
+import { Accordion, AccordionDetails, AccordionSummary, Badge, ListItem, ListItemButton, ListItemIcon, ListItemText } from '@mui/material';
 
 import AccountBoxIcon from '@mui/icons-material/AccountBox';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
@@ -20,7 +20,7 @@ import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import { BACK_URL } from '@/app/VAR';
 import CallMissedOutgoingIcon from '@mui/icons-material/CallMissedOutgoing';
 import SearchBar from './components/Search';
-
+import DnsIcon from '@mui/icons-material/Dns';
 
 function MobileHeader() {
     const [open, setOpen] = useState(false);
@@ -188,6 +188,18 @@ function MobileHeader() {
                                 <ListItemText primary={"Корзина"} />
                             </ListItemButton>
                         </Link>
+                        <Link href={`/subs`}>
+                            <ListItemButton
+                                aria-controls={open ? 'demo-positioned-menu' : undefined}
+                                aria-haspopup="true"
+
+                            >
+                                <ListItemIcon>
+                                    <DnsIcon />
+                                </ListItemIcon>
+                                <ListItemText primary={"Сохраненные"} />
+                            </ListItemButton>
+                        </Link>
 
 
 
@@ -239,6 +251,7 @@ function MobileHeader() {
                 </Box>
             </Drawer>
             <div className='navigation'>
+                {/* <Badge badgeContent={1} color='success' invisible={JSON.parse(localStorage.getItem("UNREAD")) ? true : false}> */}
                 <div className='burger'>
                     <Button variant='contained' onClick={() => {
                         setOpen(true)
@@ -246,6 +259,8 @@ function MobileHeader() {
                         <MenuIcon />
                     </Button>
                 </div>
+                {/* </Badge> */}
+
                 <Link href="/">
                     <h1>
                         <div>

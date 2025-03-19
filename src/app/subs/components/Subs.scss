@@ -1,0 +1,70 @@
+.SubsPage{
+    *{
+        transition: 0.2s;
+    }
+    .SubsHeader{
+        margin-top: 90px;
+    }
+    .SubsContent{
+        min-height: calc(100vh - 320px);
+        .List{
+            transition: 0.2s;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            margin-top: 24px;
+            .EmptyView{
+            transition: 0.2s;
+            margin-top: 24px;
+
+                width: 100%;
+                padding: 24px;
+                background-color: #fff;
+                border-radius: 12px;
+                display: flex;
+                justify-content: center;
+                align-items: flex-start;
+                text-align: start;
+                gap: 18px;
+                flex-direction: column;
+                h4{
+                    font-weight: 500;
+                    font-size: 24px;
+                }
+                p{
+                    font-weight: 300;
+                    font-size: 18px;
+                }
+            }
+            .OneBox{
+            transition: 0.2s;
+
+                
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                gap: 12px;
+                padding: 12px;
+                border-radius: 6px;
+                background-color: #fff;
+                box-shadow:  5px 5px 10px #e1e1e1,
+             -5px -5px 10px #f3f3f3;
+                .Info{
+            transition: 0.2s;
+
+                    display: flex;
+                    justify-content: flex-start;
+                    gap: 18px;
+                    align-items: center;
+                }
+            transition: 0.2s;
+
+                .Action{
+                    display: flex;
+                    gap: 12px;
+                    // flex-direction: column;
+                }
+            }
+        }
+    }
+}

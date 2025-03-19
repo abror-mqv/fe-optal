@@ -25,6 +25,9 @@
         margin-top: 0px;
         align-items: center;
         width: 100%;
+        .MuiBadge-badge{
+            background-color: #222;
+        }
 
         h1 {
             display: flex;

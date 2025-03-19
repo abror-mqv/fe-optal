@@ -60,7 +60,19 @@
     }
     
     .Category {
-
+        .SaveBox{
+            display: flex;
+            justify-content: flex-end;
+            padding: 12px 0px;
+            gap: 12px;
+            .notation{
+                text-align: end;
+                font-size: 12px;
+                display: flex;
+                justify-content: flex-end;
+                color: #222;
+            }
+        }
         .main_feed {
             .subcat {
                 margin-top: 62px;

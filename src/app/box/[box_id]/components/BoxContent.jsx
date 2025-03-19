@@ -9,6 +9,7 @@ import Link from 'next/link';
 import QuickAuthModal from '@/app/components/ux-kit/QuickAuthModal/QuickAuthModal';
 import ClientAllowModal from '@/app/components/ux-kit/ClientAllowModal/ClientAllowModal';
 import Razdel from './Razdel'
+import SaveBox from './SaveBox'
 
 function BoxContent({ data, box_name, box_description, box_avatar, supplier_id }) {
     const [openQAModal, setOpenQAModal] = useState(false)
@@ -35,7 +36,7 @@ function BoxContent({ data, box_name, box_description, box_avatar, supplier_id }
             <Link href={`/box/${supplier_id}`} className='BoxInfo'>
                 <div className='topInfo'>
                     <div className='profile_picture'>
-                        <img src={box_avatar} alt="" />
+                        <Avatar sx={{width: "60px", height: "60px"}} src={box_avatar}/>
 
 
                     </div>
@@ -50,6 +51,7 @@ function BoxContent({ data, box_name, box_description, box_avatar, supplier_id }
                     </p>
                 </div>
             </Link>
+            <SaveBox supplier_id={supplier_id}/>
 
             <div className='main_feed'>
 
