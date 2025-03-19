@@ -38,8 +38,7 @@ function OneBox({ box_data, setShareModalOpen, setUrlToShare, reload }) {
             handleLocalRemove()
         } else {
             if (localStorage.getItem("USER_TYPE" == "CUSTOMER")) {
-                alert("LETS DO FETCH")
-                handleFetchedRemove()
+                handleLocalRemove()
             } else {
                 handleLocalRemove()
             }
