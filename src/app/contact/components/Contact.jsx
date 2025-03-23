@@ -4,6 +4,7 @@ import { Button } from '@mui/material'
 import WhatsAppIcon from '@mui/icons-material/WhatsApp';
 import TelegramIcon from '@mui/icons-material/Telegram';
 import PhoneEnabledIcon from '@mui/icons-material/PhoneEnabled';
+import Link from 'next/link';
 
 
 function Contact() {
@@ -23,6 +24,9 @@ function Contact() {
                         </p>
                     </div>
                     <div className='actions'>
+                        <Link href="https://wa.me/+996556010516">
+
+                        </Link>
                         <Button variant='outlined'>
                             Написать
                         </Button>
@@ -38,12 +42,12 @@ function Contact() {
                         </p>
                     </div>
                     <div className='actions'>
-                        <Link href="https://t.me/+996559808243">
-                        <Button variant='outlined'>
-                            Написать
-                        </Button>
+                        <Link href="https://t.me/+996556010516">
+                            <Button variant='outlined'>
+                                Написать
+                            </Button>
                         </Link>
-                        
+
                     </div>
                 </div>
                 <div className='Variant'>
@@ -51,14 +55,18 @@ function Contact() {
                         <div className='icon'>
                             <PhoneEnabledIcon />
                         </div>
+
                         <p>
                             Позвоните нам
                         </p>
                     </div>
                     <div className='actions'>
-                        <Button variant='outlined'>
-                            Позвонить
-                        </Button>
+                        <Link href="tel:+996556010516">
+                            <Button variant='outlined'>
+                                Позвонить
+                            </Button>
+                        </Link>
+
                     </div>
                 </div>
                 <div>
