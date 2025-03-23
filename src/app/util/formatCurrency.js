@@ -20,7 +20,7 @@ export const formatCurrency = (amount, currency = 'RUB') => {
 
   // Форматируем сумму с разделением на тысячи
   const formattedAmount = convertedAmount
-    .toFixed(2) // Два знака после запятой
+    .toFixed(0) // Два знака после запятой
     .replace(/\B(?=(\d{3})+(?!\d))/g, ','); // Разделяем тысячные разряды
 
   // Символы валют

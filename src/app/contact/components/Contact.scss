@@ -1,0 +1,23 @@
+.Contact{
+    margin-top: 90px;
+    min-height: 70vh;
+    h1{
+        
+    }
+    .content{
+        margin-top: 24px;
+        .Variant{
+            margin-top: 12px;
+            display: flex;
+            justify-content: space-between;
+            padding: 12px 6px;
+            border-radius: 6px;
+            align-items: flex-end;
+            background-color: #fff;
+            .info{
+                display: flex;
+                gap: 12px;
+            }
+        }
+    }
+}

@@ -109,6 +109,8 @@ function AddProductForm({ setSubmitFunction }) {
     const [categoryName, setCategoryName] = useState("")
     const [open, setOpen] = React.useState(false);
 
+    const [able, setAble] = useState(false)
+
     const handleClose = () => {
         setOpen(false);
     };
@@ -316,7 +318,7 @@ function AddProductForm({ setSubmitFunction }) {
 
                 </div>
                 <div className='forma ready'>
-                    <Button type="submit" variant='contained' fullWidth>ГОТОВО</Button>
+                    <Button type="submit" variant='contained' fullWidth disabled={!able}>ГОТОВО</Button>
                 </div>
             </div>
 

@@ -37,8 +37,6 @@ function BoxContent({ data, box_name, box_description, box_avatar, supplier_id }
                 <div className='topInfo'>
                     <div className='profile_picture'>
                         <Avatar sx={{width: "60px", height: "60px"}} src={box_avatar}/>
-
-
                     </div>
                     <h1>
 

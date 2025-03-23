@@ -1,16 +1,20 @@
 .ProductCard {
+    font-family: "Roboto";
     width: 260px;
-
+    border-radius: 8px;
+        // background-color: #fff;
+        box-shadow:  5px 5px 15px #dadada,
+             -5px -5px 15px #fafafa;
     .img_block {
         width: 100%;
         width: 260px;
         height: 260px;
         overflow: hidden;
-        border-radius: 22px;
-        box-shadow: 5px 5px 4px #b7b7b7,
-            -5px -5px 4px #ffffff;
+        
 
         img {
+            border-radius: 8px 8px 0 0 ;
+
             width: 260px;
             display: block;
             cursor: pointer;
@@ -45,6 +49,7 @@
 
     .info_block {
         margin-top: 22px;
+        padding: 6px;
 
         .price {
             font-size: 2.25rem;
@@ -66,34 +71,41 @@
             gap: 12px;
         }
 
-        button {
-            cursor: pointer;
-            margin-top: 12px;
-            padding: 6px;
-            color: white;
-            font-size: 1.2rem;
-            font-weight: 900;
-            background-color: #CD0000;
-            border-radius: 3px;
-            width: 100%;
-            border: none;
-            display: flex;
-            gap: 18px;
-            align-items: center;
-            justify-content: center;
-        }
+        
     }
+    // button {
+    //     cursor: pointer;
+    //     margin-top: 12px;
+    //     padding: 6px;
+    //     color: white;
+    //     font-size: 1.2rem;
+    //     font-weight: 900;
+    //     background-color: #CD0000;
+    //     border-radius: 3px;
+    //     width: 100%;
+    //     border: none;
+    //     display: flex;
+    //     gap: 18px;
+    //     align-items: center;
+    //     justify-content: center;
+    // }
 }
 
 @media screen and (max-width: 920px) {
     .ProductCard {
+        .ActionsBox{
+            width: calc(50vw - 30px);
+        }
         margin-top: 32px;
         width: calc(50vw - 30px);
-
+        border-radius: 8px;
+        // background-color: #fff;
+        box-shadow:  5px 5px 15px #dadada,
+             -5px -5px 15px #fafafa;
         .img_block {
             width: calc(50vw - 30px);
             height: calc(50vw - 30px);
-            border-radius: 8px;
+            border-radius: 8px 8px 0px 0px;
 
             img {
                 width: calc(50vw - 30px);
@@ -113,17 +125,33 @@
 
         .info_block {
             margin-top: 8px;
-
             .price {
                 // margin-top: 0px;
-                font-size: 24px;
-                // text-align: end;
+                font-size: 18px;
+                color: #CD0000;
+                font-weight: 300;
+
+                text-align: end;
+                display: flex;
+                justify-content: space-between;
+                .colors{
+                    display: flex;
+                    flex-wrap: wrap;
+                    gap: 5px;
+                    .OneColor{
+                        height: 22px;
+                        width: 22px;
+                        border-radius: 11px;
+                        border: 3px solid #00000030
+                    }
+                }
 
             }
 
             h3 {
                 font-size: 18px;
                 margin-top: 0px;
+                font-weight: 500;
                 // text-decoration: underline;
             }
 

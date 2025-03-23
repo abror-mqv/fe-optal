@@ -21,6 +21,7 @@ import { BACK_URL } from '@/app/VAR';
 import CallMissedOutgoingIcon from '@mui/icons-material/CallMissedOutgoing';
 import SearchBar from './components/Search';
 import DnsIcon from '@mui/icons-material/Dns';
+import StoreMallDirectoryIcon from '@mui/icons-material/StoreMallDirectory';
 
 function MobileHeader() {
     const [open, setOpen] = useState(false);
@@ -102,16 +103,19 @@ function MobileHeader() {
                         </ListItemButton>
                     </Link>
                     <Link href="/newfactory">
+
+
                         <ListItemButton
                             aria-controls={open ? 'demo-positioned-menu' : undefined}
                             aria-haspopup="true"
 
                         >
                             <ListItemIcon>
-                                <AccountBoxIcon />
+                                <StoreMallDirectoryIcon />
                             </ListItemIcon>
                             <ListItemText primary="Начать продавать" />
                         </ListItemButton>
+
                     </Link>
                 </>
             )

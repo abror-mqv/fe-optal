@@ -12,6 +12,10 @@ function Feed() {
     const [openQAModal, setOpenQAModal] = useState(false)
     const [openCAModal, setOpenCAModal] = useState(false)
 
+    const [loading, setLoading] = useState(false);
+    const [hasMore, setHasMore] = useState(true);
+    const [page, setPage] = useState(1);
+
 
     const handleCLoseCAModal = () => {
         setOpenCAModal(false)
@@ -28,21 +32,57 @@ function Feed() {
     }
 
     useEffect(() => {
-        axios.get(`${BACK_URL}/api/factories/latest-products`).then(res => {
-            setProducts(res.data)
-            console.log(res.data)
-        }).catch(err => {
-            console.log(err)
-        })
-    }, [])
+        if (!loading && hasMore) {
+            console.log("LOADING PRODUCTS TRIGGERED")
+            loadProducts();
+        }
+    }, [page]);
+
+    const loadProducts = async () => {
+        setLoading(true);
+        try {
+            console.log("Requested >>>>>>>>>>>>")
+            const response = await axios.get(
+                `${BACK_URL}/api/factories/latest-products/?page=${page}`
+            );
+            setProducts(prev => [...prev, ...response.data.results]);
+            console.log("PRODUCTS:  ", response)
+
+            setHasMore(!!response.data.next);
+        } catch (error) {
+            console.error("Ошибка при загрузке продуктов:", error);
+        }
+        setLoading(false);
+    };
+
+
+    const handleScroll = () => {
+        console.log(123123)
+        if (
+            window.innerHeight + document.documentElement.scrollTop >=
+            document.documentElement.offsetHeight - 100
+
+        ) {
+            console.log("Scrolled down")
+            if (!loading && hasMore) {
+                setPage(prev => prev + 1);
+            }
+        }
+    };
+
+    useEffect(() => {
+        window.addEventListener('scroll', handleScroll);
+        console.log("LOADUNG: ", loading)
+        console.log("HASMORE: ", hasMore)
+        return () => window.removeEventListener('scroll', handleScroll);
+
+    }, [loading, hasMore]);
 
 
 
     return (
         <div className='Feed'>
             <div className='list'>
-
-
                 {products.map(el => {
                     return (
                         <>
@@ -51,12 +91,13 @@ function Feed() {
                                 id={el.id}
                                 price={el.price_with_commission}
                                 rate={el.rate}
+                                color_variations={el.color_variations}
                                 image={(el.color_variations[0]?.image) ? (el.color_variations[0].image) : null}
                                 key={el.id}
                                 setAuthError={handleOpenQAModal}
                                 setCAError={handleOpenCAModal}
                             />
-                           
+
                         </>
                     )
                 })}

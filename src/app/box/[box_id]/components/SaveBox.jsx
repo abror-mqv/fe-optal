@@ -40,6 +40,7 @@ function SaveBox({ supplier_id }) {
                 console.log("YOURE NEWBIE")
                 handleSubscribeAnonym(supplier_id)
             } else {
+                handleSubscribeAnonym(supplier_id)
                 console.log("YOURE AUTHENTICATED USER")
             }
         } else {

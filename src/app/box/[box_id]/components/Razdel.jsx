@@ -1,6 +1,7 @@
 import React from 'react'
 import BoxProductCard from './BoxProductCard'
 import { Button } from '@mui/material'
+import ProductCard from '@/app/components/product_card/ProductCard'
 
 function Razdel({ razdel, handleOpenQAModal, handleOpenCAModal }) {
     return (
@@ -14,13 +15,14 @@ function Razdel({ razdel, handleOpenQAModal, handleOpenCAModal }) {
                 {
                     razdel.products.map((product, index) => {
                         return (
-                            <BoxProductCard
+                            <ProductCard
                                 name={product.name}
                                 id={product.id}
                                 price={product.price_with_commission}
                                 rate={5}
                                 image={(product.color_variations[0]?.image) ? (product.color_variations[0].image) : null}
                                 key={index}
+                                color_variations={product.color_variations}
                                 setAuthError={handleOpenQAModal}
                                 setCAError={handleOpenCAModal}
                             />

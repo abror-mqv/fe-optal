@@ -3,6 +3,11 @@ import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import OneBox from './OneBox'
 import ShareModal from '@/app/components/ui-kit/ShareModal/ShareModal'
+import BackPage from '@/app/components/ui-kit/BackPage/BackPage'
+
+import { useRouter } from "next/navigation";
+import { Button } from '@mui/material'
+import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
 
 function Content() {
     const [boxids, setBoxIds] = useState([])
@@ -58,6 +63,7 @@ function Content() {
 
     return (
         <div className='SubsContent'>
+            
             <div className='List'>
                 {
                     fetchedBoxes.map((box, index) => {

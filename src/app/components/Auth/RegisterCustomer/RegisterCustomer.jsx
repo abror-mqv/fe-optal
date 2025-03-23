@@ -48,7 +48,7 @@ function RegisterCustomer() {
 
     useEffect(() => {
         if ((localStorage.getItem("BEFORE_REGISTRATION_PAGE") != "undefined")) {
-            setIII(true)
+            setIII(localStorage.getItem("BEFORE_REGISTRATION_PAGE"))
         } else {
             setIII(false)
         }

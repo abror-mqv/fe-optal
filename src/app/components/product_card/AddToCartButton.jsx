@@ -39,7 +39,7 @@ function AddToCartButton({ productId, setAuthError, setCAError }) {
 
 
   return (
-    <Button onClick={() => addToCart(productId)}>
+    <Button onClick={() => addToCart(productId)} sx={{ display: "flex", gap: "12px", color: "#cd0000", border: "1px solid #cd0000" }} variant='outlined' >
       <DownloadIcon />
       В корзину
     </Button>

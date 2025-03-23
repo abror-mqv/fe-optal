@@ -111,14 +111,14 @@ function AccountCustomer() {
                         }
                     </p>
                 </Link>
-                <div className='option'>
-                    <p className='option_title'>
-                        Избранное
-                    </p>
-                    <p>
-                        (пусто)
-                    </p>
-                </div>
+                <Link href="/subs">
+                    <div className='option'>
+                        <p className='option_title'>
+                            Сохраненные продавцы
+                        </p>
+                    </div>
+                </Link>
+
                 <div className='option'>
                     <p className='option_title'>
                         История покупок
@@ -133,18 +133,20 @@ function AccountCustomer() {
                         Ваши отзывы
                     </p>
                     <p>
-                        (пусто)
+                        (в процессе разработки)
 
                     </p>
                 </div>
-                <div className='option'>
-                    <p className='option_title'>
-                        Написать в поддержку
-                    </p>
-                    <p>
+                <Link href="/contact">
+                    <div className='option'>
+                        <p className='option_title'>
+                            Написать в поддержку
+                        </p>
+                        <p>
 
-                    </p>
-                </div>
+                        </p>
+                    </div>
+                </Link>
             </main>
             <QuickAuthModal open={openQAModal} handleClose={handleCloseQAModal} warningText="Личный кабинет доступен только после авторизации" />
             <ClientAllowModal open={openCAModal} handleClose={handleCloseCAModal} isAddToCartAction={false} />
