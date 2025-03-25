@@ -5,6 +5,10 @@
         // background-color: #fff;
         box-shadow:  5px 5px 15px #dadada,
              -5px -5px 15px #fafafa;
+
+    .ActionsBox{
+        width: 260px;
+    }
     .img_block {
         width: 100%;
         width: 260px;
@@ -24,7 +28,7 @@
         img:hover {
             transition: 0.2s;
 
-            transform: scale(125%);
+            transform: scale(115%);
         }
 
         .image:hover {
@@ -32,7 +36,7 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            transform: scale(125%);
+            transform: scale(115%);
         }
 
         .image {

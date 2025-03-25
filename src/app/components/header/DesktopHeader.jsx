@@ -20,6 +20,7 @@ import AccountBoxIcon from '@mui/icons-material/AccountBox';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import HomeIcon from '@mui/icons-material/Home';
 import CallMissedOutgoingIcon from '@mui/icons-material/CallMissedOutgoing';
+import SearchDesktop from './components/SearchDesktop';
 
 function DesktopHeader() {
     const [open, setOpen] = React.useState(false);
@@ -210,12 +211,9 @@ function DesktopHeader() {
                                 КАТАЛОГ
                             </div>
                         </kButton>
-                        <div className='SearchContainer'>
-                            <SearchBar />
-                            <button>
-                                НАЙТИ
-                            </button>
-                        </div>
+                        <SearchDesktop />
+
+
                     </div>
 
 

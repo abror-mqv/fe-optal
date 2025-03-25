@@ -1,8 +1,10 @@
+'use client'
+
 import React from 'react'
 import { Box, Button, ButtonGroup, Modal } from '@mui/material'
 import Link from 'next/link';
-
 import './QuickAuthModal.scss'
+import { useRouter } from "next/navigation";
 
 
 const style = {
@@ -19,6 +21,7 @@ const style = {
 
 
 function QuickAuthModal({ open, handleClose, warningText }) {
+    const router = useRouter();
     return (
         <Modal
             open={open}
@@ -36,15 +39,18 @@ function QuickAuthModal({ open, handleClose, warningText }) {
                     </div>
                     <div className='ModalButtons'>
                         {/* <ButtonGroup fullWidth variant='text'> */}
+                        <Button onClick={() => { router.back() }}>
+                            Назад
+                        </Button>
                         <Link href="/login-customer">
-                            <Button fullWidth sx={{color: "#CD0000"}}>
+                            <Button fullWidth sx={{ color: "#CD0000" }}>
                                 Войти
                             </Button>
 
                         </Link>
 
                         <Link href="/register-customer">
-                            <Button fullWidth sx={{color: "#CD0000"}}   >
+                            <Button fullWidth sx={{ color: "#CD0000" }}   >
                                 Зарегистрироваться
                             </Button>
                         </Link>

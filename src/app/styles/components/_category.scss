@@ -1,7 +1,38 @@
 .Category {
-    margin-top: 90px;
-
+    // margin-top: 90px;
+    nav{
+        h1{
+            font-size: 42px;
+            text-transform: uppercase;
+        }
+    }
+    .subcatsfeed{
+        width: 100%;
+        display: flex;
+        gap: 12px;
+        margin-top: 12px;
+        overflow-x: scroll;
+        padding-bottom: 6px;
+        .OneSubcat{
+            min-width: 200px;
+            height: 60px;
+            background-color: #CD0000;
+            color: #ffffff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 6px;
+            text-transform: uppercase;
+            transition: 0.2s;
+        }
+        .OneSubcat:hover{
+            background-color: #dc1919;
+            transition: 0.2s;
+            color: #fff;
+        }
+    }
     .main_feed {
+        margin-top: 48px;
         .sub_feed {
             display: flex;
             flex-wrap: wrap;
@@ -15,8 +46,17 @@
 @media screen and (max-width: 920px) {
     
     .Category {
+        margin-top: 90px;
+        .subcatsfeed{
+            .OneSubcat{
+                min-width: 160px !important;
 
+            }
+
+        }
         .main_feed {
+        margin-top: 0px;
+
             .subcat {
                 margin-top: 62px;
 

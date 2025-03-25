@@ -72,9 +72,10 @@ function ProductCard(props) {
       <Box
         sx={{
           position: "absolute",
-          // bottom: 0,
+          // marginBottom: "90px",
           // left: 0,
           // right: 0,
+          marginTop: "-90px",
           height: showMenu ? "90px" : "0px",
           overflow: "hidden",
           backgroundColor: "#eaeaea",

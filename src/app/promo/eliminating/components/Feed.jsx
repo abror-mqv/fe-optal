@@ -50,6 +50,7 @@ function Feed() {
                                 rate={el.rate}
                                 image={(el.color_variations[0]?.image) ? (el.color_variations[0].image) : null}
                                 key={el.id}
+                                color_variations={el.color_variations}
                                 setAuthError={handleOpenQAModal}
                                 setCAError={handleOpenCAModal}
                             />

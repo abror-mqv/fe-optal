@@ -1,6 +1,6 @@
 'use client'
 
-import { Container, Typography, TextField, Button, Modal, Box, InputAdornment, InputLabel, OutlinedInput, IconButton, FormControl } from '@mui/material';
+import { Container, Typography, TextField, Button, Modal, Box, InputAdornment, InputLabel, OutlinedInput, IconButton, FormControl, Select, MenuItem } from '@mui/material';
 import React, { useEffect, useState } from 'react'
 import NavigateNextIcon from '@mui/icons-material/NavigateNext';
 import { AccountCircle } from '@mui/icons-material';
@@ -13,6 +13,7 @@ import '../../../styles/components/_newfactory.scss'
 
 import { BACK_URL } from '../../../VAR';
 import Link from 'next/link';
+import PhoneInput from './PhoneInput';
 
 const style = {
     position: 'absolute',
@@ -29,6 +30,19 @@ const style = {
     flexDirection: 'column',
     gap: "24px"
 };
+const countryCodes = [
+    { code: "RU", label: "🇷🇺 +7", value: "+7" },
+    { code: "KZ", label: "🇰🇿 +7", value: "+7" },
+    { code: "BY", label: "🇧🇾 +375", value: "+375" },
+    { code: "UA", label: "🇺🇦 +380", value: "+380" },
+    { code: "KG", label: "🇰🇬 +996", value: "+996" },
+    { code: "UZ", label: "🇺🇿 +998", value: "+998" },
+    { code: "TJ", label: "🇹🇯 +992", value: "+992" },
+    { code: "TM", label: "🇹🇲 +993", value: "+993" },
+    { code: "AM", label: "🇦🇲 +374", value: "+374" },
+    { code: "AZ", label: "🇦🇿 +994", value: "+994" },
+    { code: "GE", label: "🇬🇪 +995", value: "+995" },
+];
 
 function RegisterCustomer() {
     const [customerNumber, setCustomerNumber] = useState("")
@@ -38,6 +52,8 @@ function RegisterCustomer() {
     const [showPassword, setShowPassword] = React.useState(false);
     const [open, setOpen] = useState(false)
     const [openFail, setOpenFail] = React.useState(false)
+
+    const [phoneValue, setPhoneValue] = useState("")
 
     const [ooo, setOOO] = useState("")
     useEffect(() => {
@@ -94,7 +110,15 @@ function RegisterCustomer() {
         event.preventDefault();
     };
 
+    const [phone, setPhone] = useState("");
 
+    const handlePhoneChange = (newPhone) => {
+        setPhone(newPhone);
+    };
+
+    const handleSubmit = () => {
+        console.log("Отправляем номер:", phone);
+    };
     return (
         <div>
             <div className='newfactory'>
@@ -132,7 +156,9 @@ function RegisterCustomer() {
 
                                 </TextField>
                             </div>
-
+                            <div className='from'>
+                                <PhoneInput value={phone} onChange={handlePhoneChange} />
+                            </div>
                             <div className='form clubname'>
                                 <p>
                                     Придумайте пароль

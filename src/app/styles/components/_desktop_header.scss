@@ -119,6 +119,19 @@
 
     .SearchContainer {
         display: flex;
+        min-width: 360px;
+        align-items: center;
+        margin-top: 3px;
+        .MuiOutlinedInput-root{
+            margin-top: 1px;
+            padding: 9.5px !important;
+            border-radius: 10px 0px 0px 10px;
+            
+        }
+        .MuiOutlinedInput-notchedOutline{
+            border: #CD0000 3px solid;
+        }
+        
 
         button {
             color: white;
@@ -126,7 +139,8 @@
             border-radius: 0 10px 10px 0;
             border: 0;
             font-size: 20px;
-            padding: 17px;
+            padding: 16.8px;
+            margin-top: -1px;
             z-index: 999999;
         }
     }
