@@ -14,6 +14,7 @@ import '../../../styles/components/_newfactory.scss'
 import { BACK_URL } from '../../../VAR';
 import Link from 'next/link';
 import PhoneInput from './PhoneInput';
+import CustomPhoneInput from '../components/CustomPhoneInput';
 
 const style = {
     position: 'absolute',
@@ -80,6 +81,7 @@ function RegisterCustomer() {
 
     React.useEffect(() => {
         console.log([customerNumber.length, password.length, firstName])
+        console.log(customerNumber)
         if ((customerNumber.length > 9) && (firstName != "") && (password.length > 6)) {
             setAbleButton(true)
         } else {
@@ -150,14 +152,7 @@ function RegisterCustomer() {
                                 <p>
                                     Ваш номер
                                 </p>
-                                <TextField type="number" fullWidth id="outlined-basic" label="Номер" variant="outlined" value={customerNumber} className='input' onChange={e => {
-                                    setCustomerNumber(e.target.value)
-                                }}>
-
-                                </TextField>
-                            </div>
-                            <div className='from'>
-                                <PhoneInput value={phone} onChange={handlePhoneChange} />
+                                <CustomPhoneInput value={customerNumber} onChange={setCustomerNumber} default_country="ru" />
                             </div>
                             <div className='form clubname'>
                                 <p>
@@ -209,7 +204,7 @@ function RegisterCustomer() {
                 </div>
                 <div className='RegisterFirst'>
                     <p>
-                        Уже есть аккаунт? <Link href='/login-factory' className='Link'>Войти</Link>
+                        Уже есть аккаунт? <Link href='/login-customer' className='Link'>Войти</Link>
                     </p>
 
                 </div>
@@ -220,13 +215,9 @@ function RegisterCustomer() {
                     aria-describedby="modal-modal-description"
                 >
                     <Box sx={style}>
-                        <Typography id="modal-modal-title" variant="p" component="p">
-                            Поздравляем! Теперь вы можете начать покупать нужно текст доработать
-                        </Typography>
-                        <Typography id="modal-modal-description" sx={{ mt: 2 }} >
-
-
-                        </Typography>
+                        <p>
+                            Поздравляем! Сервис Optal.ru к вашим услугам
+                        </p>
                         <Link href="/account-customer">
                             <Button variant='contained' onClick={() => setOpen(false)}>
                                 Перейти в личный кабинет

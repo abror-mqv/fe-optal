@@ -9,6 +9,7 @@ import axios from 'axios'
 import '@/app/styles/components/_loginfactory.scss'
 import Header from '../../header/Header'
 import Link from 'next/link'
+import CustomPhoneInput from '../components/CustomPhoneInput'
 
 function LoginFactory() {
 
@@ -92,12 +93,7 @@ function LoginFactory() {
                         <p>
                             Ваш номер
                         </p>
-
-                        <TextField fullWidth inputProps={{ maxLength: 44 }} id="outlined-basic" label="+996000000" variant="outlined" value={login} className='input' onChange={e => {
-                            setLogin(e.target.value)
-                        }}>
-
-                        </TextField>
+                        <CustomPhoneInput value={login} onChange={setLogin} default_country="ru" />
                     </div>
                     <div className='LoginFormPassword'>
                         <p>

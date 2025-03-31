@@ -1,4 +1,59 @@
 .SearchPage{
-    margin-top: 120px;
+    h2{
+        text-transform: uppercase;
+        font-size: 48px;
+    }
     min-height: 70vh;
+    .MatchedProducts{
+        margin-bottom: 48px;
+        .MatchedFeed{
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: flex-start;
+            column-gap: 20px;
+            row-gap: 24px;
+            margin-top: 24px;
+        }
+        h4{
+            margin-top: 24px;
+            text-transform: uppercase;
+            font-size: 32px;
+        }
+    }
+    .SuggestedProducts{
+        h4{
+            text-transform: uppercase;
+            font-size: 48px;
+        }
+        .SuggestedFeed{
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            row-gap: 24px;
+            margin-top: 24px;
+        }
+    }
+}
+
+@media screen and (max-width: 920px){
+    .SearchPage{
+        h2{
+            font-size: 32px;
+        }
+        .MatchedProducts{
+            .MatchedFeed{
+                margin-top: -12px;
+            }
+            h4{
+                font-size: 18px;
+            }
+        }        
+        margin-top: 85px;        
+        .SuggestedProducts{
+            h4{
+                font-size: 32px;
+            }
+        }
+    }
+
 }

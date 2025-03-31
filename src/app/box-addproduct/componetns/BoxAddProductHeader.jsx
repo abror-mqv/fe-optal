@@ -29,11 +29,11 @@ function BoxAddProductHeader({ onSubmit }) {
             <div className='title'>
                 Новый товар
             </div>
-            <div className='submit'>
+            {/* <div className='submit'>
                 <Button variant="contained" onClick={onSubmit}>
                     ГОТОВО <AddCircleOutlineIcon />
                 </Button>
-            </div>
+            </div> */}
         </header>
     )
 }

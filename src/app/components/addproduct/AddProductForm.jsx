@@ -216,7 +216,7 @@ function AddProductForm({ setSubmitFunction }) {
                             <Chip label="Название товара" />
                         </div>
 
-                        <TextField fullWidth inputProps={{ maxLength: 44 }} id="outlined-basic" label="Куртка демисезонная с капюшоном" variant="outlined" value={productname} className='input' onChange={e => {
+                        <TextField fullWidth inputProps={{ maxLength: 44 }} id="outlined-basic" label="" variant="outlined" value={productname} className='input' onChange={e => {
                             setProductname(e.target.value)
                         }}>
 

@@ -23,7 +23,14 @@ import ChooseColor from './modals/ChooseColor';
 import ChooseColorButton from './сomponents/ChooseColorButton';
 import PriceComponent from './сomponents/PriceComponent';
 import imageCompression from "browser-image-compression";
-
+import { InfoOutlined } from '@mui/icons-material';
+import ErrorOutlineIcon from '@mui/icons-material/ErrorOutline';
+import CheckCircleOutlineIcon from '@mui/icons-material/CheckCircleOutline';
+<Button variant='contained' fullWidth sx={{ backgroundColor: "#CD0000" }} onClick={() => {
+    handleClose()
+}}>
+    Добавить еще
+</Button>
 
 const ColorPicker = props => {
     return (
@@ -53,6 +60,7 @@ const style = {
 function BoxAddProductForm({ setSubmitFunction }) {
     const [openEditColorModal, setOpenEditColorModal] = React.useState(false);
     const [iii, setIII] = useState(true)
+
     useEffect(() => {
         if ((localStorage.getItem("SELLER_TYPE") == "BOX")) {
             setIII(true)
@@ -127,6 +135,26 @@ function BoxAddProductForm({ setSubmitFunction }) {
     const [open, setOpen] = React.useState(false);
     const [openRazdelModal, setOpenRazdelModal] = React.useState(false);
     const [percentage, setPercentage] = useState(0);
+
+    const [canSubmit, setCanSubmit] = useState(false)
+    useEffect(() => {
+
+        if (
+            productname == ""
+            ||
+            sizesline == ""
+            ||
+            price == 0
+            ||
+            category == 0
+        ) {
+            setCanSubmit(false)
+        } else {
+            setCanSubmit(true)
+        }
+        console.log(canSubmit)
+
+    }, [productname, sizesline, price, category, colorVariants])
 
     const handleClose = () => {
         setOpen(false);
@@ -266,7 +294,7 @@ function BoxAddProductForm({ setSubmitFunction }) {
                             <Chip label="Название товара" />
                         </div>
 
-                        <TextField fullWidth inputProps={{ maxLength: 44 }} id="outlined-basic" label="Куртка демисезонная с капюшоном" variant="outlined" value={productname} className='input' onChange={e => {
+                        <TextField fullWidth inputProps={{ maxLength: 44 }} id="outlined-basic" label="Платье укороченное" variant="outlined" value={productname} className='input' onChange={e => {
                             setProductname(e.target.value)
                         }}>
 
@@ -302,7 +330,7 @@ function BoxAddProductForm({ setSubmitFunction }) {
                             <Chip label="Размеры в одной линейке" /><Chip variant='outlined' label="перечисляйте через запятую" />
                         </div>
 
-                        <TextField fullWidth inputProps={{ maxLength: 44 }} id="outlined-basic" label="38, 39, 40, 40, 41, 42" variant="outlined" value={sizesline} className='input' onChange={e => {
+                        <TextField fullWidth inputProps={{ maxLength: 44 }} id="outlined-basic" label="40, 42, 44, 46, 48, 50" variant="outlined" value={sizesline} className='input' onChange={e => {
                             setSizesLine(e.target.value)
                         }}>
 
@@ -317,7 +345,7 @@ function BoxAddProductForm({ setSubmitFunction }) {
 
                         <TextField
                             id="outlined-multiline-static"
-                            label="Опишите свой товар, чтобы он лучше продавался"
+                            label="Состав, особенности"
                             multiline
                             rows={4}
                             defaultValue=""
@@ -358,7 +386,32 @@ function BoxAddProductForm({ setSubmitFunction }) {
                 </div>
                 <PriceComponent price={price} setPrice={setPrice} percentage={percentage} />
                 <div className='forma ready'>
-                    <Button type="submit" variant='contained' fullWidth>ГОТОВО</Button>
+                    <Button type="submit" variant='contained' color='error' disabled={!canSubmit} fullWidth>ГОТОВО</Button>
+                    {canSubmit ? <></> :
+                        <>
+                            <div className='FillWarning'>
+                                <p className='WarningHeading'>
+                                    <InfoOutlined />Чтобы создать товар, обязательно заполниете следующие поля:
+                                </p>
+                                <div className='List'>
+                                    { }
+                                    <p className='ListItem'>
+                                        - название {(productname == "") ? <ErrorOutlineIcon color='error' /> : <CheckCircleOutlineIcon color='success' />}
+                                    </p>
+                                    <p className='ListItem'>
+                                        - категория {(category == 0) ? <ErrorOutlineIcon color='error' /> : <CheckCircleOutlineIcon color='success' />}
+                                    </p>
+                                    <p className='ListItem'>
+                                        - размеры {(sizesline == "") ? <ErrorOutlineIcon color='error' /> : <CheckCircleOutlineIcon color='success' />}
+                                    </p>
+                                    <p className='ListItem'>
+                                        - цена {(price == 0) ? <ErrorOutlineIcon color='error' /> : <CheckCircleOutlineIcon color='success' />}
+                                    </p>
+                                </div>
+
+                            </div>
+                        </>}
+
                 </div>
             </div>
 
@@ -419,17 +472,32 @@ function BoxAddProductForm({ setSubmitFunction }) {
                 className='ModalSuccess'
             >
                 <Box sx={style}>
-                    <p className='congrats'>
-                        Поздравляем! <br />Вы успешно добавили свой товар!
+                    <h3 className='congrats'>
+                        Поздравляем!
+                    </h3>
+                    <p>
+                        Вы успешно добавили свой товар!
                     </p>
+                    <div className='Actions'>
 
-                    <Link href={iii ? "/box-account" : "/account-factory"}>
-                        <Button variant='contained' color='success' fullWidth onClick={() => {
+                        <Button variant='contained' sx={{ backgroundColor: "#CD0000", display: "flex", gap: "12px" }} onClick={() => {
                             handleClose()
+                            window.location.reload()
                         }}>
-                            ОК
+                            Добавить еще <AddCircleOutlineIcon />
                         </Button>
-                    </Link>
+                        <Link href={iii ? "/box-account" : "/account-factory"} style={{ width: "120px" }}>
+                            <Button variant='contained' fullWidth sx={{ backgroundColor: "#252421" }} onClick={() => {
+                                handleClose()
+
+                            }}>
+                                ОК
+                            </Button>
+                        </Link>
+                    </div>
+
+
+
                 </Box>
             </Modal>
             <ChooseRazdel open={openRazdelModal} onClose={() => {

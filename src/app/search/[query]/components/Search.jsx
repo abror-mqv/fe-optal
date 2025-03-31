@@ -6,6 +6,9 @@ import { useParams } from "next/navigation";
 import "./Search.scss"
 import { BACK_URL } from "@/app/VAR";
 import ProductCard from "@/app/components/product_card/ProductCard";
+import SuggestedProductsFeed from "./SuggestedProductsFeed";
+import MatchedProductsFeed from "./MatchedProductsFeed";
+import MatchedBoxesFeed from "./MatchedBoxesFeed";
 
 export default function Search() {
     const { query } = useParams();
@@ -41,47 +44,15 @@ export default function Search() {
     return (
         <div className="SearchPage">
 
-            <Typography variant="h4">Результаты поиска: </Typography>
-            <div>
-                <h3>
-                    Боксы:
-                </h3>
-                {
-                    results.boxes.map((box, index) => {
-                        return (
-                            <div key={index}>
-                                {box.factory_name}
-                            </div>
-                        )
-                    })
-                }
-            </div>
-            <div>
-                <h3>
-                    Товары:
-                </h3>
 
-                {
-                    results.products.map((prod, index) => {
-                        return (
-
-                            <ProductCard
-                                name={prod.name}
-                                id={prod.id}
-                                price={prod.price_with_commission}
-                                rate={5}
-                                image={(prod.color_variations[0]?.image) ? (prod.color_variations[0].image) : null}
-                                key={prod.id}
-                                color_variations={prod.color_variations}
-                            />
-                        )
-                    })
-                }
-            </div>
+            <h2><span style={{ color: "#CD0000" }}>{decodeURI(query)}</span> - Результаты поиска</h2>
             {
-
+                results.has_matched_boxes ? <MatchedBoxesFeed /> : <>Нет совпадающих боксов</>
             }
-
+            {
+                results.has_matched_products ? <MatchedProductsFeed products={results.matched_products} /> : <>Нет совпадающих товаров</>
+            }
+            <SuggestedProductsFeed products={results.random_products} />
         </div>
 
     );

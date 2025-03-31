@@ -8,6 +8,7 @@ import '@/app/styles/components/_loginfactory.scss'
 import Link from 'next/link'
 import axios from 'axios'
 import { BACK_URL } from '@/app/VAR'
+import CustomPhoneInput from '../components/CustomPhoneInput'
 
 const style = {
     position: 'absolute',
@@ -84,12 +85,7 @@ function LoginCustomer() {
                         <p>
                             Ваш номер
                         </p>
-
-                        <TextField fullWidth inputProps={{ maxLength: 44 }} id="outlined-basic" label="+996000000" variant="outlined" value={login} className='input' onChange={e => {
-                            setLogin(e.target.value)
-                        }}>
-
-                        </TextField>
+                        <CustomPhoneInput value={login} onChange={setLogin} default_country="ru" />
                     </div>
                     <div className='LoginFormPassword'>
                         <p>

@@ -1,0 +1,14 @@
+.CustomPhoneInput{
+    input{
+        background-color: #00000000 !important;
+        font-family: Roboto !important;
+        height: 56px !important;
+        border: #b5b5b5 1px solid !important;
+        transition: 0.1s;
+
+    }
+    input:focus{
+        transition: 0.1s;
+        border: #1976d2 2px solid !important; 
+    }
+}

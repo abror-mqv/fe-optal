@@ -13,6 +13,7 @@ import { BACK_URL } from '../../../VAR';
 import Link from 'next/link';
 import Header from '../../header/Header';
 import Footer from '../../footer/Footer';
+import CustomPhoneInput from '../components/CustomPhoneInput';
 
 const style = {
     position: 'absolute',
@@ -123,11 +124,7 @@ function RegisterFactory() {
                                 <p>
                                     Ваш номер
                                 </p>
-                                <TextField type="number" fullWidth id="outlined-basic" label="Номер" variant="outlined" value={factoryNumber} className='input' onChange={e => {
-                                    setFactoryNumber(e.target.value)
-                                }}>
-
-                                </TextField>
+                                <CustomPhoneInput value={factoryNumber} onChange={setFactoryNumber} default_country="ru" />
                             </div>
                             <div className='form factoryname'>
                                 <p>
