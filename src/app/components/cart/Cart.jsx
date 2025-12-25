@@ -1,6 +1,6 @@
 'use client'
 
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import '../../styles/components/_cart.scss';
 import { useDispatch, useSelector } from 'react-redux';
 import CartItem from './CartItem';
@@ -87,7 +87,11 @@ function Cart(props) {
 
 
 
+	const hasFetchedCartRef = useRef(false);
+
 	useEffect(() => {
+		if (hasFetchedCartRef.current) return;
+		hasFetchedCartRef.current = true;
 		fetchCart(dispatch);
 	}, [dispatch]);
 
